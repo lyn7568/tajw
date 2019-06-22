@@ -1,0 +1,75 @@
+<view class="tabLine">
+    <view bindtap="tabIndex" class="tab {{tabIndex==1?'this':''}}" data-index="1">推荐</view>
+    <view bindtap="tabIndex" class="tab {{tabIndex==2?'this':''}}" data-index="2">关注</view>
+    <view class="right">
+        <view bindtap="gotoMy" class="btn">
+            <image mode="widthFix" src="{{images.icon_link_release}}"></image>
+      我的发布
+    </view>
+    </view>
+</view>
+<scroll-view bindscrolltolower="exactly" class="topicList" scrollY="true">
+    <view class="top" wx:if="{{tabIndex==1}}">
+        <view class="title">热门话题</view>
+        <scroll-view class="scroll" scrollX="true">
+            <view class="inner">
+                <view bindtap="gotoTopicDetail" class="box" data-id="{{item.id}}" style="background-image:url({{item.image}})" wx:for="{{popular}}">
+                    <view class="topicTitle">#{{item.name}}</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="list">
+        <view bindtap="gotoDetail" class="li" data-id="{{item.id}}" wx:for="{{folder}}">
+            <view class="topicBox">
+                <view catchtap="gotoUser" class="pic" data-id="{{item.member.id}}" style="background-image:url({{item.member.head}})"></view>
+                <view class="right">
+                    <view class="line">
+                        <view class="userName">{{item.member.nickname}}</view>
+                        <button catchtap="follow" data-id="{{item.member_id}}" data-index="{{index}}" wx:if="{{!item.follow}}">+关注</button>
+                    </view>
+                    <view catchtap="gotoTDetail" class="line" data-topic_id="{{item.topic_id}}" wx:if="{{item.topic_id>0}}">
+                        <view class="topicTitle">
+                            <image mode="widthFix" src="{{images.topic}}"></image>
+              {{item.topic.name}}
+            </view>
+                    </view>
+                    <view class="textLine">
+                        <view class="text" style="height:{{folder[index]?'auto':'5rem'}};">
+            {{item.allocation}}
+            </view>
+                    </view>
+                    <view class="picList">
+                        <view catchtap="previewImage" class="picBox" data-image="{{item}}" data-index="{{index}}" style="background-image:url({{item}});height:{{picHeight}}px" wx:for="{{item.image}}" wx:for-index="idx"></view>
+                    </view>
+                    <view class="line">
+                        <view class="time">{{item.created}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="bottomBtn">
+                <view class="left">
+                    <view catchtap="fabulous" class="like btn" data-id="{{item.id}}" data-index="{{index}}">
+                        <image src="{{item.fabulous?images.fabulous:images.nofabulous}}"></image>
+            {{item.fabulous_number}}
+          </view>
+                    <view class="pinglun btn">
+                        <image src="{{images.comment}}"></image>
+            {{item.comment_number}}
+          </view>
+                    <view class="zhuanfa btn">
+                        <button openType="share" style="background: transparent;margin-left:0px;margin-right:0px">
+                            <image src="{{images.share}}"></image>
+                        </button>
+                    </view>
+                    <view catchtap="collection" class="shoucang btn" data-id="{{item.id}}" data-index="{{index}}">
+                        <image src="{{item.collection?images.collection:images.no_collection}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view bindtap="gotoPublish" class="publish">
+    <image mode="widthFix" src="{{images.release}}"></image>
+</view>

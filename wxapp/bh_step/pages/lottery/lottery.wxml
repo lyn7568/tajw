@@ -1,0 +1,82 @@
+<scroll-view class="page" scrollY="true" style="background:url({{turntable_bg}});background-size:cover">
+    <view class="rewards">
+  {{item.turntable_bg}}
+  <view class="notice">
+            <swiper autoplay circular="true" class="barrage_box" duration="500" interval="3000" vertical="true">
+                <swiper-item wx:for="{{list}}">
+                    <view class="barrage_box_item">
+                        <view class="barrage">
+                            <view class="barrage_text">
+              恭喜<text> {{item.member.nickname}} </text>在幸运转盘中获得 {{item.turntable.prize_name}}
+            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <text bindtap="onRuleShow" class="introduce">规则说明</text>
+        <text bindtap="gotoLog" class="record">中奖记录</text>
+        <view class="rotary">
+            <view class="code_title">
+                <view>我的{{currency_name}}:<text style="color:yellow">{{member.currency}}</text>
+                </view>
+            </view>
+            <view class="container">
+                <view class="prizes">
+                    <view class="prize" style="top:{{item.topPrize}}rpx;left:{{item.leftPrize}}rpx" wx:for="{{prizeList}}">
+                        <image class="rotary_item_background" mode="aspectFill" src="{{index===prizeIndex?'../../imgs/rotary_item_light.png':'../../imgs/rotary_item.png'}}"></image>
+                        <image class="rotary_item_image" mode="aspectFill" src="{{turntable[index].image}}"></image>
+                        <text class="rotary_item_name">{{turntable[index].prize_name}}</text>
+                    </view>
+                    <view bindtap="startGame" class="rotary_center">
+                        <image class="rotary_box rotary_box_animation" src="../../imgs/rotary_box.png"></image>
+                        <image class="rotary_light rotary_light_animation" src="../../imgs/rotary_light.png"></image>
+                        <image class="star_big star_big_animation_1" src="../../imgs/star_big.png"></image>
+                        <image class="star_big star_big_animation_2" src="../../imgs/star_big.png"></image>
+                        <image class="star_big star_big_animation_3" src="../../imgs/star_big.png"></image>
+                        <image class="star_big star_big_animation_4" src="../../imgs/star_big.png"></image>
+                        <image class="star_small star_small_animation_1" src="../../imgs/star_small.png"></image>
+                        <image class="star_small star_small_animation_2" src="../../imgs/star_small.png"></image>
+                        <image class="star_small star_small_animation_3" src="../../imgs/star_small.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="startGame" class="startBtn swing_animation" style="background-image:url({{turntable_start}})"></view>
+            <text class="tips">*每次抽奖消耗{{consume_currency}}{{currency_name}}</text>
+            <button openType="share" style="background: transparent;">
+                <view class="share" style="background-image:url({{turntable_share_bg}})">点击分享</view>
+            </button>
+        </view>
+    </view>
+</scroll-view>
+<view class="showBox" wx:if="{{isPrizeShow}}">
+    <view class="money-root">
+        <image catchtap="onClose" class="image-close" src="../../imgs/close_icon.png"></image>
+        <image class="image-bg" src="../../imgs/rotary_dialog_gift_bg.png"></image>
+        <image class="image-money" src="{{inPrize.image}}"></image>
+        <view>
+            <text class="money-title">{{inPrize.type==4?'很遗憾,您未抽中':'恭喜你获得'}}</text>
+        </view>
+        <view>
+            <text class="money-type">{{inPrize.prize_name}}</text>
+        </view>
+        <view>
+            <text class="money-balance" wx:if="{{inPrize.type==2}}">现金已存入你的收益余额</text>
+            <text class="money-balance" wx:if="{{inPrize.type==1}}">{{currency_name}}已放入你的账户</text>
+            <text class="money-balance" wx:if="{{inPrize.type==3}}">再接再厉</text>
+            <text class="money-balance" wx:if="{{inPrize.type==4}}">再接再厉</text>
+        </view>
+        <view>
+            <button bindtap="onClose" class="btn-rotary-again">再抽一次</button>
+        </view>
+    </view>
+</view>
+<view class="showBox" wx:if="{{isPrizeRule}}">
+    <view class="root_class">
+        <image catchtap="onClose" class="close_btn_class" src="../../imgs/close_icon.png"></image>
+        <view class="title">抽奖规则</view>
+        <view class="content">
+            <text class="text" wx:for="{{turntable_rule}}">{{item}}</text>
+        </view>
+    </view>
+</view>

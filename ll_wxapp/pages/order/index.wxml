@@ -1,0 +1,77 @@
+<view class="page-order">
+    <view class="errander-block" wx:if="{{errander_status}}">
+        <view bind:tap="onJsEvent" class="wui-cell wui-cell-access" data-event-type="jsUrl" data-url="pages/paotui/order">
+            <view class="wui-cell-bd clearfix">
+                <image src="http://cos.lalawaimai.com/we7_wmall/wxapp/suiyigou_icon.png"></image>
+                <view class="errander-title">万能跑腿单</view>
+            </view>
+            <view class="wui-cell-ft"></view>
+        </view>
+    </view>
+    <block wx:if="{{orders.empty==0}}">
+        <view bind:tap="onJsEvent" class="ordercard border-1px-b" data-event-type="jsUrl" data-url="pages/order/detail?id={{item.id}}" wx:for="{{orders.data}}">
+            <view class="ordercard-body">
+                <view catch:tap="onJsEvent" class="ordercard-avatar" data-event-type="jsUrl" data-url="pages/store/goods?sid={{item.sid}}">
+                    <image src="{{item.logo}}"></image>
+                </view>
+                <view class="ordercard-content">
+                    <view class="ordercard-head">
+                        <view class="title">
+                            <view catch:tap="onJsEvent" class="name" data-event-type="jsUrl" data-url="pages/store/goods?sid={{item.sid}}">
+                                <view class="content">{{item.title}}</view>
+                                <view class="icon icon-xiangyou1"></view>
+                            </view>
+                            <view class="status">{{item.status_text}}</view>
+                        </view>
+                        <view class="order-info">
+                            <view class="datetime">{{item.addtime}}</view>
+                        </view>
+                    </view>
+                    <view class="ordercard-detail">
+                        <view class="detail">
+								{{item.goods.goods_title}}等{{item.num}}件商品
+							</view>
+                        <view class="price">¥{{item.final_fee}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="ordercard-bottom">
+                <block wx:if="{{item.is_pay==0&&item.status<5}}">
+                    <view catch:tap="onFinishMealPay" class="cardbutton btn" wx:if="{{item.order_type==3&&item.pay_type=='finishMeal'}}">立即支付</view>
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsPay" data-order-id="{{item.id}}" data-order-type="takeout" data-success-url="detail?id={{item.id}}" wx:else>立即支付</view>
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="tangshi/pages/table/goods?table_id={{item.table_id}}&sid={{item.sid}}&order_id={{item.id}}" wx:if="{{item.order_type==3}}">加菜</view>
+                </block>
+                <block wx:if="{{item.status==1}}">
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-confirm="确定取消订单吗?" data-event-type="jsPost" data-href="wmall/order/index/cancel?id={{item.id}}" data-success-url="detail?id={{item.id}}">取消订单</view>
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsPost" data-href="wmall/order/index/remind?id={{item.id}}" data-success-url="detail?id={{item.id}}" wx:if="{{item.is_pay==1}}">催单</view>
+                </block>
+                <block wx:elif="{{item.status>1&&item.status<5}}">
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-confirm="确定取消订单吗?" data-event-type="jsPost" data-href="wmall/order/index/cancel?id={{item.id}}" data-success-url="detail?id={{item.id}}" wx:if="{{item.customer_cancel_status==1}}">取消订单</view>
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsPost" data-href="wmall/order/index/remind?id={{item.id}}" data-success-url="detail?id={{item.id}}" wx:if="{{item.is_pay==1}}">催单</view>
+                    <view bind:tap="onJsEvent" class="cardbutton btn" data-confirm="你确定收到该商家的外卖?" data-event-type="jsPost" data-href="wmall/order/index/end?id={{item.id}}" data-success-url="comment?id={{item.id}}" wx:if="{{item.order_type==1&&item.status==4}}">确认送达</view>
+                    <view bind:tap="onJsEvent" class="cardbutton btn" data-confirm="确认已到店自提?" data-event-type="jsPost" data-href="wmall/order/index/end?id={{item.id}}" data-success-url="comment?id={{item.id}}" wx:if="{{item.order_type==2}}">我已提货</view>
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="tangshi/pages/table/goods?table_id={{item.table_id}}&sid={{item.sid}}&order_id={{item.id}}" wx:if="{{item.order_type==3&&item.is_pay==1&&item.pay_type=='finishMeal'}}">加菜</view>
+                </block>
+                <block wx:elif="{{item.status==5}}">
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="pages/store/goods?sid={{item.sid}}&order_id={{item.id}}">再来一单</view>
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="pages/order/comment?id={{item.id}}" url="comment?id={{item.id}}" wx:if="{{item.is_comment==0}}">{{item.comment_cn}}</view>
+                    <view class="cardbutton btn" style="display:none" wx:if="{{item.is_comment==1}}">查看评价</view>
+                </block>
+                <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="pages/store/goods?sid={{item.sid}}&order_id={{item.id}}" wx:else>再来一单</view>
+            </view>
+        </view>
+        <view class="wui-loadmore wui-loadmore-nomore" wx:if="{{orders.loaded==1}}">
+            <view class="wui-loadmore-tips">我是有底线的</view>
+            <view class="wui-loadmore-line"></view>
+        </view>
+        <view class="wui-loadmore" wx:else>
+            <view class="wui-loading"></view>
+            <view class="wui-loadmore-tips">正在加载中</view>
+        </view>
+    </block>
+    <view class="no-data" wx:if="{{orders.empty}}">
+        <image class="no-coupon" src="http://cos.lalawaimai.com/we7_wmall/wxapp/coupon_no_con.png"></image>
+        <text class="no-record">您没有订单哦</text>
+    </view>
+</view>
+<include src="../public/footer.wxml"></include>

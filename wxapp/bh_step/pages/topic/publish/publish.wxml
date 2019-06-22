@@ -1,0 +1,29 @@
+<view class="edit">
+    <textarea bindinput="bindinpt" placeholder="记录分享您的运动生活"></textarea>
+    <view class="picList">
+        <view class="picBox" style="background-image:url({{item.url}});height:{{picHeight}}px" wx:for="{{imgs}}">
+            <view bindtap="delImage" class="del" data-index="{{index}}"></view>
+        </view>
+        <view bindtap="addImg" class="addPic" style="height:{{picHeight}}px">
+            <image mode="widthFix" src="{{images.release_picture}}"></image>
+        </view>
+    </view>
+    <view class="topicList">
+        <view class="topText" wx:if="{{!select_topic}}">
+            <view class="h1">#参与话题</view>
+            <text>参与话题可获得更多步友的关注</text>
+        </view>
+        <view class="topText1" wx:else>
+            <text style="">#{{select_topic.name}}</text>
+            <text bindtap="delselect" class="del"></text>
+        </view>
+        <view class="title">
+            <image mode="widthFix" src="{{images.icon_recommed}}"></image>
+      可参与话题
+    </view>
+        <view class="list">
+            <text bindtap="selectTopic" data-id="{{item.id}}" data-index="{{index}}" style="{{popular_id==item.id?'background:#26BCC5;color:#fff':''}}" wx:for="{{popular}}">{{item.name}}</text>
+        </view>
+    </view>
+    <button bindtap="release" class="submit">发布</button>
+</view>

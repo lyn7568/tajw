@@ -1,0 +1,127 @@
+page {
+    padding-bottom: 30rpx;
+}
+
+.key_point {
+    color: #FF4A47;
+}
+
+@-webkit-keyframes scale_anim {
+    0% {
+        transform: scale(0.95,0.95);
+    }
+
+    50% {
+        transform: scale(1.05,1.05);
+    }
+
+    100% {
+        transform: scale(0.95,0.95);
+    }
+}
+
+@keyframes scale_anim {
+    0% {
+        transform: scale(0.95,0.95);
+    }
+
+    50% {
+        transform: scale(1.05,1.05);
+    }
+
+    100% {
+        transform: scale(0.95,0.95);
+    }
+}
+
+.fade_btn {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.top_img {
+    width: 398rpx;
+    height: 170rpx;
+    display: block;
+    margin: 27rpx auto 0;
+}
+
+.result_title {
+    font-family: PingFangSC-Semibold;
+    font-size: 42rpx;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 12rpx;
+}
+
+.line {
+    margin: 24rpx 30rpx 24rpx;
+    height: 1rpx;
+    background: #f2f1f2;
+}
+
+.item {
+    display: -webkit-box;
+    -webkit-box-align: start;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #666;
+    padding: 0 30rpx;
+    margin-top: 12rpx;
+}
+
+.item_title {
+    width: 180rpx;
+}
+
+.item_info {
+    -webkit-box-flex: 1;
+}
+
+.btn {
+    height: 108rpx;
+    line-height: 108rpx;
+    width: 540rpx;
+    text-align: center;
+    margin: 36rpx auto 0;
+    border-radius: 100px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.share_btn {
+    background-image: linear-gradient(222deg,#ff6e26 0%,#ff1f5a 100%);
+    box-shadow: 0 7rpx 29rpx 0 rgba(255,69,65,0.35);
+    font-family: PingFangSC-Medium;
+    font-size: 42rpx;
+    color: #fff;
+    margin-top: 42rpx;
+    animation: scale_anim 0.7s infinite linear;
+    transform-origin: 50% 50%;
+}
+
+.go_home_btn {
+    font-family: PingFangSC-Regular;
+    font-size: 42rpx;
+    color: #ff4d4d;
+    border: 1px solid #ff8686;
+}
+
+.ad_container {
+    margin: 60rpx 30rpx 0;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.share_tip_tag {
+    position: absolute;
+    height: 47rpx;
+    width: 124rpx;
+    top: -20rpx;
+    right: -40rpx;
+}

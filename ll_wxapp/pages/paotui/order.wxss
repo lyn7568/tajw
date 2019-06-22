@@ -1,0 +1,54 @@
+page {
+    background: #f4f4f4;
+}
+
+.container .content .order-list .list-item {
+    margin-top: 10px;
+    background-color: #fff;
+    padding-left: 25px;
+}
+
+.container .content .order-list .list-item .title {
+    padding: 15px 0;
+    font-size: 16px;
+    position: relative;
+}
+
+.container .content .order-list .list-item text {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0,-50%);
+}
+
+.container .content .order-list .detail {
+    padding: 10px 0;
+}
+
+.container .content .order-list .detail .item {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.container .content .order-list .detail .item .col-20,.col-80 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container .content .order-list .detail .item .col-20 {
+    color: #A3A3A3;
+}
+
+.container .content .order-list .btn-box {
+    padding: 10px 0;
+    margin-right: 10px;
+}
+
+.container .content .order-list .btn-box .btn {
+    float: right;
+    margin-right: 10px;
+    font-size: 14px;
+    padding: 5px 0;
+    width: 70px;
+}

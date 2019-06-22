@@ -1,0 +1,144 @@
+page {
+    background: #f4f4f4;
+}
+
+.container swiper {
+    margin-bottom: 10px;
+    height: 80px;
+}
+
+.container swiper image {
+    width: 100%;
+    height: 100%;
+}
+
+.container .time-box {
+    text-align: center;
+    padding-bottom: 10px;
+    background: #F9F9FB;
+    padding-top: 15px;
+}
+
+.container .time-box .text {
+    font-size: 12px;
+}
+
+.container .time-box .time view {
+    display: inline-block;
+    font-size: 13px;
+    width: 20px;
+    height: 20px;
+    background: #646466;
+    color: #fff;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.container .time-box .time text {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.container .goods-box {
+    padding: 20px 0;
+    padding-left: 20px;
+    border-bottom: 1px dashed #e0e0e0;
+    border-top: 1rpx solid #e0e0e0;
+    background: #F9F9FB;
+}
+
+.container .goods-box .pic {
+    float: left;
+}
+
+.container .goods-box .pic image {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.container .goods-box .right {
+    float: left;
+    margin-left: 20px;
+    margin-top: -5px;
+    max-width: 80%;
+}
+
+.container .goods-box .price {
+    font-size: 20px;
+    display: inline-block;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+.container .goods-box .note {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container .goods-box .note view {
+    display: inline-block;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+.container .pay-box {
+    margin-top: 10px;
+    background: #fff;
+}
+
+.container .pay-box radio {
+    width: 100%;
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 10px;
+    position: relative;
+    line-height: 50px;
+}
+
+.container .radio-text {
+    position: absolute;
+    top: 0;
+    left: 55px;
+    margin: auto;
+    font-size: 15px;
+}
+
+.container .radio-logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.container .radio-logo image {
+    width: 100%;
+    height: 100%;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: #fff;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.fixed-bottom button {
+    display: inline-block;
+    width: 95%;
+    height: 50px;
+    font-size: 16px;
+    background: #ff2d4b;
+    color: #fff;
+}
+
+.fixed-bottom text {
+    font-size: 18px;
+}

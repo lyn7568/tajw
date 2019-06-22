@@ -1,0 +1,332 @@
+.page-guide {
+    box-sizing: border-box;
+}
+
+.page-guide .nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #fafafa;
+    height: 44px;
+    font-size: 16px;
+}
+
+.page-guide .nav .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.page-guide .nav .nav-item.active {
+    color: #ff2d4b;
+}
+
+.page-guide .nav .nav-item.active:after {
+    position: absolute;
+    content: " ";
+    top: 39px;
+    left: 50%;
+    transform: translate(-50%);
+    height: 2px;
+    width: 33px;
+    display: block;
+    background: #ff2d4b;
+    border-radius: 999px;
+}
+
+.page-guide .shop-wrapper {
+    position: relative;
+    width: 100%;
+    flex: 1;
+}
+
+.page-guide .shop-wrapper .shop {
+    position: absolute;
+    backface-visibility: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    transition: transform .2s linear;
+    transition: transform .2s linear,-webkit-transform .2s linear;
+}
+
+.page-guide .shop-wrapper .shop-banner {
+    position: relative;
+    width: 100%;
+    height: 243px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.page-guide .shop-wrapper .shop-banner .rider-nearby-content {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 90px;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+    align-items: center;
+    width: 142px;
+    height: 25px;
+    background-color: #623c15;
+    border-radius: 55px;
+    line-height: 18px;
+    white-space: nowrap;
+    padding: 0 11px;
+    color: #fff;
+    font-size: 13px;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.page-guide .shop-wrapper .shop-banner .rider-nearby-icon {
+    display: inline-block;
+    width: 20px;
+    height: 17px;
+    background-image: url(https://xs01.meituan.net/banma_paotui/dist/images/paotui-rider.png);
+    background-size: 20px 17px;
+    margin-right: 6px;
+}
+
+.page-guide .shop-wrapper .shop-banner .rider-nearby-content .num {
+    color: #f6ce00;
+}
+
+.page-guide .shop-wrapper .shop-banner .swiper-container {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.page-guide .shop-wrapper .swiper-container .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    box-sizing: content-box;
+}
+
+.page-guide .shop-wrapper .swiper-container .swiper-wrapper .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.page-guide image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.page-guide .shop-wrapper .good-edit {
+    position: absolute;
+    z-index: 10;
+    width: 93%;
+    top: 163px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 241px;
+    background: #fff;
+    box-shadow: 0 0 56px 0 rgba(0,0,0,.14);
+    padding: 17px 11px 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 2000;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input {
+    position: relative;
+    flex: 1;
+    padding: 0 6px;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input-placeholder.active {
+    display: inline-flex;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input-placeholder {
+    width: 100%;
+    height: 110px;
+    line-height: 1;
+    color: #999;
+    font-size: 18px;
+    align-items: flex-start;
+    display: none;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input-icon {
+    width: 16px;
+    height: 18px;
+    margin-right: 7px;
+}
+
+.page-guide .shop-wrapper .good-edit .good-tags {
+    overflow: hidden;
+    width: 100%;
+    min-height: 93px;
+    margin: 11px 0 7px;
+}
+
+.page-guide .shop-wrapper .good-edit .good-tags .good-tag-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.page-guide .shop-wrapper .good-edit .good-tag-list .good-tag {
+    position: relative;
+    width: 24%;
+    box-sizing: border-box;
+    padding: 0 6px;
+    margin-bottom: 4px;
+    height: 44px;
+    line-height: 44px;
+    background: #fef7df;
+    font-size: 15px;
+    color: #83490d;
+    text-align: center;
+}
+
+.page-guide .shop-wrapper .good-edit .good-tag-list .good-tag-hot {
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    max-width: 43px;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input-content {
+    height: 110px;
+    width: 100%;
+    padding-bottom: 7px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input-content.active {
+    display: flex;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input-content .good-input-textarea {
+    flex: 1;
+    height: 100%;
+    color: #333;
+    resize: none;
+    border: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 18px;
+    padding-left: 6px;
+    line-height: 26px;
+}
+
+.page-guide .shop-wrapper .good-edit .good-input-content .good-input-submit {
+    width: 73px;
+    height: 72px;
+    margin-top: 18px;
+    background-image: url(https://xs01.meituan.net/banma_paotui/dist/images/good-submit.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-size: 15px;
+}
+
+.page-guide .brand-show-panel,.page-guide .paotui-feature-panel {
+    position: relative;
+    padding-top: 28px;
+    background: #fff;
+}
+
+.page-guide .paotui-feature-panel {
+    padding-bottom: 28px;
+    padding-top: 220px;
+    position: relative;
+}
+
+.page-guide .paotui-feature-panel .paotui-feature-title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 19px;
+}
+
+.page-guide .paotui-feature-panel .paotui-feature-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-guide .paotui-feature-panel .paotui-feature-list .paotui-feature-item {
+    margin-right: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-guide .paotui-feature-panel .paotui-feature-list .paotui-feature-item:last-of-type {
+    margin-right: 0;
+}
+
+.page-guide .paotui-feature-panel .paotui-feature-list .paotui-feature-item-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 43px;
+    line-height: 43px;
+    text-align: center;
+    display: block;
+    border: 1px solid #FFD56F;
+    color: #FFD56F;
+    margin-bottom: 11px;
+}
+
+.page-guide .paotui-feature-panel .paotui-feature-list .paotui-feature-item-icon .icon {
+    font-size: 28px;
+}
+
+.page-guide .paotui-feature-panel .paotui-feature-list .paotui-feature-item-text {
+    color: #333;
+    font-size: 13px;
+}
+
+.paotui-order {
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    border: 1px solid #FFD56F;
+    background: #fff;
+    z-index: 9999;
+}
+
+.paotui-order .icon {
+    color: #FFD56F;
+    font-size: 24px;
+}
+
+.paotui-order .order-text {
+    color: #FFD56F;
+    font-size: 12px;
+    margin-top: -8px;
+}

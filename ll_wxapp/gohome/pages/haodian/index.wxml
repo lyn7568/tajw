@@ -1,0 +1,4 @@
+<failed-tips failedTips="{{failedTips}}" wx:if="{{!getLocationStatus}}"></failed-tips>
+<import src="../../../pages/diy/template.wxml"></import>
+<template is="tpl-diy" data="{{diy:diy,haodianExtra:haodianExtra,showSearchSign:showSearchSign,popup:popup,location:location,cart_sum:cart_sum,richtext:richtext,danmu:danmu,dialog:dialog,storage:storage,topSearchBar:topSearchBar}}"></template>
+<include src="../../../pages/public/footer.wxml"></include>

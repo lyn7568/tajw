@@ -1,0 +1,71 @@
+<view class="container">
+    <view class="content" wx:if="{{!showNodata}}">
+        <scroll-view class="scroll" scrollY="true">
+            <block wx:if="{{sid>0||erranderId>0}}">
+                <block wx:if="{{address.available.length>0}}">
+                    <view class="block-title">可选收货地址</view>
+                    <view class="wui-cell {{index>0?'border-1px-t':''}}" wx:for="{{address.available}}">
+                        <view class="wui-cell-bd">
+                            <view bind:tap="onSelectAddress" data-available="{{item.available}}" data-id="{{item.id}}">
+                                <view class="address">{{item.address}}</view>
+                                <view class="more">
+                                    <view class="name">{{item.realname}}</view>
+                                    <view class="tel">{{item.mobile}}</view>
+                                </view>
+                            </view>
+                            <view bind:tap="onJsEvent" class="change" data-event-type="jsUrl" data-url="pages/member/addressPost?id={{item.id}}&channel={{channel}}&sid={{sid}}&erranderId={{erranderId}}&input={{input}}" openType="navigate">
+                                <view class="icon icon-post"></view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{address.dis_available.length>0}}">
+                    <view class="block-title">不在配送范围内或收货地址不完善</view>
+                    <view class="wui-cell {{index>0?'border-1px-t':''}}" wx:for="{{address.dis_available}}">
+                        <view class="wui-cell-bd">
+                            <view bind:tap="onSelectAddress" data-available="{{item.available}}" data-id="{{item.id}}">
+                                <view class="address">{{item.address}}</view>
+                                <view class="more">
+                                    <view class="name">{{item.realname}}</view>
+                                    <view class="tel">{{item.mobile}}</view>
+                                </view>
+                            </view>
+                            <view bind:tap="onJsEvent" class="change" data-event-type="jsUrl" data-url="pages/member/addressPost?id={{item.id}}&channel={{channel}}&sid={{sid}}&erranderId={{erranderId}}&input={{input}}" openType="navigate">
+                                <view class="icon icon-post"></view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+            <block wx:else>
+                <view class="wui-cell {{index>0?'border-1px-t':''}}" wx:for="{{address}}">
+                    <view class="wui-cell-bd">
+                        <view>
+                            <view class="address">{{item.address}}</view>
+                            <view class="more">
+                                <view class="name">{{item.realname}}</view>
+                                <view class="tel">{{item.mobile}}</view>
+                            </view>
+                        </view>
+                        <navigator bind:tap="onJsEvent" class="change" data-event-type="jsUrl" data-url="pages/member/addressPost?id={{item.id}}" openType="navigate">
+                            <view class="icon icon-post"></view>
+                        </navigator>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="no-data" wx:else>
+        <image class="no-coupon" src="http://cos.lalawaimai.com/we7_wmall/wxapp/store_no_con.png"></image>
+        <text class="no-record">您还没有收货地址</text>
+    </view>
+    <view class="bottom-fixed border-1px-t">
+        <text bind:tap="onJsEvent" data-event-type="jsUrl" data-url="pages/member/addressPost?id={{item.id}}&channel={{channel}}&sid={{sid}}&erranderId={{erranderId}}&input={{input}}">
+            <text>添加地址</text>
+        </text>
+        <text catch:tap="onUseWxAddress" wx:if="{{config.use_weixin_address==1}}">
+            <text>微信添加</text>
+        </text>
+    </view>
+</view>
+<include src="../public/footer.wxml"></include>

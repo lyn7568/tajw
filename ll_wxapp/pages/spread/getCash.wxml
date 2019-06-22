@@ -1,0 +1,34 @@
+<view class="page-getCash">
+    <view class="list-block">
+        <view class="item item-title">账户可用余额：</view>
+        <view class="item price color-danger">¥ {{member.spreadcredit2}}</view>
+    </view>
+    <view class="list-item">
+        <view class="item-text">提现金额</view>
+        <view class="item-input">
+            <input bindinput="onInput" class="wui-input" placeholder=""></input>
+        </view>
+        <view class="list-text">
+            <view class="icon icon-circle"></view>
+			最低提现金额为{{config.withdraw}}元
+		</view>
+        <view class="list-text">
+            <view class="icon icon-circle"></view>
+			提现费率为{{config.withdrawcharge}}%
+		</view>
+    </view>
+    <view class="list-block border-1px-tb">
+        <radio-group bindchange="onRadioChange">
+            <block wx:for="{{config.cashcredit}}">
+                <radio checked class="radio border-1px-b" color="#ff2d4b" value="credit" wx:if="{{item=='credit2'}}">
+                    <view class="radio-text">提现到余额</view>
+                </radio>
+                <radio checked class="radio" color="#ff2d4b" value="wechat" wx:if="{{item=='wechat'}}">
+                    <view class="radio-text">提现到微信</view>
+                </radio>
+            </block>
+        </radio-group>
+    </view>
+    <view bind:tap="onSubmit" class="btn btn-danger btn-submit">提现</view>
+</view>
+<include src="../public/footer.wxml"></include>

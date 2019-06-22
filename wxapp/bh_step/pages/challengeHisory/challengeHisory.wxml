@@ -1,0 +1,43 @@
+<view class="head">
+    <image class="headbg" src="{{image}}"></image>
+    <view class="headflex">
+        <image class="photo" src="{{member.head}}"></image>
+        <view class="nick">{{member.nickname}}</view>
+    </view>
+</view>
+<view class="wrap1">
+    <view class="title">参加步数挑战, 共完成</view>
+    <view class="wrapflex">
+        <view class="flex1">
+            <view class="changeci">
+                <text>{{all_number}}</text>
+                <text class="unit">场</text>
+            </view>
+            <view class="txt">总计挑战</view>
+        </view>
+        <view class="flex2">
+            <view class="changeci">
+                <text>{{succ_number}}</text>
+                <text class="unit">场</text>
+            </view>
+            <view class="txt">挑战成功</view>
+        </view>
+    </view>
+</view>
+<view class="wrap2">
+    <view class="list" wx:for="{{list}}">
+        <view class="time">挑战{{item.challenge_step}}步{{item.challenge.stage}}期</view>
+        <block wx:if="{{item.challenge_status==1}}">
+            <view class="money" style="color:#26BCC5" wx:if="{{item.status==1}}">挑战失败</view>
+            <view class="money" wx:else>
+                <text>{{item.currency}}{{currency_name}}</text>
+            </view>
+        </block>
+        <block wx:elif="{{item.challenge_status==2}}">
+            <view class="money" style="color:#FF8E00" wx:if="{{!item.is_win}}">挑战中</view>
+        </block>
+        <block wx:else>
+            <view class="money" style="color:#FA2828" wx:if="{{!item.is_win}}">待挑战</view>
+        </block>
+    </view>
+</view>

@@ -1,0 +1,51 @@
+page {
+    background: #f8f8f8;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.list .li {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    box-sizing: border-box;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.list .li .userName {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.list .li .pic {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 4rem;
+    margin-right: 0.5rem;
+}
+
+.list .li .state {
+    display: flex;
+}
+
+.list .li .state image {
+    display: flex;
+    width: 1.5rem;
+}

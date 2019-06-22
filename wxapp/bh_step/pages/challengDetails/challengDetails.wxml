@@ -1,0 +1,41 @@
+<view class="head">
+    <image src="{{challenge_image}}"></image>
+</view>
+<view class="wrap2msg">
+    <view class="prizemon1" wx:if="{{info.step!=0||info.price!=0||info.neddjifen!=0}}">
+        <view class="playtit">挑战玩法：</view>
+        <view class="playlist">
+            <view class="playunit">01</view>
+            <view class="palylism">消耗
+                        <text>{{challenge.currency}} {{currency_name}}</text>,报名挑战赛
+        </view>
+        </view>
+        <view class="playlist">
+            <view class="playunit">02</view>
+            <view class="palylism">
+                <view>明天{{challenge.step_number}}步,平分{{challenge.apply_number*challenge.currency}}{{currency_name}}({{currency_name}}不断增加)</view>
+            </view>
+        </view>
+        <view class="playlist">
+            <view class="playunit">03</view>
+            <view class="palylism">每天24点前进入小程序,提交当天步数</view>
+        </view>
+        <view class="playlist">
+            <view class="playunit">04</view>
+            <view class="palylism">挑战成功,平分相应奖励</view>
+        </view>
+    </view>
+    <view class="formbtns">
+        <block wx:if="{{challenge.status==3}}">
+            <button class="partic" wx:if="{{challenge.is_apply}}">已报名</button>
+            <form bindsubmit="signup" reportSubmit="true" wx:else>
+                <button class="partic" formType="submit">立即报名</button>
+            </form>
+        </block>
+        <button class="partic" wx:elif="{{challenge.status==2}}">挑战中</button>
+        <button class="partic" wx:else>已结束</button>
+    </view>
+    <view class="advert" wx:if="{{my_center_group}}">
+        <ad class="advert-las" unitId="{{my_center_group}}"></ad>
+    </view>
+</view>

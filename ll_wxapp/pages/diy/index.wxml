@@ -1,0 +1,2 @@
+<import src="./template.wxml"></import>
+<template is="tpl-diy" data="{{diy:diy,storeExtra:storeExtra,store:store,location:location,config:config,config_wxapp:config_wxapp,cart_sum:cart_sum,richtext:richtext,haodianExtra:haodianExtra,showSearchSign:showSearchSign,popup:popup,dialog:dialog,storage:storage,danmu:danmu,topSearchBar:topSearchBar}}"></template>

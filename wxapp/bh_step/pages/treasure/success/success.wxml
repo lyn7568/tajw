@@ -1,0 +1,28 @@
+<image class="top_img" src="{{image.result_banner}}"></image>
+<view class="result_title">投注成功，等待开奖</view>
+<view class="line"></view>
+<view class="item">
+    <view class="item_title">宝贝名称：</view>
+    <view class="item_info">{{record.treasure.name}}</view>
+</view>
+<view class="item">
+    <view class="item_title">参与份数：</view>
+    <view class="item_info key_point">{{record.number_copies}}份</view>
+</view>
+<view class="item">
+    <view class="item_title">消耗{{image.currency_name}}：</view>
+    <view class="item_info">{{record.number_copies*record.treasure.price}}</view>
+</view>
+<view class="item">
+    <view class="item_title">夺宝号码：</view>
+    <view class="item_info">
+        <text wx:for="{{record.code}}" wx:key="{{index}}">{{item.code}}{{index+1!=record.code.length?'，':''}}</text>
+    </view>
+</view>
+<view bindtap="handleShareBtnClick" class="btn share_btn"> {{treasure_success_msg}}
+  <button class="fade_btn" id="share_btn" openType="share"></button>
+</view>
+<view bindtap="jumptreasure" class="btn go_home_btn">继续夺宝</view>
+<view class="ad_container">
+    <ad unitId="{{my_center_group}}" wx:if="{{my_center_group}}"></ad>
+</view>

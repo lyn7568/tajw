@@ -1,0 +1,185 @@
+page {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.page-order {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.page-order .errander-block {
+    margin-bottom: 11px;
+    background-color: #fff;
+}
+
+.page-order .errander-block image {
+    width: 38px;
+    height: 38px;
+    float: left;
+}
+
+.page-order .errander-block .wui-cell {
+    padding: 7px 15px;
+}
+
+.page-order .errander-block .wui-cell::after {
+    border: 0;
+}
+
+.page-order .errander-block .wui-cell-bd {
+    height: 38px;
+    line-height: 38px;
+}
+
+.page-order .errander-block .wui-cell-bd>view {
+    float: left;
+}
+
+.page-order .errander-block .wui-cell-bd .errander-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.page-order .ordercard {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40rpx 20rpx;
+    background-color: #fff;
+}
+
+.page-order .ordercard .ordercard-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.page-order .ordercard .ordercard-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.page-order .ordercard .ordercard-body .ordercard-avatar {
+    width: 12%;
+}
+
+.page-order .ordercard .ordercard-avatar image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 4rpx;
+}
+
+.page-order .ordercard .ordercard-body .ordercard-content {
+    width: 85%;
+}
+
+.page-order .ordercard .ordercard-head .title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-order .ordercard .ordercard-head .title .name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 60%;
+}
+
+.page-order .ordercard-head .title .status {
+    font-size: 28rpx;
+}
+
+.page-order .ordercard-head .title .content {
+    font-size: 32rpx;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.page-order .ordercard .ordercard-head .title .icon {
+    font-size: 20rpx;
+}
+
+.page-order .ordercard .ordercard-head .order-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    color: #999;
+}
+
+.page-order .ordercard .ordercard-detail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}
+
+.page-order .ordercard .ordercard-detail .detail {
+    color: #070707;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.page-order .ordercard .ordercard-detail .price {
+    font-weight: bold;
+    max-width: 25%;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.page-order .ordercard .ordercard-bottom {
+    margin-top: 20rpx;
+}
+
+.page-order .ordercard .ordercard-bottom .cardbutton {
+    font-size: 14px;
+    padding: 5px 0;
+    margin-left: 10px;
+}
+
+.page-order .ordercard .ordercard-bottom .cardbutton.alert {
+    border: 1px solid #DAADAD;
+    color: #E37350;
+}
+
+.no-data {
+    position: relative;
+    width: 100%;
+}
+
+.no-data .no-coupon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    transform: translate(-50%,0);
+}
+
+.no-data .no-record {
+    position: absolute;
+    left: 50%;
+    top: 260px;
+    transform: translate(-50%,0);
+    font-size: 16px;
+    color: #656565;
+}

@@ -1,0 +1,241 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/order/create",
+    "pages/order/index",
+    "pages/home/location",
+    "pages/store/search",
+    "pages/store/goods",
+    "pages/store/home",
+    "pages/home/searchResult",
+    "pages/home/search",
+    "pages/order/invoice",
+    "pages/member/profilePassword",
+    "pages/order/note",
+    "pages/member/favorite",
+    "pages/member/address",
+    "pages/member/recharge",
+    "pages/member/bind",
+    "pages/member/profile",
+    "pages/member/addressPost",
+    "pages/member/profileUsername",
+    "pages/member/coupon/index",
+    "pages/member/redPacket/index",
+    "pages/member/redPacket/noAvailabel",
+    "pages/home/category",
+    "pages/paotui/guide",
+    "pages/paotui/diy",
+    "pages/paotui/feeRule",
+    "pages/paotui/order",
+    "pages/paotui/detail",
+    "pages/order/comment",
+    "pages/order/detail",
+    "pages/store/comment",
+    "pages/store/index",
+    "pages/public/footer",
+    "pages/public/webview",
+    "pages/public/message",
+    "pages/public/richtext",
+    "pages/public/pay",
+    "pages/order/cart",
+    "pages/order/map",
+    "pages/store/shopPage",
+    "pages/diy/index",
+    "pages/store/goodsDetail",
+    "pages/store/settle",
+    "pages/store/application",
+    "pages/table/goods",
+    "pages/store/report",
+    "pages/home/help",
+    "pages/member/mine",
+    "pages/store/paybill"
+  ],
+  "subPackages": [
+    {
+      "root": "package/pages/",
+      "pages": [
+        "freelunch/luckier",
+        "freelunch/index",
+        "freelunch/mealCoupon",
+        "freelunch/rule",
+        "freelunch/detail",
+        "freelunch/partakeSuccess",
+        "ordergrant/index",
+        "ordergrant/share",
+        "ordergrant/record",
+        "superredpacket/share",
+        "mealRedpacket/ordermeal",
+        "mealRedpacket/plus",
+        "mealRedpacket/meal",
+        "mealRedpacket/orderplus",
+        "storebd/index",
+        "storebd/commission",
+        "storebd/getcash",
+        "storebd/current",
+        "storebd/getcashlog",
+        "storebd/store"
+      ]
+    },
+    {
+      "root": "gohome/pages/",
+      "pages": [
+        "tongcheng/index",
+        "tongcheng/search",
+        "tongcheng/searchResult",
+        "tongcheng/publish/index",
+        "tongcheng/publish/post",
+        "tongcheng/publish/list",
+        "tongcheng/detail",
+        "pintuan/index",
+        "pintuan/detail",
+        "pintuan/share",
+        "pintuan/category",
+        "pintuan/create",
+        "kanjia/order/create",
+        "kanjia/share",
+        "kanjia/detail",
+        "kanjia/index",
+        "kanjia/record",
+        "kanjia/category",
+        "poster/index",
+        "seckill/detail",
+        "seckill/category",
+        "seckill/index",
+        "seckill/order/create",
+        "comment/comment",
+        "order/index",
+        "order/detail",
+        "member/favorite",
+        "home/index",
+        "haodian/index",
+        "haodian/category",
+        "haodian/search",
+        "haodian/searchResult",
+        "haodian/settle",
+        "haodian/comment",
+        "haodian/application"
+      ]
+    },
+    {
+      "root": "tangshi/pages/",
+      "pages": [
+        "assign/assign",
+        "assign/assignDetail",
+        "reserve/create",
+        "reserve/goods",
+        "reserve/goodsDetail",
+        "reserve/index",
+        "reserve/invoice",
+        "reserve/note",
+        "table/create",
+        "table/goods",
+        "table/goodsDetail",
+        "table/invoice",
+        "table/note"
+      ]
+    },
+    {
+      "root": "pages/spread/",
+      "pages": [
+        "index",
+        "poster",
+        "register",
+        "currentDetail",
+        "down",
+        "detail",
+        "rank",
+        "order",
+        "commission",
+        "getCashLog",
+        "getCash",
+        "current"
+      ]
+    },
+    {
+      "root": "pages/creditshop/",
+      "pages": [
+        "index",
+        "goods",
+        "goodsDetail",
+        "create",
+        "detail",
+        "list"
+      ]
+    },
+    {
+      "root": "pages/deliveryCard/",
+      "pages": [
+        "index",
+        "power",
+        "apply"
+      ]
+    },
+    {
+      "root": "pages/wheel/",
+      "pages": [
+        "index",
+        "record"
+      ]
+    },
+    {
+      "root": "pages/channel/",
+      "pages": [
+        "coupon",
+        "brand"
+      ]
+    },
+    {
+      "root": "pages/bargain/",
+      "pages": [
+        "index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff2b4d",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#ff2b4d",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "static/img/tabbar/icon-1.png",
+        "selectedIconPath": "static/img/tabbar/icon-1-active.png"
+      },
+      {
+        "pagePath": "pages/paotui/guide",
+        "text": "跑腿",
+        "iconPath": "static/img/tabbar/icon-15.png",
+        "selectedIconPath": "static/img/tabbar/icon-15-active.png"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "订单",
+        "iconPath": "static/img/tabbar/icon-3.png",
+        "selectedIconPath": "static/img/tabbar/icon-3-active.png"
+      },
+      {
+        "pagePath": "pages/member/mine",
+        "text": "我的",
+        "iconPath": "static/img/tabbar/icon-5.png",
+        "selectedIconPath": "static/img/tabbar/icon-5-active.png"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx165d0c7ee219b8fc",
+    "wxf12faf12c393803c",
+    "wx26ee6deab15f8ab9",
+    "wx4262f3e3c80c649f"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

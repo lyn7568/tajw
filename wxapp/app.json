@@ -1,0 +1,102 @@
+{
+    "pages": [
+        "bh_step/pages/index/index",
+        "bh_step/pages/goodsconvert/goodsconvert",
+        "bh_step/pages/user/user",
+        "bh_step/pages/task/task",
+        "bh_step/pages/currencylog/currencylog",
+        "bh_step/pages/cash/cash",
+        "bh_step/pages/goods/goods",
+        "bh_step/pages/firends/firends",
+        "bh_step/pages/question/question",
+        "bh_step/pages/address/address",
+        "bh_step/pages/order/order",
+        "bh_step/pages/currencyGoods/currencyGoods",
+        "bh_step/pages/my/my",
+        "bh_step/pages/step-diary/step-diary",
+        "bh_step/pages/wealthRank/wealthRank",
+        "bh_step/pages/voucher/voucher",
+        "bh_step/pages/qrvoucher/qrvoucher",
+        "bh_step/pages/category/category",
+        "bh_step/pages/sigin/sigin",
+        "bh_step/pages/goodscreateimg/goodscreateimg",
+        "bh_step/pages/moneyRecord/moneyRecord",
+        "bh_step/pages/web/web",
+        "bh_step/pages/lottery/lottery",
+        "bh_step/pages/turntableLog/turntableLog",
+        "bh_step/pages/treasure/index/index",
+        "bh_step/pages/treasure/detail/detail",
+        "bh_step/pages/treasure/success/success",
+        "bh_step/pages/treasure/record/record",
+        "bh_step/pages/challenge/challenge",
+        "bh_step/pages/challengDetails/challengDetails",
+        "bh_step/pages/challengeHisory/challengeHisory",
+        "bh_step/pages/topic/index/index",
+        "bh_step/pages/topic/publish/publish",
+        "bh_step/pages/topic/my/my",
+        "bh_step/pages/topic/edit/edit",
+        "bh_step/pages/topic/fans/fans",
+        "bh_step/pages/topic/topicDetail/topicDetail",
+        "bh_step/pages/topic/detail/detail",
+        "bh_step/pages/topic/user/user"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#909090",
+        "selectedColor": "#26BCC5",
+        "list": [
+            {
+                "pagePath": "bh_step/pages/index/index",
+                "text": "首页",
+                "iconPath": "bh_step/images/home_icon.png",
+                "selectedIconPath": "bh_step/images/home_icon_down.png"
+            },
+            {
+                "pagePath": "bh_step/pages/treasure/index/index",
+                "text": "免费夺宝",
+                "iconPath": "bh_step/images/treasure_normal.png",
+                "selectedIconPath": "bh_step/images/treasure_selected.png"
+            },
+            {
+                "pagePath": "bh_step/pages/goodsconvert/goodsconvert",
+                "text": "步数换礼",
+                "iconPath": "bh_step/images/exchange_icon.png",
+                "selectedIconPath": "bh_step/images/exchange_icon_down.png"
+            },
+            {
+                "pagePath": "bh_step/pages/challenge/challenge",
+                "text": "步数挑战",
+                "iconPath": "bh_step/images/tiaozhan.png",
+                "selectedIconPath": "bh_step/images/tiaozhanon.png"
+            },
+            {
+                "pagePath": "bh_step/pages/my/my",
+                "text": "我的",
+                "iconPath": "bh_step/images/my_icon.png",
+                "selectedIconPath": "bh_step/images/my_icon_down.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 15000,
+        "downloadFile": 15000
+    },
+    "navigateToMiniProgramAppIdList": [
+      "wx99b5d5f07667f8d7",
+      "wxb037e4babb3acc07",
+      "wx37ae04bfc538a730",
+      "wx08e5818a0f0827ed",
+      "wx1da8bd6dc1305b5d",
+      "wx02f914805d0484bd",
+      "wxd622eedae6665a4e",
+      "wxc6de1655d1ead0b4",
+      "wxfe96ae32ef3fe7a4",
+      "wx257a22e6371dac8e"
+    ],
+    "debug": false
+}

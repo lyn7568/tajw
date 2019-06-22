@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "夺宝记录",
+    "navigationBarBackgroundColor": "#F2F5F4",
+    "backgroundColor": "#F2F5F4",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 100
+}

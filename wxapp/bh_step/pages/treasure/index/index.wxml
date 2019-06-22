@@ -1,0 +1,81 @@
+<view class="home">
+    <image class="home_banner" mode="widthFix" src="{{treasure_top_image}}"></image>
+    <view catchtouchmove="noMove" class="scroll" wx:if="{{false&&winning_record_list&&winning_record_list.length>0}}">
+        <view class="scroll_length" style="margin-left : 0px ; display : {{displayType}} ; transition: margin-left {{scrollTime}}s linear;">
+            <view bindtap="winningListClick" class="scroll_data" data-data="{{item}}" id="scroll-bar" wx:for="{{winning_record_list}}" wx:key="winning_record_list{{index}}">
+                <view class="scroll_content">
+                    <image class="scroll_data_icon" mode="widthFix" src="{{item.member.head}}"></image>
+                    <view class="scroll_data_txt">{{item.member.nickname}}免费夺得{{item.treasure.name}} {{item.win_time_text}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="btns">
+        <view bindtap="btnClick" class="{{selectIndex==0?'btn0_select':'btn0'}}" id="0">夺宝进行中</view>
+        <view bindtap="btnClick" class="{{selectIndex==1?'btn1_select':'btn1'}}" id="1">近期结果</view>
+    </view>
+    <swiper bindanimationfinish="animationfinish" bindchange="swiperChange" class="swiper" current="{{selectIndex}}" style="height : {{scrollViewHeight}}rpx !important;">
+        <swiper-item class="list">
+            <view bindtap="jumptreasure" class="list-item" data-id="{{item.id}}" wx:for="{{running_period_list}}">
+                <image class="item_icon" mode="widthFix" src="{{item.cover_image}}"></image>
+                <view class="item_body">
+                    <text class="item_txt">{{item.name}}</text>
+                    <view class="item_date">期号：{{item.issue_number}}</view>
+                    <view class="program">
+                        <view class="program_num">{{home.getPercentage(item.treasure_code_count,item.number_copies)}}%</view>
+                        <view class="current_program" style="width : {{home.getPercentage(item.treasure_code_count,item.number_copies)}}%"></view>
+                    </view>
+                    <view class="item_num">
+                        <view class="item_all">总需{{item.number_copies}}份</view>
+                        <view class="item_lack">还差{{item.number_copies-item.treasure_code_count}}份</view>
+                    </view>
+                    <view class="item_partake">
+                        <view>立即</view>
+                        <view>夺宝</view>
+                    </view>
+                </view>
+                <view class="line" wx:if="{{index!=running_period_list.length-1}}"></view>
+            </view>
+        </swiper-item>
+        <swiper-item class="list">
+            <block wx:if="{{ending_period_list.length>0}}">
+                <view bindtap="jumptreasure" class="list-item" data-id="{{item.id}}" wx:for="{{ending_period_list}}" wx:key="ending_period_list{{index}}">
+                    <image class="item_icon" mode="widthFix" src="{{item.cover_image}}"></image>
+                    <view class="item_body">
+                        <text class="item_txt">{{item.name}}</text>
+                        <view class="item_date">期号：{{item.issue_number}}</view>
+                        <view class="program">
+                            <view class="program_num">100%</view>
+                            <view class="current_program" style="width : 100%"></view>
+                        </view>
+                        <view class="item_num_open">{{item.prize.member.nickname}}免费夺得了奖品</view>
+                        <view class="item_partake_open">
+                            <view>已开奖</view>
+                        </view>
+                    </view>
+                    <view class="line" wx:if="{{index!=running_period_list.length-1}}"></view>
+                </view>
+            </block>
+            <view style="margin-top:120rpx;" wx:else>
+                <image src="{{no_treasure_image}}" style="height:218rpx;width:415rpx;display:block;margin:0 auto;"></image>
+                <view style="font-family: PingFangSC-Regular;font-size: 36rpx;color: #434343;text-align: center;margin-top:29rpx;">暂无相关记录</view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="view">
+        <image class="rules_title" mode="widthFix" src="{{treasure_rules_image}}"></image>
+        <view class="rules">
+            <view class="rule" wx:for="{{treasure_rules_font}}">
+                <text class="bigNumber">{{index+1}}</text>.{{item}}
+            </view>
+        </view>
+        <view class="rules_bottom"></view>
+    </view>
+</view>
+<wxs module="home">
+var getPercentage = ((function(current_portion, total_portion) {
+    var value = (current_portion / total_portion * 100);
+    return ((value.toFixed(2)))
+}));
+module.exports.getPercentage = getPercentage;
+</wxs>

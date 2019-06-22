@@ -1,0 +1,47 @@
+<view class="container">
+    <view class="content">
+        <view class="order-list">
+            <view class="list-item" wx:for="{{orders}}">
+                <view class="title">
+						{{item.title}}
+						<text>{{item.order_status}}</text>
+                </view>
+                <view bind:tap="onJsEvent" class="detail border-1px-t" data-event-type="jsUrl" data-url="pages/paotui/detail?id={{item.id}}">
+                    <view class="item">
+                        <view class="col-20">下单时间</view>
+                        <view class="col-80">{{item.addtime}}</view>
+                    </view>
+                    <view class="item">
+                        <view class="col-20">购买商品</view>
+                        <view class="col-80">{{item.goods_name}}</view>
+                    </view>
+                    <view class="item">
+                        <view class="col-20">购买地址</view>
+                        <view class="col-80">{{item.buy_address}}</view>
+                    </view>
+                    <view class="item" wx:if="{{item.buy_address}}">
+                        <view class="col-20">收货地址</view>
+                        <view class="col-80">{{item.accept_address}}</view>
+                    </view>
+                </view>
+                <view class="btn-box border-1px-t clearfix" wx:if="{{item.status<3||item.refund_status>0}}">
+                    <view bind:tap="onJsEvent" class="btn" data-confirm="确定取消订单吗?" data-event-type="jsPost" data-href="errander/order/cancel?id={{item.id}}" data-success-url="detail?id={{item.id}}" wx:if="{{item.status==1}}">取消订单</view>
+                    <view bind:tap="onJsEvent" class="btn" data-event-type="jsPay" data-order-id="{{item.id}}" data-order-type="errander" data-success-url="detail?id={{item.id}}" wx:if="{{item.is_pay==0&&item.status!=3&&item.status!=4}}">立即支付</view>
+                    <block wx:if="{{item.status==2}}">
+                        <view bind:tap="onJsEvent" class="btn" data-confirm="确定已收到商品吗?" data-event-type="jsPost" data-href="errander/order/end?id={{item.id}}" data-success-url="detail?id={{item.id}}">确认收货</view>
+                        <view bind:tap="onJsEvent" class="btn" data-event-type="jsPhone" data-phonenumber="{{item.deliveryer.mobile}}">联系骑士</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" wx:if="{{showloading}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载中</view>
+        </view>
+        <view class="no-data" wx:if="{{showNodata}}">
+            <image class="no-coupon" src="http://cos.lalawaimai.com/we7_wmall/wxapp/coupon_no_con.png"></image>
+            <text class="no-record">您没有订单哦</text>
+        </view>
+    </view>
+</view>
+<include src="../public/footer.wxml"></include>

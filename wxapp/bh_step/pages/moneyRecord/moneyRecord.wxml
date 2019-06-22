@@ -1,0 +1,12 @@
+<view class="bg">
+    <view class="header"></view>
+    <view class="itemview" wx:for="{{data}}" wx:key="coindetail">
+        <view class="timedata" wx:if="{{index===0||item.createTime!=data[index-1].createTime}}">{{item.createTime}}</view>
+        <view class="{{item.createTime!=data[index+1].createTime?'coinitemlast':'coinitem'}}">
+            <text class="itemtext">{{item.remarks}}</text>
+            <text class="{{item.mold==2?'conincountgood':'conincount'}}">{{item.mold==2?'-':'+'}}{{item.money}}</text>
+        </view>
+    </view>
+    <view class="no-data" wx:if="{{hasData}}">— 没有更多数据啦 —</view>
+    <view style="height:100rpx;"></view>
+</view>

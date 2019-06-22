@@ -1,0 +1,15 @@
+{
+    "navigationBarTitleText": "开通会员",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#ff2d4b",
+    "usingComponents": {
+        "van-cell": "/library/vant/cell/index",
+        "van-field": "/library/vant/field/index",
+        "van-cell-group": "/library/vant/cell-group/index",
+        "van-button": "/library/vant/button/index",
+        "van-row": "/library/vant/row/index",
+        "van-col": "/library/vant/col/index",
+        "van-popup": "/library/vant/popup/index",
+        "van-rate": "/library/vant/rate/index"
+    }
+}
