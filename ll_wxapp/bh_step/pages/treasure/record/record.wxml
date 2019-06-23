@@ -1,0 +1,56 @@
+<block wx:if="{{treasure&&treasure.length>0}}">
+    <view class="record_item" wx:for="{{treasure}}" wx:key="{{index}}">
+        <view class="periods_base_info">
+            <view class="periods">期号：{{item.treasure.issue_number}}</view>
+            <view class="right_info buy_info">购买了{{item.code_num}}份</view>
+        </view>
+        <view class="join_date">{{item.treasure_member.created}}</view>
+        <view bindtap="gotoDetail" class="goods_info" data-goodsinfo="{{item}}" data-id="{{item.treasure.id}}">
+            <image class="goods_img" mode="aspectFit" src="{{item.treasure.cover_image}}"></image>
+            <view class="goods_base_info">
+                <view class="goods_name">
+                    <image class="activity_tag" src="{{item.treasure.status==1?image.running_tag_1:item.treasure.status==3?image.zhongjian_tag:image.end_tag_2}}"></image>
+                    <text style="padding-left:5rpx;vertical-align: middle;">{{item.treasure.name}}</text>
+                </view>
+                <view class="bottom_info">
+                    <view class="activity_progress">
+                        <view class="progress_top_bg">
+                            <view class="progress_bottom" style="width:{{item.treasure.schedule_percent}}%;"></view>
+                        </view>
+                        <text class="activity_progress_text">{{item.treasure.schedule_percent}}%</text>
+                    </view>
+                    <view class="join_num_info">
+                        <view class="max_join">总需{{item.treasure.number_copies}}份</view>
+                        <view class="right_info less_join">还差{{item.treasure.number_copies-item.treasure.code_num}}份</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="gotoDetail" class="common_bottom_btn" data-id="{{item.treasure.id}}" wx:if="{{item.treasure.status==1}}">追加份数</view>
+        <block wx:if="{{item.treasure.status==3}}">
+            <view bindtap="addAddress" class="common_bottom_btn" wx:if="{{!item.treasure.prize.address}}">+添加地址信息</view>
+            <view class="address_info" wx:else>
+                <image class="info_icon" src="{{image.address_icon_1}}"></image>
+                <view class="address_user_base_info ">
+                    <text class="address_user_name">{{item.treasure.prize.name}}</text>
+                    <text class="address_user_phone">{{item.treasure.prize.phone}}</text>
+                </view>
+                <view class="address_detail">地址：{{item.treasure.prize.address}}</view>
+            </view>
+            <view class="address_info" wx:if="{{item.treasure.prize.courier_number}}">
+                <image class="info_icon" src="{{image.my_express_icon_1}}"></image>
+                <view>运单信息：{{item.treasure.prize.courier_name}} {{item.treasure.prize.courier_number}}</view>
+                <view bindtap="copy" class="copy_btn" data-value="{{item.treasure.prize.courier_number}}">复制</view>
+            </view>
+        </block>
+    </view>
+</block>
+<view class="container" wx:else>
+    <view class="img-box">
+        <image class="box-image" src="{{image.my_orders_nodata}}"></image>
+        <text class="img-text">您没有相关记录~</text>
+    </view>
+    <view class="btn-pre">
+        <view bindtap="gotoTreasure" class="btn-change" hoverClass="btn-hover">去夺宝</view>
+    </view>
+</view>

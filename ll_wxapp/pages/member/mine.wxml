@@ -1,4 +1,4 @@
-<view class="page-member" wx:if="{{is_use_diy!=1}}">
+<view class="page-member" wx:if="{{is_use_diy===1}}">
     <view class="diy-memberHeader">
         <view class="member-headinfo">
             <view class="headinfo-balance">
@@ -118,6 +118,14 @@
                 </view>
                 <view class="text-icon">超级会员</view>
                 <view class="icon-tips {{user.svip_status==1?'c-danger':''}}">{{user.svip_status==1?'已购买':'暂未购买'}}</view>
+            </view>
+            <view bind:tap="onJsEvent" class="diy-icon-col" data-event-type="jsUrl" data-url="bh_step/pages/index/index">
+                <view class="icon-img">
+                    <text class="icon icon-emoji" style="color: #676A6B;"></text>
+                    <text class="nav-mark" style="color: #ffffff;background:#FE4C44;">hot</text>
+                </view>
+                <view class="text-icon">记步金</view>
+                <view class="icon-tips" style="color: #cccccc;">4个未使用</view>
             </view>
         </view>
     </view>

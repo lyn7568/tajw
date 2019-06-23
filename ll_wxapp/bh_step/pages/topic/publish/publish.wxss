@@ -1,0 +1,199 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_1007563_t28schiqs.eot');
+    src: url('//at.alicdn.com/t/font_1007563_t28schiqs.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_1007563_t28schiqs.woff2') format('woff2'),url('//at.alicdn.com/t/font_1007563_t28schiqs.woff') format('woff'),url('//at.alicdn.com/t/font_1007563_t28schiqs.ttf') format('truetype'),url('//at.alicdn.com/t/font_1007563_t28schiqs.svg#iconfont') format('svg');
+}
+
+page {
+    background: #fff;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.edit {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit textarea {
+    display: flex;
+    font-size: 0.9rem;
+    width: 100%;
+    height: 6rem;
+    margin-bottom: 0.5rem;
+}
+
+.edit .picList {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.edit .picList .picBox {
+    display: flex;
+    width: 31%;
+    height: 3rem;
+    margin-right: 3.5%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.edit .picList .picBox .del {
+    display: flex;
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    right: -0.3rem;
+    top: -0.4rem;
+    color: #A8A8A8;
+}
+
+.del::after {
+    font-family: iconfont;
+    content: "\e7b7";
+    font-size: 1.3rem;
+    opacity: 0.8;
+}
+
+.edit .picList .addPic {
+    display: flex;
+    width: 30%;
+    height: 3rem;
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
+    background: #f2f0fe;
+    border-radius: 0.25rem;
+}
+
+.edit .picList .picBox:nth-child(3n) {
+    margin-right: 0;
+}
+
+.edit .picList .addPic image {
+    display: flex;
+    width: 70%;
+}
+
+.edit .position {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.edit .position .getPosition {
+    display: flex;
+    background: #f9f9f9;
+    border-radius: 2rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.edit .position .getPosition image {
+    display: flex;
+    width: 1rem;
+    height: 1rem;
+}
+
+.edit .position .getPosition text {
+    display: flex;
+    color: #afafaf;
+    font-size: 0.7rem;
+    margin-left: 0.25rem;
+}
+
+.edit .topicList {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.edit .topicList .topText {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.edit .topicList .topText1 {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.edit .topicList .topText .h1 {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    color: #26BCC5;
+    border: 1px solid #26BCC5;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+}
+
+.edit .topicList .topText text {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    font-size: 0.7rem;
+    color: #f76d50;
+    margin-left: 0.25rem;
+    align-items: center;
+}
+
+.edit .topicList .topText1 text {
+    display: flex;
+    -webkit-box-flex: 1;
+    font-size: 0.7rem;
+    color: #26BCC5;
+    margin-left: 0.25rem;
+    align-items: center;
+}
+
+.edit .topicList .title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.edit .topicList .title image {
+    display: flex;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.25rem;
+}
+
+.edit .topicList .list {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.edit .topicList .list text {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    color: #333;
+    border: 1px solid #e2e2e2;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.edit .submit {
+    display: flex;
+    width: 100%;
+    height: 2.6rem;
+    border-radius: 2rem;
+    background-image: linear-gradient(-90deg,#26BCC5 2%,#1DD49E 97%);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}

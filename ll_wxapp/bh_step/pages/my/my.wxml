@@ -1,0 +1,125 @@
+<AcquireFormidView>
+    <view class="header-box">
+        <view class="user-info-box">
+            <image class="user-icon" src="{{head}}"></image>
+            <view class="user-text-box">
+                <view class="user-name">{{nickname}}</view>
+                <view class="user-sign" wx:if="{{head||nickname}}">已经连续签到{{signin_days}}天</view>
+                <button bindgetuserinfo="getUserInfo" bindtap="maidian" class="useraccredit" lang="zh_CN" openType="getUserInfo" wx:if="{{!head&&!nickname}}">
+          授权微信个人信息
+          <image class="smallicon" src="./img/arricon.png"></image>
+                </button>
+            </view>
+        </view>
+        <view class="record-box">
+            <view bindtap="gotoCoinDetail" class="record-item">
+                <view>{{currency}}</view>
+                <text>{{currency_name}}余额</text>
+            </view>
+            <view bindtap="gotoMyIncomeDetail" class="record-item" wx:if="{{bag_switch==1}}">
+                <view>{{money}}</view>
+                <text>我的收益</text>
+                <image class="my-withdraw-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAmCAMAAACicXj6AAAAn1BMVEUAAAD/jwD/jwD/jgD/jwD/jwD/jgD/////mhv/mBf/vm3/lhP/yIT/wHP/y4r/rkr/uGD/kQf/sVD/pTP/jwP//fv/qDv/xoD/4r3/kw3/7db/5MP/zY//nCD/8N7/+vX/9Of/79r/26//slL/9uz/37f/3bP/xHz/rEP/6tD/1qT/0JX/oSv/58n/2an/05v/wnf/8uL/vGn/tVn/kgpHud5SAAAABnRSTlMA40DASYDHagOPAAABq0lEQVRIx9XV2XKCMBSAYWrbHCFFsASMLGURcF/a+v7P1pMzYnUEHeNN+88oxvhNEi7EeHliWj29GCg1rcG0+8/UzHb43vea2El7s2nYRvvwhu8DaBrjyB5RKxua3q9RkxoQzQ6/t2FqqZbXKaOmRIUwIRaC2dDHAWNOG13KCD5ljNSnAKmKw4AxohaYHTRaw2ekaEBtO+ntDevQD6q8nwZWk8DRW5hDGYa3aWxPhiehtWoJH3WtKL54F/UA/C84aXS+4Thl7XQ0B4hWQ1dVA128c1rMO2gYxnTWrx2eEBh1TueFaKfm4TaFtaIJxo+U94ecJRDBRHDReYc5LBVVbQ+02qTf6kS+CxO8dlIHMo7UwVb43WwkwZcWx9msmCmaeF1UZvlC/J41TwuX02SeekRdSC5pgvQb3MCXmyNd7Rnl5L7DZuAyNvAvVp1MN+COszVusgQIo6qoqmYuiKB8V9sqt4s0uqA2+BU35wF+FMEuXhRSxse5dDqm6zoPFy1npQRrS/A/+Wd6bw88rh55SB7q0bhn6PSM8tnQqqe9KC6ruygui4vq9mrc1w/fgkWI6hmT7gAAAABJRU5ErkJggg=="></image>
+            </view>
+            <view bindtap="onGotUserInfo" class="record-btn-item">
+                <view>{{friends_num}}</view>
+                <text>邀请好友数</text>
+                <button class="record-button hidden-button"></button>
+            </view>
+        </view>
+    </view>
+    <view class="router-box {{isIphoneX?'IphoneX':''}}">
+        <view class="box">
+            <view bindtap="gotoMyOrder" class="box-item">
+                <image class="box-item-img" src="{{img64.myOrder}}"></image>
+                <view class="item-text">我的订单</view>
+            </view>
+            <view bindtap="gototreasure" class="box-item" wx:if="{{follow_cash}}">
+                <image class="box-item-img" src="{{dbjl}}"></image>
+                <view class="box-item-title">夺宝记录</view>
+            </view>
+            <view bindtap="gotoproblem" class="box-item">
+                <image class="box-item-img" src="./img/my_faq_icon.png"></image>
+                <view class="box-item-title">常见问题</view>
+            </view>
+            <button class="box-item" openType="contact" wx:if="{{contantus_pop==1}}">
+                <image class="box-item-img" src="./img/my_feedback_icon.png"></image>
+                <view class="box-item-title">联系我们</view>
+            </button>
+            <button bindtap="contantus" class="box-item" wx:if="{{contantus_pop!=1}}">
+                <image class="box-item-img" src="./img/my_feedback_icon.png"></image>
+                <view class="box-item-title">联系我们</view>
+            </button>
+            <view bindtap="gotoRanking" class="box-item">
+                <image class="box-item-img" src="/bh_step/images/wealth_rank_down.png"></image>
+                <view class="box-item-title">排行榜</view>
+            </view>
+            <view bindtap="showVoucher" class="box-item" wx:if="{{open_under_line==1}}">
+                <image class="box-item-img" src="./img/20180917101355.png"></image>
+                <view class="box-item-title">优惠券</view>
+            </view>
+            <view bindtap="onGenQrc" class="box-item" wx:if="{{shop_id>0&&open_under_line==1}}">
+                <image class="box-item-img" src="./img/20180917101324.png"></image>
+                <view class="box-item-title">核销</view>
+            </view>
+            <view class="box-item" wx:else>
+                <view class="box-item-title"></view>
+            </view>
+            <view class="box-item" wx:if="{{open_under_line!=1}}">
+                <view class="box-item-title"></view>
+            </view>
+            <view class="box-item" wx:if="{{follow_cash}}">
+                <view class="box-item-title"></view>
+            </view>
+        </view>
+        <view class="route-banner-box" wx:if="{{audit_pattern!=2}}">
+            <image bindtap="tapAdBanner" class="route-banner" src="{{step_log_banner}}"></image>
+        </view>
+        <view wx:if="{{ad}}">
+            <navigator appId="{{item.appid}}" openType="{{item.open_type}}" path="{{item.path}}" target="{{item.target}}" url="{{item.url}}" wx:for="{{ad}}">
+                <image class="route-banner" src="{{item.icon}}"></image>
+            </navigator>
+        </view>
+    </view>
+    <block wx:if="{{jump&&jump.length>0}}">
+        <view class="ad_container_title">闲来玩玩</view>
+        <view class="ad_grid_container">
+            <LaunchPageView adData="{{itemData}}" class="ad_grid_item" data-index="{{index}}" wx:for="{{jump}}" wx:for-item="itemData" wx:key="{{index}}">
+                <navigator appId="{{itemData.appid}}" openType="{{itemData.open_type}}" path="{{itemData.path}}" target="{{itemData.target}}" url="{{itemData.url}}">
+                    <view bindtap="handleAdClick" data-addata="{{itemData}}">
+                        <view class="ad_grid_icon_container">
+                            <image class="ad_grid_icon" src="{{itemData.icon}}"></image>
+                        </view>
+                        <view class="ad_name">{{itemData.title}}</view>
+                        <view class="ad_type">{{itemData.describe}}</view>
+                    </view>
+                </navigator>
+            </LaunchPageView>
+        </view>
+    </block>
+    <view class="choujiang" style="width: 670rpx;border-radius: 8rpx;overflow: hidden;margin: 55rpx auto 0;" wx:if="{{my_center_group}}">
+        <ad class="advert-las" unitId="{{my_center_group}}" wx:if="{{my_center_group}}"></ad>
+    </view>
+    <view wx:if="{{contantus&&contantus_pop==2}}">
+        <view class="pop-box">
+            <view class="pop-mask"></view>
+            <view class="pop-content">
+                <image bind:tap="closePop" class="closeicon" src="./img/closedialog.png"></image>
+                <image class="pop-image" src="{{my_contactus_img}}"></image>
+                <button bind:tap="closePop" class="pop-btn" openType="contact"></button>
+            </view>
+        </view>
+    </view>
+</AcquireFormidView>
+<wxs module="img64">
+var wechatImg64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA7CAMAAAAdOWm/AAAAmVBMVEUAAAA253sTzGMTzWITzWMSzGMTzmMZ1W4UzmQSzmMWz2YSzWMSzWMSzWMTzWMSzWMVz2QW0mgSzWMSzWITzWITzWISzGMSzWMTzWMSzWMTzWMSzmQUzmQU0GUT0GYa0mgSzWMSzWITzWITzWMb0GbX/9cTzWMSzWMSzWMUzmQTzWITzWMTzWQTzWMUz2UZ0mcTzWMVz2QSzGJ+rdEjAAAAMnRSTlMABKH28+JbDlZRIfrNx5BxORbu6ubX08CxfHdEMSUaCbanlIUSAdyaiz6siGtkKh2dSos1EN8AAAHkSURBVEjH7ZXZlqMgEEDBuCduMcbddEzs7MkM//9xI+eASgS0+3G67xMl3EMBJYBffgh2bt7Tu5kHX9N2uqIhyqdiwblidQgRy+Y2a26YLdAY1ZueuXQQn609YRZrJGKdT5liljI3CJEMtRCrV7ou3e83y7H8Az2nnci06FkYbUCHb/FwhQSpSF2RAR84MElQ48CjKQvO99ntZdVGLk0Sp5Agwp2v3vrqycy6CyLPVLog5qsfSMbqYF7KquSrkdhbpwH008T5DKNYebxGqiqshdSw62HvSofzVM03lOX7N4tRNUHdH3Nej2IM1IQ/Z2Uu+ft27FWPu86nRUyZa/AWe36pSMQVdLhoxMagp13rtDD2uksSMTvVXozUm0/Ht/1/EMZpWynZh6Zz9ZFanEjD7X6mpG09yNdcnLLW0GtjodsPkpRn6yE9oV6FCavGAZLigJ7mzHTtfbkagiH6cK/ci1xdAAZnWG22XNUYkxkcw6VUvTJqhvNwPWWLE1eh/P+33u62xbkCGKP0C6jLzG3D5KueA+a91CSqyT5XR8DyV2zuwQQnkbnaTalwzzejCkwCufPGRzAHKxybEMzDyDbv6YLZQKuOyMWRZLhOSvAVdq/i8jRw6+IgD3wX6wS+TQN++a/5B46K9R2xC61PAAAAAElFTkSuQmCC";
+var contactUsImg64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAMAAADWZboaAAAAZlBMVEUAAAASzKUSzaYTzaYTzqYSzaYTzaYSzaYTzaUXzKoq47gTzKYTzaYTzaUSzaYSzaYTzaYTzacUzKgS0a0Vzawgz68Y26oSzKYSzKYTzaYSzaUTzaYTzKUTzaUUzKcUzKiA//8SzKUAuPyyAAAAIXRSTlMA3qmFcvvk04wtBvbAvbealFs+HBcQCvDty8GvpWxLMgKTO7bRAAAAp0lEQVRIx+3T2QqDMBRF0WMSpzjX2nnK//9kL2mw4EPTSGmL3PV0EDaKIWCLZgJwyimnn0zjVlVunpRwq1ZN7E8vAB6FoiXtamh13jQCWdnXb2it7cMcZOdLE5eSZ3oF2Xo/uAN0bZcE0NolbsD5jT8sstStSh7c2svj354rp5z+Mo0mCjMqogm8lifj5c8RqHe3Nu0RbCgNKQfMoIUxQmOeLANjX3EH2IG9MY5sta0AAAAASUVORK5CYII\x5cx3d";
+var myOrderImg64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6BAMAAAATlVcbAAAAJ1BMVEUAAABIe/BKgPRggP9Ie+7////C0/meufaowPa5zPhOgO6DpfN6n/KcUuZ3AAAABHRSTlMAVRgIVSSaqgAAAEtJREFUOMtjGKqAWQkTGMBlGV0wgcCoLE1kvdIQYAmmbCgCUFfWpRwBBk9oUBSSM6FgC5CDOzRaqC7bAQVHBlNojMrSTJZAKTpEAQB6+/YNz1lP2gAAAABJRU5ErkJggg\x5cx3d\x5cx3d";
+var commonQuestionImg64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAMAAADWZboaAAAAmVBMVEUAAAD7qQ38qg3/qg/7qQz6qQ36qAz6qQz7qA36qQ76qg38qQ7/rw//sxr/qiv6qAz7qQ77qA76qAz////6rBf7wVL6syr+89/7uTr++Ov+9ub936X804X7yWn6tjT6sCH+8NX+7tH968n96L795bj93Jv7xFz7v0r7vEX++/b94q3815D7xV3++/X82Zf8z3r8zHH8y2/7xl+92ywxAAAAEnRSTlMAc1Uw9t7UzcJuZlkjCgalgoHB3R2rAAABo0lEQVRIx+2W13bCMAxA64SGDAJEJoMZRilldP7/x9XkpD2RFBO3fuW+ceBiW5YsPdyxInadUIjQceO/eQPhwy++GJh6w8ADghcMTczoEVp4jDpFtw8a+u5t0+mBlp5zy0zgJoneHEEHI505hk7GmnOCAU5rbHsmaq8tzvxWVpfl8jChd8TNCDCT81RW5O+AiFj2kRx6UeIP6wLlFc3JAJvFUTbI0a4Donp4t3ml7PbnnbyyR7VAqgwQn1KxXVWxqv4FLYtrUGB1rX49K+tTX9UUGgik+sjMpOIDambqwwIa+Og1IRfzNZ/KDGq2Sp2j7+NmJgGjAO2q4Bqmb4rOyhI51JvlddEcECEKsI5sLRVLQAidyvNxDkQ12HB6rJKKVk/YHabVK12Th8ltV7eS3gu/nLjVLOoIMWKSiJyFMk/A8Wn6c/ZKvQBH0KLjnJR6AM6AljqnSNO0BIbHHhhOmWXZBBgBf9YYT2rDz7xdslYbmaqR5gnvVvtGjeNts9kcWOOwa1ecpNtMbFrzP5vz2G4MsR9+7Ecu+0HPfrzkQ+0dG74Bt3R+BN18f3EAAAAASUVORK5CYII\x5cx3d";
+module.exports = (({
+    wechat: wechatImg64,
+    contactUs: contactUsImg64,
+    myOrder: myOrderImg64,
+    commonQuestion: commonQuestionImg64,
+}));
+</wxs>

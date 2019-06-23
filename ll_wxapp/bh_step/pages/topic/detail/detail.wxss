@@ -1,0 +1,447 @@
+page {
+    display: flex;
+    background: #f8f8f8;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.topicList {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.topicList .top {
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.topicList .top image {
+    display: flex;
+    width: 100%;
+}
+
+.topicList .top .topicTitle {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    padding: 0 1rem 1rem 1rem;
+    color: #fff;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+
+.topicList .list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.topicList .list .li {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.topicList .list .li .topicBox {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.topicList .list .li .topicBox .pic {
+    display: flex;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 4rem;
+}
+
+.topicList .list .li .topicBox .right {
+    display: flex;
+    width: 1px;
+    flex: 1;
+    -webkit-box-flex: 1;
+    flex-direction: column;
+    margin-left: 0.5rem;
+}
+
+.topicList .list .li .topicBox .line {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.topicList .list .li .topicBox .line:last-child {
+    margin-bottom: 0;
+}
+
+.topicList .list .li .topicBox .line .userName {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.topicList .list .li .topicBox .line button {
+    display: flex;
+    height: 1.8rem;
+    color: #f76d50;
+    border: 1px solid #f76d50;
+    font-size: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4rem;
+    padding: 0 1rem;
+    margin: 0;
+    background: none;
+    line-height: initial;
+}
+
+.button-hover {
+    background: none;
+}
+
+.topicList .list .li .topicBox .line .topicTitle {
+    display: flex;
+    background: #E7F9E6;
+    color: #26BCC5;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2rem;
+}
+
+.topicList .list .li .topicBox .line .topicTitle image {
+    display: flex;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.25rem;
+}
+
+.topicList .list .li .topicBox .picList {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.topicList .list .li .topicBox .picList .picBox {
+    display: flex;
+    width: 31%;
+    height: 3rem;
+    margin-right: 3.5%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.topicList .list .li .topicBox .picList .picBox:nth-child(3n) {
+    margin-right: 0;
+}
+
+.topicList .list .li .topicBox .line .time {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+.topicList .list .li .bottomBtn {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 3rem;
+    border-top: 1px solid #eee;
+    padding: 0 1rem 0 5rem;
+}
+
+.topicList .list .li .bottomBtn .left {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+}
+
+.topicList .list .li .bottomBtn .left .btn {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    width: 1px;
+    height: 2.8rem;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.topicList .list .li .bottomBtn .left .btn image {
+    display: flex;
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-right: 0.25rem;
+}
+
+.topicList .list .li .topicBox .textLine {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.topicList .list .li .topicBox .textLine .text {
+    display: flex;
+    font-size: 0.9rem;
+    flex-direction: column;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.topicList .list .li .topicBox .textLine .more {
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.topicList .list .li .topicBox .textLine .more image {
+    display: flex;
+    width: 2rem;
+    height: 1rem;
+}
+
+.comment {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.comment .title {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.comment .list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.comment .list .li {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.comment .list .li .topicBox {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.comment .list .li .topicBox .pic {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 4rem;
+}
+
+.comment .list .li .topicBox .right {
+    display: flex;
+    width: 1px;
+    flex: 1;
+    -webkit-box-flex: 1;
+    flex-direction: column;
+    margin-left: 0.5rem;
+}
+
+.comment .list .li .topicBox .line {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.comment .list .li .topicBox .line:last-child {
+    margin-bottom: 0;
+}
+
+.comment .list .li .topicBox .line .userName {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.comment .list .li .topicBox .line .time {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+.comment .list .li .bottomBtn {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 3rem;
+    border-top: 1px solid #eee;
+    padding: 0 1rem 0 5rem;
+}
+
+.comment .list .li .bottomBtn .left {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+}
+
+.comment .list .li .bottomBtn .left .btn {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    width: 1px;
+    height: 2.8rem;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.comment .list .li .bottomBtn .left .btn image {
+    display: flex;
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-right: 0.25rem;
+}
+
+.comment .list .li .topicBox .textLine {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.comment .list .li .topicBox .textLine .text {
+    display: flex;
+    font-size: 0.8rem;
+    flex-direction: column;
+    overflow: hidden;
+    word-break: break-all;
+    padding-bottom: 0;
+    color: #666;
+}
+
+.input {
+    display: flex;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.input input {
+    display: flex;
+    width: 100%;
+    background: #f2f2f2;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+    height: 2.2rem;
+    font-size: 0.9rem;
+    color: #666;
+    border-radius: 2rem;
+}
+
+.inputShow {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 999;
+    padding: 1rem;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.inputShow .zhankai {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.inputShow .zhankai image {
+    display: flex;
+    width: 1rem;
+}
+
+.inputShow .shuru {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    flex-direction: column;
+}
+
+.inputShow .shuru textarea {
+    display: flex;
+    width: 100%;
+    background: #f2f2f2;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.inputShow .shuru button {
+    display: flex;
+    width: 5rem;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    box-sizing: border-box;
+    padding: 0rem;
+    height: 2.6rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+    margin-right: initial;
+    margin-left: initial;
+}
+
+.inputShow .shuru button.bulr {
+    background: -webkit-linear-gradient(0deg,#26BCC5,#26BCC5);
+    color: #fff;
+    height: 80rpx;
+}

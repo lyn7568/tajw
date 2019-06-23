@@ -1,0 +1,87 @@
+<scroll-view class="topicList" scrollY="true">
+    <view class="list">
+        <view class="li">
+            <view class="topicBox">
+                <view bindtap="gotoUser" class="pic" style="background-image:url({{detail.member.head}})"></view>
+                <view class="right">
+                    <view class="line">
+                        <view class="userName">{{detail.member.nickname}}</view>
+                        <button catchtap="follow" data-id="{{detail.member_id}}" data-index="{{index}}" wx:if="{{!detail.follow}}">+关注</button>
+                    </view>
+                    <view catchtap="gotoTopicDetail" class="line" data-topic_id="{{detail.topic_id}}" wx:if="{{detail.topic_id>0}}">
+                        <view class="topicTitle">
+                            <image mode="widthFix" src="{{images.topic}}"></image>
+              {{detail.topic.name}}
+            </view>
+                    </view>
+                    <view class="textLine">
+                        <view class="text" style="height:auto;">
+            {{detail.allocation}}
+            </view>
+                    </view>
+                    <view class="picList">
+                        <view catchtap="previewImage" class="picBox" data-image="{{item}}" data-index="{{index}}" style="background-image:url({{item}});height:4rem" wx:for="{{detail.image}}" wx:for-index="idx"></view>
+                    </view>
+                    <view class="line">
+                        <view class="time">{{detail.created}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="bottomBtn">
+                <view class="left">
+                    <view catchtap="fabulous" class="like btn" data-id="{{item.id}}" data-index="{{index}}">
+                        <image src="{{detail.fabulous?images.fabulous:images.nofabulous}}"></image>
+            {{detail.fabulous_number}}
+          </view>
+                    <view class="pinglun btn">
+                        <image src="{{images.comment}}"></image>
+            {{detail.comment_number}}
+          </view>
+                    <view class="zhuanfa btn">
+                        <button openType="share" style="background: transparent;margin-left:0px;margin-right:0px">
+                            <image src="{{images.share}}"></image>
+                        </button>
+                    </view>
+                    <view catchtap="collection" class="shoucang btn">
+                        <image src="{{detail.collection?images.collection:images.no_collection}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="comment">
+        <view class="title">评论</view>
+        <view class="list">
+            <view bindtap="reply" class="li" data-id="{{item.id}}" data-name="{{item.member.nickname}}" wx:for="{{list}}">
+                <view class="topicBox">
+                    <view class="pic" style="background-image:url({{item.member.head}})"></view>
+                    <view class="right">
+                        <view class="line">
+                            <view class="userName">{{item.member.nickname}}<text style="color:#999;" wx:if="{{item.comment_member_id>0}}"> 回复 </text>
+                                <text decode="{{true}}" wx:if="{{item.comment_member_id>0}}">&nbsp; {{item.comment_meber.nickname}}</text>
+                            </view>
+                        </view>
+                        <view class="line">
+                            <view class="time">{{item.created}}</view>
+                        </view>
+                        <view class="textLine">
+                            <view class="text">{{item.content}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="input">
+    <input bindfocus="bindfocus" placeholder="说点什么吧"></input>
+</view>
+<view class="inputShow" wx:if="{{inputShow}}">
+    <view bindtap="folder" class="zhankai" id="{{index}}" style="transform:rotate({{folder[index]?'180':'0'}}deg);">
+        <image bindtap="hideInputShow" mode="widthFix" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAUCAYAAAAKuPQLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQwQTRFNTVEM0E3MDExRTk4ODkyRTcxNjdGQzdGQkUyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQwQTRFNTVFM0E3MDExRTk4ODkyRTcxNjdGQzdGQkUyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDBBNEU1NUIzQTcwMTFFOTg4OTJFNzE2N0ZDN0ZCRTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDBBNEU1NUMzQTcwMTFFOTg4OTJFNzE2N0ZDN0ZCRTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5mSdp/AAACFklEQVR42ryWSygFURjHzx2ykLC5KzYiWchSIsozyQbdlMLGWyIbRDYesfIoSUg25N5kwU4krwV215IVQpRHIeTx/+q7mr4MM3e4X/2aOf/5znf+zZxz5jjcbnepUmoEvIIWsKgCGC6XS3k8nhLcDoNg0OyAqRvcRHLOO6gB0wH0VQUmgMbtW7p51iVQewo0BchQM5jUGaJ4pkYZeBLJo6Djnw118ifTB/koI1PrIA/ci4R+MPBPhqhur9Bo/BzMsXXfa9sGueBaJLaBMeD4IzNUZ5zr6oPGzYahXSW+5R7IAheiQwOYAUE2DVH/WVAn9HMaF4YO9BNbH16QDs6EXgnmQYifhqjfAigX+gnIgCGvEqtNxhFIAcdyS+E9LNSiIcpfAiVCp/qpMHQkO2gGhU75jR0KvRCsgDCThsI5v0DoVDeNx1FmTX19a7Av9EywBiJ+MUTPVzlfiblL2qVRR+2Xwle8KneEngw2gdOgn5NXdLLQt3j7uf5pUM3EJ7jjQmtCT2Jj0UKPZkOJQqe3ls/1lF1TFI88L5aFngA2QBy349hovMhb5vn4aGYwzcIqeuEVNCf0WDZWzNcY8Zzyi7i/qQi2uLzpeFMBHkC1To8yOPLQ378RvFkZRPNjI6QBavkM9lMMgXqrhvw1RfHBB8I+g+c9oJXzVKBM+aLrmyNOO+i2U9SuKd8xhH6yN3wdtFvwU4ABAJbdcjdR9yDmAAAAAElFTkSuQmCC"></image>
+    </view>
+    <view class="shuru">
+        <textarea bindinput="bindinpt" placeholder="{{placeholder}}"></textarea>
+        <button bindtap="send" class="bulr">发送</button>
+    </view>
+</view>

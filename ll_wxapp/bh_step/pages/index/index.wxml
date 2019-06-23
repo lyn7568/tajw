@@ -1,0 +1,365 @@
+<view class="addToSmallProgramClass" wx:if="{{showAddMeBtn&&guide_add_applet}}">
+    <view class="center_text_div_class">
+        <text>点击</text>
+        <image class="more" src="/bh_step/images/add_to_min_program_more.png"></image>
+        <text>{{guide_add_applet}}</text>
+    </view>
+    <view style="width: 37rpx;height: 43rpx;position: absolute;top: 50%;transform: translateY(-50%);right: 123rpx;">
+        <image class="arrow" src="/bh_step/images/add_to_min_program_arrow.png"></image>
+    </view>
+    <image bindtap="onClickAddToMinProgramCloseBtn" class="as-close" src="/bh_step/images/add_to_min_program_close.png"></image>
+</view>
+<view class="index-heard relative" style="background: url({{ui.home_background_image}});background-size:100% 79%;background-repeat:no-repeat">
+    <view class="nav">
+        <view bindtap="showSigin" class="fl singinimg-1" style="color:{{ui.home_sigin_color}};background-image: linear-gradient(-90deg,{{ui.home_sigin_start_color}} 2%,{{ui.home_sigin_end_color}} 97%);">连续签到{{sigin.days?sigin.days:1}}天</view>
+        <view bindtap="gotoproblem" class="fr relative coin-rule" style="color:{{ui.home_understand_coin_color}}">了解{{currency_name}}</view>
+    </view>
+    <view class="heard-tag absolute">
+        <button bindgetuserinfo="getUserInfo" class="heard-tag-list absolute" formType="submit" openType="getUserInfo" wx:if="{{suspension.author.is_author==0}}">
+            <view class="tag-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;color:{{ui.home_suspension_coin_color}}">+{{suspension.author.currency}}</view>
+            <text style="color:{{ui.home_suspension_coin_describe_color}}">授权奖励</text>
+        </button>
+        <form bindsubmit="receive" class="heard-tag-list absolute" data-id="{{item.id}}" data-source="{{item.source}}" reportSubmit="true" wx:for="{{suspension.currency}}">
+            <button formType="submit" style="background:rgba(0,0,0,0);font-size:20rpx;">
+                <view class="tag-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;color:{{ui.home_suspension_coin_color}}">+{{item.currency}}</view>
+                <text style="color:{{ui.home_suspension_coin_describe_color}}">{{item.msg}}</text>
+            </button>
+        </form>
+        <button bindtap="videoAdShow" class="heard-tag-list absolute" wx:if="{{suspension.videoAd}}">
+            <view class="tag-coin" style="background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;color:{{ui.home_suspension_coin_color}}">+{{suspension.videoAd.currency}}</view>
+            <text style="color:{{ui.home_suspension_coin_describe_color}}">视频奖励</text>
+        </button>
+        <button bindtap="showdialog" class="heard-tag-list absolute" data-index="{{index}}" wx:for="{{suspension.task}}">
+            <view class="tag-coin" style="font-size:39rpx;background:url(\"{{ui.home_suspension_coin_img}}\");background-size: 100% 100%;color:{{ui.home_suspension_coin_color}}">+?</view>
+            <text style="color:{{ui.home_suspension_coin_describe_color}}">幸运金币</text>
+        </button>
+    </view>
+    <view class="center" style="background: url({{ui.home_my_coin_image}});background-size: 100%;color:{{ui.home_my_coin_color}}">
+        <view class="table-cell">
+            <view class="mycoin">我的{{currency_name}}</view>
+            <view class="coin-count">{{my_currency}}</view>
+        </view>
+    </view>
+    <view>
+        <view class="todaystep" style="color:{{ui.home_today_step_color}}">今日步数
+      <text class="todaystepcount" style="color:{{ui.home_today_step_num_color}}">{{today.effective_step}}</text>步</view>
+        <view class="inviteView relative">
+            <button class="inviteBtn" data-module="邀请好友领活力币" openType="share" style="color:{{ui.home_share_color}};background-image: linear-gradient(-90deg,{{ui.home_share_start_color}} 2%,{{ui.home_share_end_color}} 97%);" wx:if="{{audit_pattern!=2}}">
+        邀请好友即得
+        {{invitation.invitation_currency_start}}-{{invitation.invitation_currency_end}}
+        {{currency_name}}
+      </button>
+        </view>
+    </view>
+    <view class="ADcontant" wx:if="{{advertisement.upper&&advertisement.upper.length>0}}">
+        <view class="ADiconItem" data-index="{{index}}" data-type="upper" wx:for="{{advertisement.upper}}">
+            <navigator appId="{{item.appid}}" openType="{{item.open_type}}" path="{{item.path}}" target="{{item.target}}" url="{{item.url}}">
+                <image class="ADiconImage" src="{{item.icon}}"></image>
+                <view>{{item.title}}</view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="content">
+    <official-account></official-account>
+</view>
+<view class="content" wx:if="{{audit_pattern!=2}}">
+    <swiper autoplay circular="true" class="barrage_box" duration="500" interval="3000" vertical="true" wx:if="{{system_notice.length!=0}}">
+        <swiper-item wx:for="{{system_notice}}">
+            <view class="barrage_box_item">
+                <view class="barrage">
+                    <image class="barrage_img" src="./img/20181028135254.png"></image>
+                    <view class="barrage_text">
+                        <text style="color:red">{{item[0]}} :</text> {{item[1]}}</view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="share_view_new" wx:if="{{superior.superior_proportion>0}}">
+    <image class="share_view_new_add_icon" src="{{add_new_icon}}"></image>
+    <view class="share_view_new_text" wx:if="{{superior.step>0}}">已获<text class="sharenum">{{superior.step}}</text>步数转化加成<text>，邀请一个好友加成<text class="sharenum">{{superior.superior_proportion}}%</text>
+        </text>
+    </view>
+    <view class="share_view_new_text" wx:else>每邀一个好友获得好友 <text class="sharenum">{{superior.superior_proportion}}%</text> 步数转化{{currency_name}}加成</view>
+    <image class="share_view_new_arrow" src="./img/black_arror.png"></image>
+    <button bindtap="sharejiacheng" class="fade_btn" openType="share"></button>
+</view>
+<view class="content">
+    <view class="daily-redpack-area" wx:if="{{bag.is_open==1&&audit_pattern!=2}}">
+        <view class="daily-redpack-title">
+            <text class="daily-redpack-text">每日领红包</text>
+            <view class="daily-redpack-right-box">
+                <text class="redpack-remind-text">明日红包提醒</text>
+                <view bindtap="bgRemind" class="fr onOff relative {{remind==1?'active':''}}"></view>
+            </view>
+        </view>
+        <view bindtap="showBg" class="daily-redpack">
+            <image class="daily-redpack-gif" src="{{bag.is_bag==1?ui.home_redpack_send_image:ui.home_redpack_open_image}}"></image>
+            <view class="daily-redpack-text-box" style="color:{{ui.home_redpack_color}}">
+                <view class="hredEnvelope-title" wx:if="{{bag.is_bag==0}}">
+              每天瓜分
+              <text class="money">{{bag.bag_total_amount}}</text>元
+              </view>
+                <view class="hredEnvelope-tdaily-redpack-gifag" wx:if="{{bag.is_bag==0}}">
+                已有{{bag.number}}人参加
+              </view>
+                <view class="hredEnvelope-title" wx:if="{{bag.is_bag==1}}">
+                     给好友发红包
+               </view>
+                <view class="hredEnvelope-tag" wx:if="{{bag.is_bag==1}}">
+                   每邀请{{bag.bag_invitations_number}}位新用户再领一个红包
+               </view>
+            </view>
+        </view>
+    </view>
+    <view class="choujiang" style="padding:10rpx" wx:if="{{advertisement.home_middle}}">
+        <view wx:if="{{advertisement.home_middle.mode==1}}">
+            <navigator appId="{{advertisement.home_middle.appid}}" openType="{{advertisement.home_middle.open_type}}" path="{{advertisement.home_middle.path}}" target="{{advertisement.home_middle.target}}" url="{{advertisement.home_middle.url}}">
+                <view class="goodstitle" wx:if="{{advertisement.home_middle.title}}">{{advertisement.home_middle.title}}</view>
+                <view class="goodstag" wx:if="{{advertisement.home_middle.describe}}">{{advertisement.home_middle.describe}}</view>
+                <button class="sharebtn"></button>
+                <image src="{{advertisement.home_middle.icon}}" style="width:100%;height:165rpx;"></image>
+            </navigator>
+        </view>
+        <ad class="advert-las" unitId="{{advertisement.home_middle.flow_group_id}}" wx:if="{{advertisement.home_middle.mode==2}}"></ad>
+    </view>
+    <view wx:if="{{bindex==0}}" wx:for="{{goods}}" wx:for-index="bindex">
+        <view class="content-title">
+            <view class="title">
+                <view class="fl relative">{{item.category_name}}</view>
+            </view>
+            <view class="describe">{{item.category_describe}}</view>
+        </view>
+        <view class="commodity">
+            <view bindtap="goodsDetails" class="commodity-list fl" data-etype="{{list.exchange_type}}" data-id="{{list.id}}" wx:for="{{item.goods}}" wx:for-item="list">
+                <image class="commodity-img" src="{{list.cover_image_url}}"></image>
+                <view class="commodity-name">
+                    <text class="commodity-tag" style="{{list.exchange_type==2?'background-color: #FF9900':''}}" wx:if="{{(list.exchange_type==1||list.exchange_type==4)&&list.invitation_number>0||list.exchange_type==2||list.exchange_type==3}}">{{list.exchange_type==2||list.exchange_type==3?'砍步数':'邀好友'}}</text> {{list.goods_name}}
+        </view>
+                <view class="commodity-price">
+                    <text style="text-decoration:line-through">原价{{list.original_price}}¥</text>
+                    <text class="tag commodity-price-tag" wx:if="{{list.is_free==1}}">包邮</text>
+                    <text class="tag commodity-price-tag" wx:if="{{list.is_free==3}}">自提</text>
+                </view>
+                <view class="commodity-describe">
+                    <text class="coin">{{list.exchange_number>=10000?list.exchange_number/10000+'万':list.exchange_number}}</text> {{list.exchange_type==1||list.exchange_type==4?currency_name:'步'}}
+          {{list.exchange_type>2?'+':''}}<text class="coin" wx:if="{{list.exchange_type>2}}">{{list.money}}</text>{{list.exchange_type>2?'¥':''}}
+          
+        </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{bindex>0}}" wx:for="{{goods}}" wx:for-index="bindex">
+        <view class="content-title">
+            <view class="title">
+                <view class="fl relative">{{item.category_name}}</view>
+            </view>
+            <view class="describe">{{item.category_describe}}</view>
+        </view>
+        <view class="commodity">
+            <view bindtap="goodsDetails" class="commodity-list fl" data-etype="{{list.exchange_type}}" data-id="{{list.id}}" wx:for="{{item.goods}}" wx:for-item="list">
+                <image class="commodity-img" src="{{list.cover_image_url}}"></image>
+                <view class="commodity-name">
+                    <text class="commodity-tag" style="{{list.exchange_type==2?'background-color: #FF9900':''}}" wx:if="{{(list.exchange_type==1||list.exchange_type==4)&&list.invitation_number>0||list.exchange_type==2||list.exchange_type==3}}">{{list.exchange_type==2||list.exchange_type==3?'砍步数':'邀好友'}}</text> {{list.goods_name}}
+        </view>
+                <view class="commodity-price">
+                    <text style="text-decoration:line-through">原价{{list.original_price}}¥</text>
+                    <text class="tag commodity-price-tag" wx:if="{{list.is_free==1}}">包邮</text>
+                    <text class="tag commodity-price-tag" wx:if="{{list.is_free==3}}">自提</text>
+                </view>
+                <view class="commodity-describe">
+                    <text class="coin">{{list.exchange_number>=10000?list.exchange_number/10000+'万':list.exchange_number}}</text> {{list.exchange_type==1||list.exchange_type==4?currency_name:'步'}}
+          {{list.exchange_type>2?'+':''}}<text class="coin" wx:if="{{list.exchange_type>2}}">{{list.money}}¥</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="share-button" wx:if="{{audit_pattern==1}}">
+        <button bindgetuserinfo="onGotUserInfo2" class="bottom-buuton" data-module="分享至群" data-type="group" openType="share">{{home_bottom_share||'分享至群获得福利'}}</button>
+    </view>
+    <view class="share-describe" wx:if="{{audit_pattern!=2}}">{{home_bottom_font}}</view>
+</view>
+<view class="fixed Flipping" wx:if="{{audit_pattern!=2}}">
+    <button class="image relative tag-coin" openType="share" style="background: url(\"{{ui.home_invitation_coin}}\");background-size: 100% 100%;"></button>
+    <button class="text" openType="share">邀请领{{currency_name}}</button>
+</view>
+<view catchtouchmove="false" class="mengban" wx:if="{{author_show==1}}">
+    <view class="dialog beijing">
+        <view class="mydialog" style="background: url({{mydialog}});background-size: 100%;">
+            <view class="diatitle">{{authorization_first}}</view>
+            <view class="diatext">{{authorization_two}}</view>
+            <button bindgetuserinfo="getUserInfo" bindtap="closedialog" class="mydiabtn" lang="zh_CN" openType="getUserInfo"></button>
+        </view>
+    </view>
+</view>
+<view catchtouchmove="false" class="mengban" wx:if="{{ad_pop==1&&advertisement.ad_pop}}">
+    <view class="beijing" style="position:absolute;z-index:1001;top:50%;transform:translate(-50%,-50%);left:50%;border-radius:12rpx;">
+        <view bindtap="closedialog" class="closebtn">
+            <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAPFBMVEUAAAD////////////////////////////////////////////////////////////////////////////YSWgTAAAAE3RSTlMA+1f3Y0xSRBvem40oIxIODAnThBgT7wAAAJ9JREFUOMvl08kKwzAQA1AvrZfsrf7/XwuBsU5TXROim+CB8YDCNfKpLfhp9aD8IidXvjP6bqUCiMmXQBkvZLOOjMvoKZ7Wk3hZpdWSVktaLWm1pNWSVktaLWm1pKWUdqZUFpTCUorMp5wUs7/zvkLSajlFZXn5RCtkoFWSVkllTT5ym01tM69Wq9xmsXZ0xD/bzOjbaHtZgp+1bOFm+QE1fRM32pdv4wAAAABJRU5ErkJggg==" style="width:42rpx;height:42rpx"></image>
+        </view>
+        <navigator appId="{{advertisement.ad_pop.appid}}" openType="{{advertisement.ad_pop.open_type}}" path="{{advertisement.ad_pop.path}}" target="{{advertisement.ad_pop.target}}" url="{{advertisement.ad_pop.url}}">
+            <view class="mydialog" data-type="ad_pop" style="background: url({{advertisement.ad_pop.icon}});background-size: 100% 100%; width: 500rpx;"></view>
+        </navigator>
+    </view>
+</view>
+<view class="pop-mask" wx:if="{{bgShow}}"></view>
+<view class="daily-red-pack-pop" wx:if="{{bgShow}}">
+    <view class="daily-red-pack-pop-content" style=" background: url(\"{{ui.home_red_pack_bg}}\");background-size: 100%;">
+        <image bindtap="onCloseClick" class="close-btn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAZCP0B+I46Nu2rYBEDI5aw31tFz/uv6WZg1Usz5ahOCBuAAABe0lEQVQ4y3zRW3KDMBBE0baUIAUQD5unce7+l5mUKVKYCe5fTg09Ix2TzeMQvY/DOGd6m3IK7BKm8pRmDRCrunMpua6uItD8P97lENpFuyxtgNxZW/b4IumQVHh60+UK+U2yueVw1UsqKHSSAqrXuf6u09z9fnYJe2s1/PV2velgmvTbTXLyU3YkGX69Q/2oj+jju3HPm3jW12m2Eg+4HOzXdreCZt0uJK2T+dVH+7n+NYXnjhPt9vGy6Z3dFmuZJAUWGW2sFoKUESWjjZUimWYqWW2tKmaN1LLaWtWMGuhktbXqGBRxsvphrBxRniSrrVXC/3RWLikAwjAQNVJcW3Gp97+m0iEM7RRCs3+LpvObweX54bopjGeIxu1KeQYOFI1ro+VAfJ1obKT5dS6KaEyaokBuYYWG3DCSsqRpJFhUWdK0KM2vLGman7F6wQ704bHqA3uCHWjzwPY53y9tu9sKkYWSWaivXDHGlZsv83gm8gMUT1t+NOM5/gAVYCtQ5xvz/wAAAABJRU5ErkJggg=="></image>
+        <view class="join-condition-1">消耗{{bag.bag_currency}}{{currency_name}}参与瓜分</view>
+        <view class="join-condition-1" style="margin-top:20px;">{{bag.bag_total_amount}}元红包</view>
+        <image bindtap="receive_bg" class="join-btn" data-index="1" src="{{img_url}}/daily-red-pack/daily_red_pack_open_btn.png"></image>
+    </view>
+</view>
+<view class="pop-mask" wx:if="{{isBag}}"></view>
+<view class="daily-red-pack-pop" wx:if="{{isBag}}">
+    <view class="opened-red-pack-pop-content" style="background: url(\"{{img_url}}/daily-red-pack/daily_red_pack_opened_bg.png\");background-size: 100%;">
+        <image bindtap="onCloseClick" class="close-btn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAZCP0B+I46Nu2rYBEDI5aw31tFz/uv6WZg1Usz5ahOCBuAAABe0lEQVQ4y3zRW3KDMBBE0baUIAUQD5unce7+l5mUKVKYCe5fTg09Ix2TzeMQvY/DOGd6m3IK7BKm8pRmDRCrunMpua6uItD8P97lENpFuyxtgNxZW/b4IumQVHh60+UK+U2yueVw1UsqKHSSAqrXuf6u09z9fnYJe2s1/PV2velgmvTbTXLyU3YkGX69Q/2oj+jju3HPm3jW12m2Eg+4HOzXdreCZt0uJK2T+dVH+7n+NYXnjhPt9vGy6Z3dFmuZJAUWGW2sFoKUESWjjZUimWYqWW2tKmaN1LLaWtWMGuhktbXqGBRxsvphrBxRniSrrVXC/3RWLikAwjAQNVJcW3Gp97+m0iEM7RRCs3+LpvObweX54bopjGeIxu1KeQYOFI1ro+VAfJ1obKT5dS6KaEyaokBuYYWG3DCSsqRpJFhUWdK0KM2vLGman7F6wQ704bHqA3uCHWjzwPY53y9tu9sKkYWSWaivXDHGlZsv83gm8gMUT1t+NOM5/gAVYCtQ5xvz/wAAAABJRU5ErkJggg=="></image>
+        <view class="reward-box">
+            <view class="reward-text">获得现金红包（元）</view>
+            <view class="reward-money">¥{{bag_cash}}</view>
+            <view class="reward-text-2">红包已经存入我的-收益</view>
+        </view>
+        <button bindtap="showBagShare" class="open-more-btn" style="background: url(\"{{img_url}}/daily-red-pack/open_more_red_pack_btn.png\");background-size: 100%;"></button>
+    </view>
+</view>
+<view class="invite-red-pack-pop" wx:if="{{bag_unlock}}">
+    <view bindtap="gotoClosePop" class="pop-mask"></view>
+    <view class="invite-red-pack-pop-content" style="background-size: 100% 100%;background-image: url(\"{{img_url}}/daily-red-pack/white_bg.png\");">
+        <image bindtap="gotoClosePop" class="close-btn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAZCP0B+I46Nu2rYBEDI5aw31tFz/uv6WZg1Usz5ahOCBuAAABe0lEQVQ4y3zRW3KDMBBE0baUIAUQD5unce7+l5mUKVKYCe5fTg09Ix2TzeMQvY/DOGd6m3IK7BKm8pRmDRCrunMpua6uItD8P97lENpFuyxtgNxZW/b4IumQVHh60+UK+U2yueVw1UsqKHSSAqrXuf6u09z9fnYJe2s1/PV2velgmvTbTXLyU3YkGX69Q/2oj+jju3HPm3jW12m2Eg+4HOzXdreCZt0uJK2T+dVH+7n+NYXnjhPt9vGy6Z3dFmuZJAUWGW2sFoKUESWjjZUimWYqWW2tKmaN1LLaWtWMGuhktbXqGBRxsvphrBxRniSrrVXC/3RWLikAwjAQNVJcW3Gp97+m0iEM7RRCs3+LpvObweX54bopjGeIxu1KeQYOFI1ro+VAfJ1obKT5dS6KaEyaokBuYYWG3DCSsqRpJFhUWdK0KM2vLGman7F6wQ704bHqA3uCHWjzwPY53y9tu9sKkYWSWaivXDHGlZsv83gm8gMUT1t+NOM5/gAVYCtQ5xvz/wAAAABJRU5ErkJggg=="></image>
+        <view class="open-red-pack-tips">
+            <image class="gift-icon" src="{{giftImg64}}"></image>
+            <text class="gift-tips">发红包再开4个</text>
+        </view>
+        <view bindtap="receive_bg" class="item-container" data-index="{{index+2}}" data-redpackid="{{item.redpackId}}" data-type="{{item.redpackType}}" wx:for="{{bag_share}}" wx:key="{{item.redpackId}}">
+            <view class="red-pack-item {{index%2==0?'left-item':'right-item'}}" style="background-image:url({{img_url}}{{item.type==2?'/locked_red_pack.png':item.type==1?'/unlocked_red_pack.png':'/clickable_red_pack.png'}})">
+                <view wx:if="{{item.type==2}}">
+                    <view class="locked-item-text" wx:if="{{!item.waitfor}}">自动解锁剩余</view>
+                    <view class="locked-time-text" wx:if="{{!item.waitfor}}">
+                        <text class="locked-time">{{item.cooling}}</text>
+                        小时
+                    </view>
+                    <view class="locked-item-text" wx:if="{{item.waitfor}}">等待解锁</view>
+                    <view class="locked-time-text" wx:if="{{item.waitfor}}">
+                        <text class="locked-time"></text>
+                    </view>
+                    <view class="locked-item-status">待解锁</view>
+                </view>
+                <view wx:elif="{{item.type==1}}">
+                    <view class="red-pack-money">¥{{item.money}}</view>
+                    <view class="red-pack-status">已存入我的-收益</view>
+                </view>
+            </view>
+        </view>
+        <button class="invite-friend-btn" data-type="bag" id="daily-redpack-share" openType="share">
+            给好友发红包，他领你也领
+        </button>
+        <view class="invite-tips">每邀请{{bag.bag_invitations_number}}位新用户即可立刻解锁下一红包</view>
+    </view>
+</view>
+<view class="mask fixed" style="z-index:100" wx:if="{{isTask}}">
+    <view class="dialogview cash mask-box absolute" style="background: url({{img_url}}/wechat/luck/bg.png);background-size: 100%;">
+        <view class="luckcoin">
+            <text class="luckcount">+{{suspension.task[task_index].currency}}</text> {{currency_name}}</view>
+        <view bindtap="clickAD" class="luckactivate">{{activated?'已激活':'待激活'}}</view>
+        <image class="lucktitleimg" src="{{img_url}}/wechat/luck/newtitle.png"></image>
+        <view bindtap="clickAD" class="luckgADGDT">
+            <image class="luckgADImage" mode="widthFix" src="{{img_url}}/step2gift/normal_banner.png"></image>
+        </view>
+        <navigator appId="{{suspension.task[task_index].appid}}" bindfail="bindfail" bindsuccess="bindsuccess" openType="navigate" path="{{suspension.task[task_index].path}}" target="miniProgram" wx:if="{{suspension.task[task_index].is_web==1}}">
+            <image bindtap="clickAD" class="luckgAD" src="{{suspension.task[task_index].icon_url}}"></image>
+        </navigator>
+        <image bindtap="goToH5" class="luckgAD" src="{{suspension.task[task_index].icon_url}}" wx:else></image>
+        <view class="luckgADtext">{{suspension.task[task_index].title}}</view>
+        <view bindtap="clickAD" class="luckgBtn" wx:if="{{suspension.task[task_index].is_web==1}}">查看推荐领取幸运奖励</view>
+        <view bindtap="goToH5" class="luckgBtn" wx:else>查看推荐领取幸运奖励</view>
+        <image bindtap="closedialog" class="luckclose" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAZCP0B+I46Nu2rYBEDI5aw31tFz/uv6WZg1Usz5ahOCBuAAABe0lEQVQ4y3zRW3KDMBBE0baUIAUQD5unce7+l5mUKVKYCe5fTg09Ix2TzeMQvY/DOGd6m3IK7BKm8pRmDRCrunMpua6uItD8P97lENpFuyxtgNxZW/b4IumQVHh60+UK+U2yueVw1UsqKHSSAqrXuf6u09z9fnYJe2s1/PV2velgmvTbTXLyU3YkGX69Q/2oj+jju3HPm3jW12m2Eg+4HOzXdreCZt0uJK2T+dVH+7n+NYXnjhPt9vGy6Z3dFmuZJAUWGW2sFoKUESWjjZUimWYqWW2tKmaN1LLaWtWMGuhktbXqGBRxsvphrBxRniSrrVXC/3RWLikAwjAQNVJcW3Gp97+m0iEM7RRCs3+LpvObweX54bopjGeIxu1KeQYOFI1ro+VAfJ1obKT5dS6KaEyaokBuYYWG3DCSsqRpJFhUWdK0KM2vLGman7F6wQ704bHqA3uCHWjzwPY53y9tu9sKkYWSWaivXDHGlZsv83gm8gMUT1t+NOM5/gAVYCtQ5xvz/wAAAABJRU5ErkJggg==" style="top:0%;"></image>
+    </view>
+</view>
+<view catchtouchmove="false" class="mengban" wx:if="{{isshow_sigin}}">
+    <view class="dialog beijing">
+        <view>
+            <view class="signinheard" style=" background: url({{img_url}}/wechat/signinbc.png);background-size: 100%;">
+                <view class="signinone">已经连续签到<text style="font-size: 48rpx;font-family:\"DIN Alternate\";"> {{sigin.days}} </text>天</view>
+                <view class="signintwo">+<text style="font-size: 156rpx;font-family:\"DIN Alternate\"">{{sigin.currency}}</text>
+                </view>
+                <view class="signintre">今天签到奖励{{currency_name}}数</view>
+            </view>
+            <view class="stardiv" style="background-image: url({{img_url}}/wechat/star0.png);background-size: 100%;">
+                <view class="starspan" style="width:{{(sigin.days%7||7)/7*660}}rpx">
+                    <image class="singinimg" src="{{img_url}}/wechat/star1.png"></image>
+                </view>
+            </view>
+            <view class="signinfor">—— 连续签到第7天领大礼 ——</view>
+            <form-button bindtap="sendPushTime" wx:if="{{sigin.is_remind==0}}">
+                <view class="singinbtn">确认，并预约明天提醒</view>
+            </form-button>
+            <form-button bindtap="closedialog" wx:if="{{sigin.is_remind==0}}">
+                <view class="closepush">暂时不用提醒</view>
+            </form-button>
+            <form-button bindtap="closedialog" wx:if="{{sigin.is_remind==1}}">
+                <view class="singinqd">确定</view>
+            </form-button>
+        </view>
+    </view>
+</view>
+<view class="pop-mask" wx:if="{{give_step.goods&&giveShow}}"></view>
+<view class="daily-red-pack-pop" wx:if="{{give_step.goods&&giveShow}}">
+    <view style="position: relative;margin: 0 auto;width: 650rpx;height: 782rpx;text-align:center;background-size: 100% 100%;">
+        <image bindtap="onCloseClick" class="close-btn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAZCP0B+I46Nu2rYBEDI5aw31tFz/uv6WZg1Usz5ahOCBuAAABe0lEQVQ4y3zRW3KDMBBE0baUIAUQD5unce7+l5mUKVKYCe5fTg09Ix2TzeMQvY/DOGd6m3IK7BKm8pRmDRCrunMpua6uItD8P97lENpFuyxtgNxZW/b4IumQVHh60+UK+U2yueVw1UsqKHSSAqrXuf6u09z9fnYJe2s1/PV2velgmvTbTXLyU3YkGX69Q/2oj+jju3HPm3jW12m2Eg+4HOzXdreCZt0uJK2T+dVH+7n+NYXnjhPt9vGy6Z3dFmuZJAUWGW2sFoKUESWjjZUimWYqWW2tKmaN1LLaWtWMGuhktbXqGBRxsvphrBxRniSrrVXC/3RWLikAwjAQNVJcW3Gp97+m0iEM7RRCs3+LpvObweX54bopjGeIxu1KeQYOFI1ro+VAfJ1obKT5dS6KaEyaokBuYYWG3DCSsqRpJFhUWdK0KM2vLGman7F6wQ704bHqA3uCHWjzwPY53y9tu9sKkYWSWaivXDHGlZsv83gm8gMUT1t+NOM5/gAVYCtQ5xvz/wAAAABJRU5ErkJggg=="></image>
+        <view>
+            <view class="cutstep" style="background: url({{img_url}}/wechat/cutstep/bc1.png);background-size: 100%;" wx:if="{{give_status==1}}">
+                <view class="usericonview">
+                    <image class="usericon" src="{{give_step.member.head}}"></image>
+                </view>
+                <view class="username"></view>
+                <view class="cuttext">邀请你帮忙砍步数</view>
+                <view class="cuttext">一起免费兑换商品</view>
+                <view class="gooodsview">
+                    <view class="goodsimgview">
+                        <image src="{{give_step.goods.cover_image}}" style="height: 168rpx;width: 168rpx;"></image>
+                    </view>
+                    <view class="goodstext">
+                        <view class="productName" style="position:absolute">{{give_step.goods.goods_name}}</view>
+                        <view class="media-box__desc">
+                            <text class="text-orangered">
+                            原价 ¥ {{give_step.goods.original_price}}
+                        </text>
+                        </view>
+                        <view class="energyCoin">0元 {{give_step.goods.is_free==1?'包邮':''}}兑换</view>
+                    </view>
+                </view>
+                <view bindtap="tapcut" class="dig-button">立即帮砍</view>
+                <image bindtap="onCloseClick" class="luckclose" src="{{img_url}}/wechat/cutstep/close.png"></image>
+                <image class="bccolor" src="{{img_url}}/wechat/cutstep/color.png" style="height:572rpx"></image>
+            </view>
+            <view class="cutstep" style="background: url({{img_url}}/wechat/cutstep/bc1.png);background-size: 100%;" wx:if="{{give_status==2}}">
+                <view class="usericonview">
+                    <image class="usericon" src="{{give_step.member.head}}"></image>
+                </view>
+                <view class="username"></view>
+                <view class="cuttext">帮砍成功</view>
+                <view class="cuttext">成功砍了{{cut_step}}步</view>
+                <view class="gooodsview">
+                    <view class="goodsimgview">
+                        <image src="{{give_step.goods.cover_image}}" style="height: 168rpx;width: 168rpx;"></image>
+                    </view>
+                    <view class="goodstext">
+                        <view class="productName" style="position:absolute">{{give_step.goods.goods_name}}</view>
+                        <view class="media-box__desc">
+                            <text class="text-orangered">
+                            原价 ¥ {{give_step.goods.original_price}}
+                        </text>
+                        </view>
+                        <view class="energyCoin">0元 {{give_step.goods.is_free==1?'包邮':''}}兑换</view>
+                    </view>
+                </view>
+                <view bindtap="shareGoods" class="dig-button">我也要免费拿</view>
+                <view class="buttontext">分享到群聊更容易成功哦~</view>
+                <image bindtap="onCloseClick" class="luckclose" src="{{img_url}}/wechat/cutstep/close.png"></image>
+                <image class="bccolor" src="{{img_url}}/wechat/cutstep/color.png" style="height:572rpx"></image>
+            </view>
+        </view>
+    </view>
+</view>

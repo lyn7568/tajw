@@ -1,0 +1,32 @@
+<view class="head">
+    <image src="{{challenge_image}}"></image>
+</view>
+<view bindtap="gotohisory" class="guize">参与历史></view>
+<view class="challengelist">
+    <view class="list status{{index%3+1}}" wx:for="{{challenge}}">
+        <view class="title">
+            <text>挑战{{item.step_number}}步</text> 第{{item.stage}}期
+    </view>
+        <view class="time">挑战时间：{{item.days}}</view>
+        <view class="listflex">
+            <view class="canyumsg">
+                <view class="canyutitle">参与人数(人)</view>
+                <view class="num">{{item.apply_number}}</view>
+            </view>
+            <view class="canyuline"></view>
+            <view class="canyumsg">
+                <view class="canyutitle">奖池{{currency_name}}</view>
+                <view class="num">
+                    <text class="txt1">{{item.apply_number*item.currency}}</text>
+                </view>
+            </view>
+        </view>
+        <form bindsubmit="signup" data-id="{{item.id}}" reportSubmit="true">
+            <button class="listbtn" formType="submit" style="background:#E0B9DE;color:#FFF;" wx:if="{{item.is_apply}}">已参与</button>
+            <button class="listbtn" formType="submit" wx:else>参与挑战</button>
+        </form>
+    </view>
+</view>
+<view class="advert" wx:if="{{my_center_group}}">
+    <ad class="advert-las" unitId="{{my_center_group}}"></ad>
+</view>

@@ -1,0 +1,139 @@
+page {
+    background: #fff;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.top {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.edit .top .pic {
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4rem;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.edit .top .userName {
+    display: flex;
+    width: 100%;
+    font-size: 0.9rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.edit .top .id {
+    display: flex;
+    width: 100%;
+    font-size: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.list .li {
+    display: flex;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    height: 3.4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.list .li .label {
+    display: flex;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.list .li .tips {
+    display: flex;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.list .li .con {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    margin: 0 0.5rem;
+}
+
+.list .li .con .radio-group {
+    display: flex;
+}
+
+.list .li .con .radio {
+    display: flex;
+    font-size: 0.9rem;
+    color: #666;
+    margin-right: 0.5rem;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+    border: none;
+    background: -webkit-linear-gradient(0deg,#7962fb,#b36de1);
+}
+
+.list .li .con .select {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+}
+
+.list .li .con picker {
+    display: block;
+    width: 100%;
+}
+
+.list .li .con picker .picker {
+    width: 100%;
+    height: 1.8rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.list .li .con input {
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.submit {
+    display: flex;
+    flex: 1;
+    -webkit-box-flex: 1;
+    height: 2.6rem;
+    border-radius: 2rem;
+    background: linear-gradient(-90deg,#26BCC5 2%,#1DD49E 97%);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-top: 4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.submit.no {
+}

@@ -1,0 +1,11 @@
+<view class="swiper_box_container">
+    <swiper autoplay="{{true}}" bindchange="swiperchange" circular="{{true}}" class="swiper_box" duration="500" indicatorDots="{{false}}" interval="5000" vertical="{{false}}">
+        <swiper-item class="swiper_item" wx:for="{{swiperItemList}}" wx:key="{{index}}">
+            <image class="slide_image" data-index="{{index}}" mode="aspectFit" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="swiper_index" wx:if="{{swiperItemList&&swiperItemList.length>0}}">
+        <text class="current_pager">{{current+1}}</text> /
+    <text class="total_pager"> {{swiperItemList.length}}</text>
+    </view>
+</view>

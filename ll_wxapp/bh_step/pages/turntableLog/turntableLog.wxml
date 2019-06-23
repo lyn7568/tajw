@@ -1,0 +1,60 @@
+<view class="card-item" wx:if="{{orders.length>0}}" wx:for="{{orders}}">
+    <view class="express-card">
+        <view class="express-card-top">
+            <view class="express-top-right" style="color:#{{orderStatus[item.status]}}">{{item.status_msg}}</view>
+        </view>
+        <view class="express-card-bottom">
+      {{item.created}}
+    </view>
+    </view>
+    <view class="driver"></view>
+    <view class="media-box media-box_appmsg">
+        <view class="media-box__hd media-box__hd_in-appmsg" style="margin-left:{{isStepItem?'20':'30'}}rpx">
+            <view class="newusertag" style="background: url({{img_url}}/wechat/newusertag.png)" wx:if="{{goods.user_type&&goods.user_type===1}}"></view>
+            <image class="" mode="widthFix" src="{{item.turntable.image}}" style="width:65rpx;height:65rpx"></image>
+        </view>
+        <view class="media-box__bd media-box__bd_in-appmsg">
+            <view class="media-box__title" style="-webkit-line-clamp:{{isGoodsDialog?2:100}}">
+        {{item.turntable.prize_name}}
+      </view>
+        </view>
+    </view>
+    <view class="order-card" wx:if="{{item.type==3&&item.address}}">
+        <view class="driver-bh"></view>
+        <view class="address-card">
+            <image class="card-icon icon-locate" mode="widthFix" src="{{img_url}}/step2gift/address_locate.png"></image>
+            <view class="label-info">
+                <view class="label-address">
+          收货人： {{item.name}}
+          <text> {{item.phone}}</text>
+                </view>
+                <view class="address">
+          收货地址：{{item.address}}
+        </view>
+                <view class="error-info" wx:if="{{item.status===4}}">{{item.fail_reason}}</view>
+            </view>
+        </view>
+        <view class="driver"></view>
+        <view class="waybill-info" wx:if="{{item.courier_number&&(item.status==2||item.status==3)}}">
+            <view class="waybill-left">
+                <image class="express-icon" src="{{img_url}}/step2gift/my_express_icon.png"></image>
+        运单信息：{{item.courier_name}} {{item.courier_number}}
+      </view>
+            <view bindtap="copy" class="waybill-btn" data-value="{{item.courier_number}}" hoverClass="btn-hover">
+        复制
+      </view>
+        </view>
+    </view>
+    <view class="public-card" wx:if="{{item.type==3&&!item.address}}">
+        <view bindtap="addAddress" class="btn">+添加收货地址</view>
+    </view>
+</view>
+<view class="container" wx:if="{{orders.length==0}}">
+    <view class="img-box">
+        <image class="box-image" src="{{img_url}}/step2gift/my_orders_nodata.png"></image>
+        <text class="img-text">您没有中奖信息~</text>
+    </view>
+    <view class="btn-pre">
+        <view bindtap="nagativeToIndex" class="btn-change" hoverClass="btn-hover">去抽奖</view>
+    </view>
+</view>

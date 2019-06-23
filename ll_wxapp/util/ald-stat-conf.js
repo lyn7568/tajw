@@ -1,0 +1,1 @@
+exports.app_key = wx.getStorageSync("ald_key"), exports.getLocation = !1, exports.plugin = !1;

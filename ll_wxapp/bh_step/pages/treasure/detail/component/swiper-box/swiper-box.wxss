@@ -1,0 +1,51 @@
+.swiper_box_container {
+    position: relative;
+    display: block;
+    height: 750rpx;
+    width: 100%;
+}
+
+.swiper_box {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+}
+
+.swiper_item {
+    overflow: hidden;
+    vertical-align: middle;
+    position: relative;
+    height: 100%;
+}
+
+.slide_image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.swiper_index {
+    position: absolute;
+    right: 30rpx;
+    bottom: 49rpx;
+    width: 80rpx;
+    height: 40rpx;
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    font-family: DIN Alternate;
+    text-align: center;
+    line-height: 30rpx;
+    font-size: 22rpx;
+    border-radius: 100rpx;
+}
+
+.current_pager {
+    line-height: 40rpx;
+    font-size: 34rpx;
+}
+
+.total_pager {
+    line-height: 35rpx;
+    font-size: 30rpx;
+}

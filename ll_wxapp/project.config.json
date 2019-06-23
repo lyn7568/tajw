@@ -30,13 +30,25 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "记步金",
+					"pathName": "bh_step/pages/index/index",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

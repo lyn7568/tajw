@@ -1,0 +1,93 @@
+<image class="hd-bg" src="{{income_banner}}"></image>
+<view bindtap="bindRecordBtn" class="record">收益记录</view>
+<view class="withdraw-box">
+    <view class="withdraw-title">可提金额</view>
+    <view class="withdraw-num">{{moeny}}</view>
+</view>
+<view class="input-box {{follow_cash.type&&!follow_cash.is_pwd?'input-box-height':''}} {{cash_type==2?'input-box-cash-height':''}}">
+    <view class="input-title">提现金额</view>
+    <view class="input-model-box">
+        <view>¥</view>
+        <input bindinput="bindKeyInput" class="input-model" placeholder="最少提现{{least_money}}元" placeholderClass="input-placeholder" type="digit" value="{{cash_money?cash_money:''}}"></input>
+        <view bindtap="bindWithdrawAllClick" class="input-all">全部</view>
+    </view>
+    <view class="input-line" wx:if="{{cash_type==2}}"></view>
+    <view class="input-model-box" wx:if="{{cash_type==2}}">
+        <input bindinput="bindalipayInput" class="input-model" placeholder="请输入支付宝账号" placeholderClass="input-placeholder" type="text" value="{{alipay?alipay:''}}"></input>
+    </view>
+    <view class="input-line" wx:if="{{cash_type==2}}"></view>
+    <view class="input-line" wx:if="{{cash_type==2}}"></view>
+    <view class="input-model-box" wx:if="{{cash_type==2}}">
+        <input bindinput="bindalipaynameInput" class="input-model" placeholder="请输入支付宝上姓名" placeholderClass="input-placeholder" type="text" value="{{alipay_name?alipay_name:''}}"></input>
+    </view>
+    <view class="input-line" wx:if="{{cash_type==2}}"></view>
+    <view class="input-line"></view>
+    <view class="input-model-box" wx:if="{{follow_cash.type&&!follow_cash.is_pwd}}">
+        <input bindinput="bindpwdInput" class="input-model" placeholder="请输入提现口令" placeholderClass="input-placeholder" type="text" value="{{pwd?pwd:''}}"></input>
+    </view>
+    <view class="input-line" wx:if="{{follow_cash.type&&!follow_cash.is_pwd}}"></view>
+    <view bindtap="bindWithdrawBtnClick" class="input-withdraw btn">提现</view>
+    <button bindtap="show_pwd" class="input-invite btn" wx:if="{{follow_cash.type&&!follow_cash.is_pwd}}">获取提现口令</button>
+    <button class="input-invite btn" openType="share" wx:else>邀请好友，一起领红包</button>
+</view>
+<view class="ad" wx:if="{{isShowAd}}">
+    <ad binderror="bindAdError" unitId="adunit-30e0c30af902a958"></ad>
+</view>
+<view class="tip-tt tip">提现说明：</view>
+<view class="tip-content tip" wx:if="{{!cash_explain}}">1.余额满{{first_presentation}}元可提现；</view>
+<view class="tip-content tip" wx:if="{{!cash_explain}}">2.后续每笔提现至少要{{follow_up_presentation}}元；</view>
+<view class="tip-content tip" wx:if="{{!cash_explain}}">3.单日提现上限为{{bag_daily_upper}}元；</view>
+<view class="tip-content tip" wx:if="{{!cash_explain}}">4.微信官方为保证资金安全要求，提现至微信钱包需完成实名认证；</view>
+<view class="tip-content tip" wx:if="{{!cash_explain}}">5.提现成功后，24小时内转账到微信零钱包；</view>
+<view class="tip-content tip" wx:if="{{!cash_explain}}">6.如有疑问请通过小程序联系客服。</view>
+<view class="tip-content tip" wx:if="{{cash_explain}}" wx:for="{{cash_explain}}">{{index+1}}.{{item}}</view>
+<view style="height:100rpx;" wx:if="{{isTipPop}}"></view>
+<view bindtap="closeTipPop" class="pop-bg" wx:if="{{isTipPop}}">
+    <view catchtap="bindPopBoxClick" class="pop-box">
+        <image catchtap="closeTipPop" class="pop-close" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAYAAADQBxWhAAAAAXNSR0IArs4c6QAAAYJJREFUSA21l0FugzAQRTFdcIAuejyWrLOI1EiVAqv2CrDjeFn0AEitqD/1oIlj7BlDLDke7D//2VZMnKKwZRzHV1TEzyi+f9n3/Wmaphuqjd+PhsKT+Z/gb4Zh+Jnn+YXBuqZpWvacHVogfK5kYIz5rarqraQO1l6dmHXpQx/IHUq7yg/e4eJd4C0gWHVdf5d2K78sqDsKvAUEw7EKQ7CEuCVdrJV6rFCYSZNCYE3uHTQXrAGC8QDVgrXATagUnAOMQlNgjNuyHvz/x+Uz+XIJbi8ziH25uIziJBDCJBSiyDZimIoICLEICmECLAbCK/TuRf9Ti2iliVXSBMWrTUKFQBU4Co0AO0c59sjEgPQjL9HQFvA2uFKNmUZL4Adojok25w6qTaaZo9XkrlBNEofxWOqxQKViDtiKJV7GinDX/QyYiA+7nxsBX3BPCt174ZENpAmEwLF7724gwO4sdzQJ3uLee8YMUO0Alt9ywZ7YeV3IHyzcexdP/w/OHlAo1/f/A3kHEQfpE0u3AAAAAElFTkSuQmCC"></image>
+        <view class="pop-tt">提现提示</view>
+        <view class="pop-content">
+      为了您的资金安全，本次提现需关注“{{wechat_name}}”公众号，完成提现
+    </view>
+        <button bindcontact="bindContactEvent" class="pop-btn" openType="contact" sessionFrom="bbztx">点击回复: 1</button>
+    </view>
+</view>
+<view bindtap="closecash" catchtouchmove="false" class="mengban" wx:if="{{follow_cash_show}}">
+    <view class="dialog1 beijing">
+        <view class="mydialog1" style="background: url({{follow_cash_image}}) no-repeat;background-size: 100%;">
+            <view class="diatitle"></view>
+            <view class="diatext"></view>
+            <button bindtap="closedialog" class="mydiabtn" lang="zh_CN" openType="contact" style="margin-top: 600rpx;"></button>
+        </view>
+    </view>
+</view>
+<view catchtouchmove="false" class="mengban" wx:if="{{author_show}}">
+    <view class="dialog beijing">
+        <view bindtap="closedialog" class="closebtn">
+            <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAPFBMVEUAAAD////////////////////////////////////////////////////////////////////////////YSWgTAAAAE3RSTlMA+1f3Y0xSRBvem40oIxIODAnThBgT7wAAAJ9JREFUOMvl08kKwzAQA1AvrZfsrf7/XwuBsU5TXROim+CB8YDCNfKpLfhp9aD8IidXvjP6bqUCiMmXQBkvZLOOjMvoKZ7Wk3hZpdWSVktaLWm1pNWSVktaLWm1pKWUdqZUFpTCUorMp5wUs7/zvkLSajlFZXn5RCtkoFWSVkllTT5ym01tM69Wq9xmsXZ0xD/bzOjbaHtZgp+1bOFm+QE1fRM32pdv4wAAAABJRU5ErkJggg==" style="width:42rpx;height:42rpx"></image>
+        </view>
+        <view class="mydialog" style="background: url({{mydialog}});background-size: 100%;">
+            <view class="diatitle">{{authorization_first}}</view>
+            <view class="diatext">{{authorization_two}}</view>
+            <button bindgetuserinfo="getUserInfo" bindtap="closedialog" class="mydiabtn" lang="zh_CN" openType="getUserInfo"></button>
+        </view>
+    </view>
+</view>
+<view class="mask fixed" style="z-index:100" wx:if="{{is_task}}">
+    <view class="dialogview cash mask-box absolute" style="background: url({{img_url}}/wechat/luck/bg.png);background-size: 100%;">
+        <view class="luckcoin">试玩20秒</view>
+        <view bindtap="clickAD" class="luckactivate">{{activated?'已完成':'待完成'}}</view>
+        <image class="lucktitleimg" src="{{img_url}}/wechat/luck/newtitle.png"></image>
+        <view bindtap="clickAD" class="luckgADGDT">
+            <image class="luckgADImage" mode="widthFix" src="{{img_url}}/step2gift/normal_banner.png"></image>
+        </view>
+        <navigator appId="{{cash_task.appid}}" bindfail="bindfail" bindsuccess="bindsuccess" openType="navigate" path="{{cash_task.path}}" target="miniProgram" wx:if="{{cash_task.is_web==1}}">
+            <image bindtap="clickAD" class="luckgAD" src="{{cash_task.icon_url}}"></image>
+        </navigator>
+        <image bindtap="goToH5" class="luckgAD" src="{{cash_task.icon_url}}" wx:else></image>
+        <view class="luckgADtext">{{cash_task.title}}</view>
+        <view bindtap="clickAD" class="luckgBtn" wx:if="{{cash_task.is_web==1}}">试玩推荐并提现</view>
+        <view bindtap="goToH5" class="luckgBtn" wx:else>试玩推荐并提现</view>
+        <image bindtap="closedialogtask" class="luckclose" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9RKvvlAAAAHnRSTlMAZCP0B+I46Nu2rYBEDI5aw31tFz/uv6WZg1Usz5ahOCBuAAABe0lEQVQ4y3zRW3KDMBBE0baUIAUQD5unce7+l5mUKVKYCe5fTg09Ix2TzeMQvY/DOGd6m3IK7BKm8pRmDRCrunMpua6uItD8P97lENpFuyxtgNxZW/b4IumQVHh60+UK+U2yueVw1UsqKHSSAqrXuf6u09z9fnYJe2s1/PV2velgmvTbTXLyU3YkGX69Q/2oj+jju3HPm3jW12m2Eg+4HOzXdreCZt0uJK2T+dVH+7n+NYXnjhPt9vGy6Z3dFmuZJAUWGW2sFoKUESWjjZUimWYqWW2tKmaN1LLaWtWMGuhktbXqGBRxsvphrBxRniSrrVXC/3RWLikAwjAQNVJcW3Gp97+m0iEM7RRCs3+LpvObweX54bopjGeIxu1KeQYOFI1ro+VAfJ1obKT5dS6KaEyaokBuYYWG3DCSsqRpJFhUWdK0KM2vLGman7F6wQ704bHqA3uCHWjzwPY53y9tu9sKkYWSWaivXDHGlZsv83gm8gMUT1t+NOM5/gAVYCtQ5xvz/wAAAABJRU5ErkJggg==" style="top:0%;"></image>
+    </view>
+</view>

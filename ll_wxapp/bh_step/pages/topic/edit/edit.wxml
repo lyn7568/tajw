@@ -1,0 +1,18 @@
+<view class="edit">
+    <view class="top">
+        <view class="pic">
+            <image mode="widthFix" src="{{member.head}}"></image>
+        </view>
+        <view class="userName">{{member.nickname}}</view>
+        <view class="id">ID:{{member.id}}</view>
+    </view>
+    <view class="list">
+        <view class="li">
+            <text class="label">签名</text>
+            <view class="con">
+                <input bindinput="bindinpt" placeholder="本宝宝还没有想好签名" value="{{member.autograph}}"></input>
+            </view>
+        </view>
+    </view>
+    <button bindtap="preserve" class="submit no">保存</button>
+</view>

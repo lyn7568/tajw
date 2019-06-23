@@ -1,0 +1,121 @@
+<SwiperBox swiperItemList="{{treasure.images}}"></SwiperBox>
+<view class="activity_info_container">
+    <view class="goods_title_container">
+        <image class="activity_tag" src="{{treasure.status==1?image.running_tag_1:treasure.is_luck?image.zhongjian_tag:image.end_tag_2}}"></image>
+        <view class="activity_title">{{treasure.name}}</view>
+    </view>
+    <view class="activity_middle_info">
+        <view class="periods_info">期号:{{treasure.issue_number}}</view>
+        <view bindtap="hindleLookNumber" class="top_look_num" wx:if="{{treasure.status==1}}">
+            <text style="padding-right: 8rpx;vertical-align: middle;">查看我的夺宝号码</text>
+            <image class="top_look_num_arrow" src="{{image.red_arrow}}"></image>
+        </view>
+        <view class="activity_open_info" wx:elif="{{treasure.status==2}}">开奖时间: {{treasure.lottery_time}}</view>
+    </view>
+    <block wx:if="{{treasure.status==1}}">
+        <view class="activity_progress">
+            <view class="progress_top_bg">
+                <view class="progress_bottom" style="width:{{treasure.percent}}%;"></view>
+            </view>
+            <text class="activity_progress_text">{{treasure.percent}}%</text>
+        </view>
+        <view class="join_people_num">
+            <view class="max_num">总需{{treasure.number_copies}}份</view>
+            <view class="difference_num key_point">还差{{treasure.number_copies-treasure.treasure_code_count}}份</view>
+        </view>
+    </block>
+    <block wx:elif="{{treasure.status==2}}">
+        <view class="winning_user_info">
+            <view class="winning_user_icon_container">
+                <image class="winning_user_icon" src="{{treasure.prize.member.head}}"></image>
+            </view>
+            <view class="winning_user_detail">
+                <view class="one_line">
+                    <text class="middle">获奖用户:</text>
+                    <text class="winning_user_name middle">{{treasure.prize.member.nickname}}</text>
+                </view>
+                <view class="one_line" style="margin-top:8rpx;">
+                    <text class="middle">本期购买:</text>
+                    <text class="winning_user_buy_num middle">{{treasure.prize.code_num}}份</text>
+                </view>
+            </view>
+            <image class="winning_user_tag" src="{{image.winning_tag}}"></image>
+        </view>
+        <view class="lucky_num" wx:if="{{treasure.status==2}}">
+            <view>幸运号码：</view>
+            <view style="font-size: 42rpx;">{{treasure.prize.code}}</view>
+        </view>
+        <view class="winning_line"></view>
+        <view class="look_number_item" wx:if="{{treasure.status==2}}">
+            <view class="look_number_item_title">{{treasure.is_luck?'恭喜你获奖~':'下一个幸运儿就是你~'}}</view>
+            <view bindtap="hindleLookNumber" class="right_tip">查看我的夺宝号码</view>
+            <image class="arrow" src="{{image.arrow}}"></image>
+        </view>
+    </block>
+</view>
+<view style="border-top: 18rpx #F2F1F2 solid;"></view>
+<view id="goods_extra_info_tab" style="min-height:0rpx;background-color: #fff;">
+    <view class="goods_extra_info_tab">
+        <view class="goods_extra_info_tab_item goods_extra_info_tab_item_selected">参与记录</view>
+    </view>
+    <block wx:if="{{data&&data.length>0}}">
+        <view class="exchange_record_list">
+            <view class="exchange_record_item" wx:for="{{data}}">
+                <view class="exchange_record_user_icon_container">
+                    <image class="exchange_record_user_icon" src="{{item.member.head}}"></image>
+                </view>
+                <view class="exchange_record_user_name">{{item.member.nickname}}</view>
+                <view class="exchange_record_goods_name">+{{item.number_copies}}份</view>
+                <view class="exchange_record_time">{{item.created}}</view>
+                <view class="exchange_record_line"></view>
+            </view>
+        </view>
+        <view bindtap="handleSeeMoreRecord" class="get_more" wx:if="{{isover}}">
+            <text class="get_more_text">查看更多</text>
+            <image class="see_more_arrow" src="{{image.open_arrow}}"></image>
+        </view>
+    </block>
+    <view style="margin-top:120rpx;" wx:else>
+        <image src="{{image.no_data_img}}" style="height:218rpx;width:415rpx;display:block;margin:0 auto;"></image>
+        <view style="font-family: PingFangSC-Regular;font-size: 36rpx;color: #434343;text-align: center;margin-top:29rpx;">暂无相关记录</view>
+    </view>
+</view>
+<view class="fade_bottom_btn {{isIphoneX?'isIphoneX_btn':''}}">
+    <view class="bottom_btn">
+        <view bindtap="hanleExchangeClick" class="bottom_btn_inner" wx:if="{{treasure.status==1}}">夺宝免费拿</view>
+        <view class="bottom_btn_inner gray" wx:elif="{{treasure.status==2}}">已开奖</view>
+    </view>
+</view>
+<view bindtap="handleClose" catchtouchmove="catchtouchmove" class="exchange_dialog {{isClosing?'isClosing':''}}" wx:if="{{purchase_show}}">
+    <view catchtap="catchtouchmove" class="exchange_dialog_container {{isIphoneX?'isIphoneX':''}}">
+        <view style="margin-bottom:164rpx;">
+            <view class="exchange_top_info">
+                <view class="exchange_tip_title">选择份额</view>
+                <view class="total_coin">我的{{image.currency_name}}:
+            <text style="color: #FA4A37;">{{member.currency}}</text>
+                </view>
+            </view>
+            <view class="chose_container">
+                <image bindtap="handleLessOne" class="chose_item del" mode="scaleToFill" src="{{image.add}}"></image>
+                <input bindinput="bindInputNum" class="chose_num_info" type="number" value="{{currentNun}}"></input>
+                <image bindtap="handleAddOne" class="chose_item add" mode="scaleToFill" src="{{image.del}}"></image>
+            </view>
+        </view>
+        <view bindtap="handleBuy" class="bottom_btn">
+            <view class="bottom_btn_inner">消耗{{currentNun*treasure.price||0}}{{image.currency_name}}购买</view>
+        </view>
+    </view>
+</view>
+<view bindtap="close" catchtouchmove="catchtouchmove" class="look_num_dialog" wx:if="{{close_code}}">
+    <view catchtap="catchtouchmove" class="look_num_dialog_container">
+        <image bindtap="close" class="close_btn" src="{{image.close}}"></image>
+        <view class="title">我的夺宝号码</view>
+        <scroll-view scrollY class="num_list" wx:if="{{code&&code.length>0}}">
+            <view>
+                <view class="num_item" wx:for="{{code}}">{{item.code}}</view>
+            </view>
+        </scroll-view>
+        <view class="no_num_tip" wx:else>还没有购买份数哦，快用{{image.currency_name}}免费购买，赢取幸运大礼吧~</view>
+        <view bindtap="close" class="ok_btn">确定</view>
+    </view>
+</view>

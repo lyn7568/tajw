@@ -1,0 +1,583 @@
+.container {
+    margin-bottom: 136rpx;
+}
+
+.bodyLock {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 0;
+}
+
+.swiper-box {
+    width: 100%;
+    height: 750rpx;
+}
+
+.swiper-box .slide-image {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.shopping-container {
+    padding: 0 30rpx 45rpx 30rpx;
+}
+
+.shopping-container .name {
+    margin: 24rpx 0 26rpx 0;
+    color: #434343;
+    font-size: 33rpx;
+    line-height: 46rpx;
+    font-family: PingFangSC-Medium;
+    text-align: left;
+    font-weight: bold;
+}
+
+.price-babel {
+    display: flex;
+    text-align: center;
+    position: relative;
+}
+
+.energy-price {
+    color: #666666;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    margin-right: 12rpx;
+}
+
+.energy-price text {
+    color: #26BCC5;
+    font-size: 42rpx;
+    line-height: 42rpx;
+    font-family: DIN Alternate;
+    font-weight: bold;
+}
+
+.pre-price {
+    color: #999999;
+    font-size: 24rpx;
+    text-decoration: line-through;
+    line-height: 33rpx;
+    padding-top: 12rpx;
+}
+
+.shopping-container .shopping-left {
+    color: #999999;
+    line-height: 33rpx;
+    font-size: 24rpx;
+}
+
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-pager {
+    position: absolute;
+    right: 30rpx;
+    bottom: 49rpx;
+    width: 80rpx;
+    height: 40rpx;
+    background: rgba(0,0,0,.2);
+    color: #fff;
+    font-family: DIN Alternate;
+    text-align: center;
+    line-height: 30rpx;
+    font-size: 22rpx;
+    border-radius: 100rpx;
+}
+
+.current-pager {
+    line-height: 40rpx;
+    font-size: 34rpx;
+}
+
+.total-pager {
+    line-height: 35rpx;
+    font-size: 30rpx;
+}
+
+.show-title {
+    margin-left: 30rpx;
+    font-size: 42rpx;
+    line-height: 59rpx;
+    color: #030303;
+    font-weight: bold;
+    background: linear-gradient(to bottom,#ffffff 60%,#D4F2F3 40%);
+    float: left;
+    margin-bottom: 34rpx;
+}
+
+.img-item {
+    width: 100%;
+}
+
+.btn-plus {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 128rpx;
+    color: #ffffff;
+    background-color: #ffffff;
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1rpx solid #dcdcdc;
+}
+
+.btn-change {
+    color: #fff;
+    width: 93.6%;
+    height: 90rpx;
+    background: linear-gradient(-90deg,#1DD49E 2%,#26BCC5 97%);
+    letter-spacing: -1.22px;
+    font-size: 40rpx;
+    border: none;
+    border-radius: 8rpx;
+    line-height: 90rpx;
+}
+
+.btn-change:after {
+    border: 0;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 20;
+}
+
+.share {
+    color: #26BCC5;
+    font-size: 24rpx;
+}
+
+.btn-share {
+    border: none;
+    background-color: #fff;
+    right: 0rpx;
+    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
+    line-height: 42rpx;
+}
+
+.btn-share:after {
+    border: none;
+}
+
+.share-icon {
+    width: 42rpx;
+    height: 42rpx;
+    margin-left: 10rpx;
+    right: 0rpx;
+    position: relative;
+    margin-bottom: -10rpx;
+}
+
+.fix-iphonex-button {
+    bottom: 68rpx!important;
+}
+
+.fix-iphonex-button::after {
+    content: ' ';
+    position: fixed;
+    bottom: 0!important;
+    height: 68rpx!important;
+    width: 100%;
+    background: #fff;
+}
+
+.show-container {
+    margin-bottom: 128rpx;
+}
+
+.show-container1 {
+    margin-bottom: 70rpx;
+}
+
+.show-container-invitation {
+    margin-top: 70rpx;
+}
+
+.show-container:after {
+    margin-bottom: 128rpx;
+}
+
+.fix-iphonex-container {
+    margin-bottom: 196rpx;
+    padding-bottom: 196rpx;
+}
+
+.fix-iphonex-container:after {
+    margin-bottom: 196rpx;
+    padding-bottom: 196rpx;
+}
+
+.fix-iphone-container {
+    padding-bottom: 128rpx;
+}
+
+.fix-iphone-container:after {
+    padding-bottom: 128rpx;
+}
+
+.text-tag {
+    font-size: 22rpx;
+    color: #FC8A1D;
+    border-radius: 2rpx;
+    border-color: rgba(252,138,29,0.24);
+    background-color: rgba(252,138,29,0.1);
+    padding: 5rpx 7rpx 5rpx 7rpx;
+    margin-right: 4rpx;
+}
+
+.gray {
+    background: #D5D5D5;
+}
+
+.detial-lib {
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(0,0,0,0.06);
+    margin: 24rpx 20rpx;
+    height: initial;
+    border-radius: 12px;
+}
+
+.lib-stepshow {
+    margin: 48rpx 20rpx;
+    padding: 42rpx 0 0 0;
+}
+
+.lib-title {
+    margin: 0rpx auto 0rpx auto;
+    font-size: 42rpx;
+    color: #434343;
+    text-align: center;
+    font-weight: bold;
+}
+
+.lib-title text {
+    color: #26BCC5;
+    font-family: 'DIN Alternate';
+}
+
+.lib-litleTip {
+    font-size: 30rpx;
+    color: #666666;
+    text-align: center;
+    margin: 0rpx auto 24rpx auto;
+    display: block;
+}
+
+.friend-content {
+    padding: 0 25rpx 42rpx 25rpx;
+}
+
+.friend-item {
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 18rpx;
+    margin-right: 24rpx;
+}
+
+.friend-item:nth-child(6n) {
+    margin-right: 0rpx;
+}
+
+.head-view {
+    max-width: 90rpx;
+    max-height: 90rpx;
+    border-radius: 50%;
+    border: 0rpx solid #ddd;
+    overflow: hidden;
+    margin: 0rpx auto 18rpx auto;
+}
+
+.head-img {
+    max-width: 90rpx;
+    max-height: 90rpx;
+}
+
+.friend-step {
+    font-size: 22rpx;
+    color: #434343;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 90rpx;
+}
+
+.direct-img {
+    display: flex;
+    margin-top: 15rpx;
+    justify-content: center;
+}
+
+.direct-down {
+    width: 30rpx;
+    height: 30rpx;
+    background-image: url("https://img.xmiles.cn/wechatApp/step2gift/openFriend.png");
+    background-size: 100%;
+    margin-left: 12rpx;
+}
+
+.direct-up {
+    width: 30rpx;
+    height: 30rpx;
+    background-image: url("https://img.xmiles.cn/wechatApp/step2gift/packupFriend.png");
+    background-size: 100%;
+    margin-left: 12rpx;
+}
+
+.all {
+    font-size: 24rpx;
+    color: #666666;
+}
+
+.share-img {
+    width: 36rpx;
+    height: 36rpx;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+
+.cteate_img_btn {
+    position: absolute;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    left: 30rpx;
+    height: 50rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    border-radius: 100px;
+    background-image: linear-gradient(90deg,#1DD49E 2%,#26BCC5 97%);
+    box-shadow: 0 6rpx 10rpx -2rpx rgba(37,191,193,0.50);
+    padding: 0 30rpx;
+}
+
+.cteate_img_btn_logo {
+    display: block;
+    height: 28rpx;
+    width: 28rpx;
+    margin-left: 6rpx;
+}
+
+.mengban {
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.dialog1 {
+    background: #fff;
+    position: absolute;
+    z-index: 1001;
+    top: 39%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    border-radius: 12rpx;
+}
+
+.dialog {
+    background: #fff;
+    position: absolute;
+    z-index: 1001;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    border-radius: 12rpx;
+}
+
+.nobeijing {
+    background: none;
+}
+
+.closebtn {
+    position: absolute;
+    top: -8%;
+    right: 0%;
+}
+
+.mydialog1 {
+    width: 660rpx;
+    height: 820rpx;
+    padding-top: 1rpx;
+}
+
+.mydialog {
+    width: 678rpx;
+    height: 736rpx;
+    padding-top: 1rpx;
+}
+
+.diatitle {
+    font-size: 52rpx;
+    color: #333333;
+    margin: 345rpx auto 12rpx;
+    text-align: center;
+}
+
+.diatext {
+    font-size: 36rpx;
+    color: #666666;
+    margin: 0 uato;
+    text-align: center;
+}
+
+.mydiabtn {
+    background: transparent;
+    width: 430rpx;
+    height: 110rpx;
+    margin-top: 60rpx;
+}
+
+.goods_extra_info_tab {
+    height: 88rpx;
+    background-color: #fff;
+    position: relative;
+}
+
+.positionFixedTab {
+    position: fixed;
+    width: 100%;
+    top: -2px;
+    left: 0;
+    z-index: 1;
+}
+
+.goods_extra_info_tab::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: #dcdcdc;
+    bottom: 0;
+    left: 0;
+}
+
+.goods_extra_info_tab_item {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    padding-top: 17rpx;
+    box-sizing: border-box;
+    font-size: 32rpx;
+    color: #333;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    position: relative;
+}
+
+.goods_extra_info_tab_item_selected {
+    font-family: PingFangSC-Semibold;
+    font-weight: bold;
+    font-size: 32rpx;
+    color: #26bcc5;
+}
+
+.goods_extra_info_tab_item_selected::after {
+    position: absolute;
+    content: '';
+    height: 6rpx;
+    width: 100%;
+    background: #26bcc5;
+    bottom: 1px;
+    left: 0;
+}
+
+.goods_info_img {
+    display: block;
+    width: 100%;
+}
+
+.exchange_record_item {
+    height: 128rpx;
+    background: #fff;
+    padding: 0 30rpx;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    position: relative;
+}
+
+.exchange_record_item:nth-last-of-type(1) .exchange_record_line {
+    display: none;
+}
+
+.exchange_record_line {
+    position: absolute;
+    height: 1px;
+    background: #f2f2f2;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 0;
+}
+
+.exchange_record_user_icon_container {
+    height: 78rpx;
+    width: 78rpx;
+    display: block;
+    position: relative;
+}
+
+.exchange_record_user_icon {
+    position: absolute;
+    height: 200%;
+    width: 200%;
+    display: block;
+    border: 1px solid #979797;
+    transform-origin: 0 0;
+    transform: scale(0.5);
+    border-radius: 100rpx;
+    top: 0;
+    left: 0;
+}
+
+.exchange_record_user_name {
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #333;
+    width: 82rpx;
+    margin-left: 18rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.exchange_record_goods_name {
+    font-family: PingFangSC-Regular;
+    -webkit-box-flex: 1;
+    font-size: 26rpx;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 30rpx;
+}
+
+.exchange_record_time {
+    width: 120rpx;
+    text-align: right;
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #999;
+}

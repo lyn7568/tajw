@@ -1,0 +1,432 @@
+.hd-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -10;
+}
+
+.withdrawp-box {
+    display: flex;
+    align-items: center;
+}
+
+.withdraw-title {
+    margin-top: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.withdraw-num {
+    font-size: 76rpx;
+    color: #fff;
+    text-align: center;
+    font-family: 'DIN Alternate';
+}
+
+.input-box {
+    margin: 32rpx auto 0 auto;
+    box-sizing: border-box;
+    padding: 37rpx 54rpx;
+    width: 690rpx;
+    height: 496rpx;
+    border-radius: 12rpx;
+    background: white;
+    box-shadow: 0 2rpx 5rpx 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.input-box-height {
+    height: 600rpx;
+}
+
+.input-box-cash-height {
+    height: 839rpx;
+}
+
+.input-model-box {
+    position: relative;
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: 48rpx;
+    font-family: 'DIN Alternate';
+    color: #333;
+}
+
+.input-model {
+    margin-left: 12rpx;
+    height: 60rpx;
+    width: 450rpx;
+}
+
+.input-placeholder {
+    color: #dcdcdc;
+    font-size: 40rpx;
+}
+
+.input-title {
+    padding: 0;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.input-line {
+    margin-top: 15rpx;
+    width: 100%;
+    height: 1rpx;
+    background: #dcdcdc;
+}
+
+.btn {
+    width: 594rpx;
+    height: 90rpx;
+    border-radius: 45px;
+    font-size: 30rpx;
+    line-height: 90rpx;
+    text-align: center;
+}
+
+.btn::after {
+    display: none;
+}
+
+.input-all {
+    position: absolute;
+    right: 0rpx;
+    bottom: 7rpx;
+    width: 80rpx;
+    height: 40rpx;
+    border: 1px solid #26bcc5;
+    border-radius: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 40rpx;
+    color: #26bcc5;
+}
+
+.input-withdraw {
+    margin-top: 46rpx;
+    border: 1px solid #26bcc5;
+    font-family: PingFangSC-Medium;
+    color: #26bcc5;
+    background: white;
+}
+
+.input-invite {
+    margin-top: 36rpx;
+    background-image: linear-gradient(-90deg,#26bcc5 2%,#1dd49e 97%);
+    color: white;
+}
+
+.ad {
+    margin: 50rpx auto 0 auto;
+    width: 690rpx;
+    height: 195rpx;
+    background: #ebebeb;
+}
+
+.tip {
+    width: 678rpx;
+    margin: 0 auto;
+}
+
+.tip-tt {
+    margin-top: 50rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 26rpx;
+    color: #666;
+}
+
+.tip-content {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #808080;
+}
+
+.pop-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.pop-box {
+    position: relative;
+    width: 648rpx;
+    height: 474rpx;
+    background: white;
+    border-radius: 12rpx;
+}
+
+.pop-tt {
+    margin-top: 48rpx;
+    font-family: PingFangSC-Semibold;
+    width: 100%;
+    font-size: 42rpx;
+    text-align: center;
+    color: #333;
+}
+
+.pop-content {
+    margin-top: 44rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 36rpx;
+    text-align: center;
+    color: #666;
+}
+
+.pop-btn {
+    margin: 62rpx auto 0 auto;
+    width: 420rpx;
+    height: 90rpx;
+    background-image: linear-gradient(-90deg,#26bcc5 2%,#1dd49e 100%);
+    box-shadow: 0 2px 2px 0px rgba(38,188,197,0.40);
+    border-radius: 50px;
+    font-family: PingFangSC-Medium;
+    font-size: 36rpx;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+}
+
+.pop-btn::after {
+    display: none;
+}
+
+.pop-close {
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+    width: 29rpx;
+    height: 30rpx;
+    background-size: 100% 100%;
+}
+
+.mengban {
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.dialog1 {
+    background: #fff;
+    position: absolute;
+    z-index: 1001;
+    top: 39%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    border-radius: 12rpx;
+}
+
+.dialog {
+    background: #fff;
+    position: absolute;
+    z-index: 1001;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    border-radius: 12rpx;
+}
+
+.nobeijing {
+    background: none;
+}
+
+.closebtn {
+    position: absolute;
+    top: -8%;
+    right: 0%;
+}
+
+.mydialog1 {
+    width: 660rpx;
+    height: 820rpx;
+    padding-top: 1rpx;
+}
+
+.mydialog {
+    width: 678rpx;
+    height: 736rpx;
+    padding-top: 1rpx;
+}
+
+.diatitle {
+    font-size: 52rpx;
+    color: #333333;
+    margin: 345rpx auto 12rpx;
+    text-align: center;
+}
+
+.diatext {
+    font-size: 36rpx;
+    color: #666666;
+    margin: 0 uato;
+    text-align: center;
+}
+
+.mydiabtn {
+    background: transparent;
+    width: 500rpx;
+    height: 210rpx;
+    margin-top: 60rpx;
+}
+
+.record {
+    position: absolute;
+    top: 51rpx;
+    right: 0rpx;
+    box-sizing: border-box;
+    width: 172rpx;
+    height: 60rpx;
+    padding-left: 10rpx;
+    background: #ff8e00;
+    border-radius: 100rpx 2rpx 2rpx 100rpx;
+    font-size: 30rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 60rpx;
+}
+
+.cash {
+    width: 692rpx;
+    height: 818rpx;
+    top: 45%;
+    left: 52%;
+    margin-left: -346rpx;
+    margin-top: -409rpx;
+    background: #f5f5f5;
+    text-align: center;
+    font-size: 28rpx;
+    color: #606060;
+}
+
+.mask {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.3);
+}
+
+.dialogview {
+    width: 660rpx;
+    height: 920rpx;
+    position: relative;
+}
+
+.luckcoin {
+    position: absolute;
+    font-size: 39rpx;
+    font-family: 'DIN Alternate';
+    color: #fff;
+    top: 25%;
+    left: 10%;
+    line-height: 44rpx;
+}
+
+.luckactivate {
+    position: absolute;
+    opacity: 0.8;
+    font-family: PingFangSC-Regular;
+    font-size: 39rpx;
+    color: #FFFFFF;
+    top: 24.5%;
+    right: 10%;
+}
+
+.luckactivate::after {
+    content: "";
+    display: inline-block;
+    width: 24rpx;
+    height: 24rpx;
+    vertical-align: middle;
+    margin: -1px 0 0 3px;
+    margin-top: -2px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAEHRSTlMAzJ0SC6x7BI5ss5BeWFA3jPQGLwAAADpJREFUGNNjwAv4VyJxOAUTEBzmQDEkKVPqS11AcKoFJ8DZ7I1CDnBOhaAKtSR4kCQY+IASCGCALWQAydgNP0p+DmsAAAAASUVORK5CYII=);
+    background-size: cover;
+}
+
+.luckcount {
+    font-size: 54rpx;
+    vertical-align: text-top;
+}
+
+.lucktitleimg {
+    width: 594rpx;
+    height: 45rpx;
+    position: absolute;
+    top: 42%;
+    left: 5%;
+}
+
+.luckgAD {
+    width: 594rpx;
+    height: 198rpx;
+    position: absolute;
+    top: 48%;
+    left: 4.4%;
+}
+
+.luckgADImage {
+    width: 594rpx;
+}
+
+.luckgADGDT {
+    width: 594rpx;
+    height: 198rpx;
+    position: absolute;
+    top: 48%;
+    left: 4.4%;
+}
+
+.luckgADtext {
+    width: 564rpx;
+    background: #FFFFFF;
+    color: #333333;
+    font-size: 30rpx;
+    height: auto;
+    position: absolute;
+    top: 68.5%;
+    left: 4.4%;
+    padding: 15rpx 15rpx;
+    box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(0,0,0,0.06);
+}
+
+.luckgBtn {
+    width: 453rpx;
+    height: 90rpx;
+    position: absolute;
+    bottom: 7%;
+    left: 15%;
+    text-align: center;
+    color: #ffffff;
+    background-image: linear-gradient(-90deg,#FFBC42 0%,#F76B1C 100%);
+    box-shadow: 0 4rpx 10rpx 2rpx rgba(255,188,66,0.40);
+    border-radius: 50rpx;
+    font-size: 36rpx;
+    line-height: 90rpx;
+}
+
+.luckclose {
+    position: absolute;
+    width: 44rpx;
+    height: 44rpx;
+    top: 2%;
+    right: 0%;
+}

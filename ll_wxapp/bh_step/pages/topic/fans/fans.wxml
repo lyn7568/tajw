@@ -1,0 +1,9 @@
+<view class="list">
+    <view class="li" wx:for="{{list}}">
+        <view class="pic" style="background-image:url({{item.member.head}})"></view>
+        <view class="userName">{{item.member.nickname}}</view>
+        <view class="state">
+            <image mode="widthFix" src="{{item.follow?images.follow:images.nofollow}}"></image>
+        </view>
+    </view>
+</view>

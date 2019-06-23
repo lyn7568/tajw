@@ -1,0 +1,81 @@
+<view class="top">
+    <view class="userbg" style="background-image:url({{member.head}}"></view>
+    <view class="userMes">
+        <view class="pic" style="background-image:url({{member.head}}"></view>
+        <view class="mes">
+            <view class="userName">{{member.nickname}}</view>
+            <view class="userId">ID:{{member.id}}</view>
+        </view>
+        <button openType="share">分享</button>
+        <button bindtap="follow" style="margin-left:0.3rem" wx:if="{{!is_my}}">{{is_follow?'取消关注':'关注'}}</button>
+    </view>
+    <view class="whitebg"></view>
+    <view class="other">
+        <view class="sign">{{member.autograph?member.autograph:'这家伙很懒,什么都没留下~~'}}</view>
+        <view class="otherBox">
+            <view bindtap="gotoFans" class="box" data-type="1">
+                <view class="num">{{follow_number}}</view>
+                <view class="text">关注</view>
+            </view>
+            <view class="line"></view>
+            <view bindtap="gotoFans" class="box" data-type="2">
+                <view class="num">{{fans_number}}</view>
+                <view class="text">粉丝</view>
+            </view>
+            <view class="line"></view>
+            <view class="box">
+                <view class="num">{{fabulous_number}}</view>
+                <view class="text">获赞</view>
+            </view>
+            <view class="line"></view>
+            <view class="box">
+                <view class="num">{{topic_number}}</view>
+                <view class="text">发帖</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="tab">
+    <view class="con">
+        <view bindtap="gotoDetail" class="li" data-id="{{item.id}}" wx:for="{{folder}}">
+            <view class="time">{{item.created}}</view>
+            <view class="liCon">
+                <view catchtap="gotoTopicDetail" class="tags" data-topic_id="{{item.topic_id}}" wx:if="{{item.topic_id>0}}">
+                    <view class="tag">
+                        <image src="{{images.topic}}"></image>
+                        <text>{{item.topic.name}}</text>
+                    </view>
+                </view>
+                <view class="textLine">
+                    <view class="text" style="height:{{folder[index]?'auto':'5rem'}};">{{item.allocation}}</view>
+                </view>
+                <view class="picList">
+                    <view catchtap="previewImage" class="pic" data-image="{{item}}" data-index="{{index}}" style="background-image:url({{item}})" wx:for="{{item.image}}" wx:for-index="idx"></view>
+                </view>
+            </view>
+            <view class="bottomBtn">
+                <view class="left">
+                    <view catchtap="fabulous" class="like btn" data-id="{{item.id}}" data-index="{{index}}">
+                        <image src="{{item.fabulous?images.fabulous:images.nofabulous}}"></image>
+            {{item.fabulous_number}}
+          </view>
+                    <view class="pinglun btn">
+                        <image src="{{images.comment}}"></image>
+            {{item.comment_number}}
+          </view>
+                    <view class="zhuanfa btn">
+                        <button openType="share" style="background: transparent;margin-left:0px;margin-right:0px">
+                            <image src="{{images.share}}"></image>
+                        </button>
+                    </view>
+                    <view catchtap="collection" class="shoucang btn" data-id="{{item.id}}" data-index="{{index}}">
+                        <image src="{{item.collection?images.collection:images.no_collection}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="gotPublish" class="publish">
+    <image mode="widthFix" src="{{images.release}}"></image>
+</view>
