@@ -1,3 +1,9 @@
 {
-    "navigationBarTitleText": "我的"
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "我的",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "tabbar-step": "/bh_step/component/tabbar-step/tabbar-step"
+    }
 }

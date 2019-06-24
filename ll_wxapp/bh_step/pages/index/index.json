@@ -2,5 +2,8 @@
   "backgroundTextStyle": "dark",
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTitleText": "步步为赢",
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tabbar-step": "/bh_step/component/tabbar-step/tabbar-step"
+  }
 }

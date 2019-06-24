@@ -123,3 +123,4 @@ module.exports = (({
     commonQuestion: commonQuestionImg64,
 }));
 </wxs>
+<tabbar-step activeIdx="2"></tabbar-step>

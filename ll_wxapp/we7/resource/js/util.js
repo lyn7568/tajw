@@ -49,7 +49,7 @@ function getSign(e, t, n) {
     i = a.sortBy(i, "name"), i = a.uniq(i, !0, "name");
     for (var c = "", f = 0; f < i.length; f++) i[f] && i[f].name && i[f].value && (c += i[f].name + "=" + i[f].value, 
     f < i.length - 1 && (c += "&"));
-    return o = r(c + (n = n || getApp().siteInfo.token));
+  return o = r(c + (n = n || getApp().siteStep.token));
 }
 
 util.base64Encode = function(e) {
@@ -59,7 +59,7 @@ util.base64Encode = function(e) {
 }, util.md5 = function(e) {
     return (0, _md2.default)(e);
 }, util.url = function(e, t) {
-    var n = getApp(), a = n.siteInfo.siteroot + "?i=" + n.siteInfo.uniacid + "&t=" + n.siteInfo.multiid + "&v=" + n.siteInfo.version + "&from=wxapp&";
+  var n = getApp(), a = n.siteStep.siteroot + "?i=" + n.siteStep.uniacid + "&t=" + n.siteStep.multiid + "&v=" + n.siteStep.version + "&from=wxapp&";
     if (e && ((e = e.split("/"))[0] && (a += "c=" + e[0] + "&"), e[1] && (a += "a=" + e[1] + "&"), 
     e[2] && (a += "do=" + e[2] + "&")), t && "object" === (void 0 === t ? "undefined" : _typeof(t))) for (var r in t) r && t.hasOwnProperty(r) && t[r] && (a += r + "=" + t[r] + "&");
     return a;

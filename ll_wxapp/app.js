@@ -7,14 +7,17 @@ App({
     },
     onHide: function() {},
     util: require("static/js/utils/util.js"),
+    utilStep: require("we7/resource/js/util.js"),
+    siteStep: require("sitestep.js"),
     WxParse: require("./library/wxParse/wxParse.js"),
     ext: {
-        siteInfo: {
+        siteMain: {
             uniacid: "2",
             acid: "2",
-          siteroot: "https://wmxcx.tzxfw.com/app/wxapp.php",
-          sitebase: "https://wmxcx.tzxfw.com/app",
-            module: "we7_wmall"
+            siteroot: "https://wmxcx.tzxfw.com/app/wxapp.php",
+            sitebase: "https://wmxcx.tzxfw.com/app",
+            module: "we7_wmall",
+            version: "8.0"
         },
         diy: {
             home: 0

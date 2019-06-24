@@ -41,7 +41,7 @@ Page({
     },
     onLoad: function(t) {
         this.setData({
-            img_url: app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url
+          img_url: app.siteStep.sitebase + app.siteStep.img_url
         }), this.setData({
             attention: this.data.img_url + "/step2gift/attention.png"
         }), $this = this;

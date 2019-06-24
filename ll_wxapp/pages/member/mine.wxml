@@ -1,4 +1,4 @@
-<view class="page-member" wx:if="{{is_use_diy===1}}">
+<view class="page-member" wx:if="{{is_use_diy!=1}}">
     <view class="diy-memberHeader">
         <view class="member-headinfo">
             <view class="headinfo-balance">

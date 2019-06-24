@@ -39,7 +39,7 @@ Page({
     },
     onLoad: function(t) {
         $this = this;
-        var e = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url;
+      var e = app.siteStep.sitebase + app.siteStep.img_url;
         this.setData({
             img_url: $this.data.img_url,
             gift_box: e + "/sign-in-pop/gift_box.png",

@@ -46,7 +46,7 @@ Page(_defineProperty({
         share_image: ""
     },
     onLoad: function(e) {
-        var t = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url;
+      var t = app.siteStep.sitebase + app.siteStep.img_url;
         this.setData({
             img_url: t,
             notused: t + "/notused.png",

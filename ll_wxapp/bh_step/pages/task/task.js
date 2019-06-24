@@ -43,7 +43,7 @@ Page({
     },
     onLoad: function(t) {
         $this = this;
-        var e = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url;
+      var e = app.siteStep.sitebase + app.siteStep.img_url;
         this.setData({
             img_url: e,
             task_icon1: e + "/step2gift/task_icon1.png",

@@ -252,12 +252,6 @@
         "selectedIconPath": "static/img/tabbar/icon-15-active.png"
       },
       {
-        "pagePath": "pages/paotui/guide",
-        "text": "跑腿",
-        "iconPath": "static/img/tabbar/icon-15.png",
-        "selectedIconPath": "static/img/tabbar/icon-15-active.png"
-      },
-      {
         "pagePath": "pages/order/index",
         "text": "订单",
         "iconPath": "static/img/tabbar/icon-3.png",

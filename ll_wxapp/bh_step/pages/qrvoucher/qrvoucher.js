@@ -40,7 +40,7 @@ Page({
     canvasId: "qrcCanvas",
     onLoad: function(e) {
         ($this = this).data.id = e.id, this.setData({
-            img_url: app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url
+          img_url: app.siteStep.sitebase + app.siteStep.img_url
         });
     },
     onReady: function() {

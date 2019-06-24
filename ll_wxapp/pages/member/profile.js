@@ -10,7 +10,7 @@ Page({
             url: "wmall/member/profile",
             success: function(e) {
                 var t = e.data.message.message, s = n.util.getExtConfigSync();
-                s.siteInfo.version || (s.siteInfo.version = "8.0"), o.setData({
+              s.siteStep.version || (s.siteStep.version = "8.0"), o.setData({
                     user: t,
                     ext: s
                 });

@@ -1,3 +1,9 @@
 {
-    "navigationBarTitleText": "步数换礼"
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "步数换礼",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tabbar-step": "/bh_step/component/tabbar-step/tabbar-step"
+  }
 }

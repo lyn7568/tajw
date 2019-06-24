@@ -101,7 +101,7 @@ Page({
         extra_info_tab: 1
     },
     onLoad: function(t) {
-        var e = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url;
+      var e = app.siteStep.sitebase + app.siteStep.img_url;
         if (this.setData({
             img_url: e
         }), this.setData({

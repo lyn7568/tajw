@@ -264,7 +264,7 @@ util.imessage = function(e, t, a) {
 }, util.tolink = function(e) {
     if (-1 != e.indexOf("http://") || -1 != e.indexOf("https://")) return e;
     var t = util.getExtConfigSync();
-    return 0 == e.indexOf("./") ? t.siteInfo.sitebase + "/" + e.replace("./", "") : "";
+  return 0 == e.indexOf("./") ? t.siteMain.sitebase + "/" + e.replace("./", "") : "";
 }, util.webview = function(e) {
     var t = e.currentTarget.dataset;
     if (!t.url) return !1;
@@ -400,7 +400,7 @@ util.imessage = function(e, t, a) {
     return a;
 }, util.getExtConfigSync = function(e) {
     var t = wx.getExtConfigSync();
-    if (t && t.siteInfo || (t = getApp().ext), !e) return t;
+  if (t && t.siteMain || (t = getApp().ext), !e) return t;
     var a = e.split(".");
     return 1 == a.length ? t[a[0]] : 2 == a.length ? t[a[0]] ? t[a[0]][a[1]] : "" : 3 == a.length ? t[a[0]] && t[a[0]][a[1]] ? t[a[0]][a[1]][a[2]] : "" : data;
 }, util.removeStorageSync = function(e) {
@@ -501,9 +501,9 @@ util.imessage = function(e, t, a) {
         }
     });
 }, util.url = function(e, t) {
-    var a = util.getExtConfigSync(), n = a.siteInfo.siteroot + "?i=" + a.siteInfo.uniacid;
+  var a = util.getExtConfigSync(), n = a.siteMain.siteroot + "?i=" + a.siteMain.uniacid;
     if (-1 == e.indexOf("/")) return n + "&" + e;
-    n = a.siteInfo.siteroot + "?i=" + a.siteInfo.uniacid + "&v=" + a.siteInfo.version + "&m=we7_wmall&c=entry&do=mobile&";
+  n = a.siteMain.siteroot + "?i=" + a.siteMain.uniacid + "&v=" + a.siteMain.version + "&m=we7_wmall&c=entry&do=mobile&";
     var i = e.split("?");
     if ((e = i[0].split("/"))[0] && (n += "ctrl=" + e[0] + "&"), e[1] && (n += "ac=" + e[1] + "&"), 
     e[2] && (n += "op=" + e[2] + "&"), e[3] && (n += "ta=" + e[3] + "&"), i[1] && (n += i[1] + "&"), 
@@ -628,6 +628,7 @@ util.imessage = function(e, t, a) {
                     },
                     cachetime: 0,
                     success: function(a) {
+                      console.log(a)
                         a.data.errno ? wx.showModal({
                             content: a.data.message
                         }) : (t.sessionid = a.data.data.sessionid, wx.setStorageSync("userInfo", t), "function" == typeof e && e(t), 

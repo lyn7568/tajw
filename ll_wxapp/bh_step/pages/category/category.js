@@ -16,7 +16,7 @@ Page({
     },
     onLoad: function(t) {
         this.data.id = t.id, this.setData({
-            img_url: app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url
+          img_url: app.siteStep.sitebase + app.siteStep.img_url
         }), $this = this;
     },
     onReady: function() {

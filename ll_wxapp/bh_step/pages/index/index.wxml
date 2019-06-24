@@ -363,3 +363,4 @@
         </view>
     </view>
 </view>
+<tabbar-step activeIdx="0"></tabbar-step>

@@ -27,7 +27,7 @@ Page({
         interstitialAd: ""
     },
     onLoad: function(t) {
-        ($this = this).data.img_url = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url, 
+      ($this = this).data.img_url = app.siteStep.sitebase + app.siteStep.img_url, 
         this.setData({
             img_url: $this.data.img_url,
             yundong: $this.data.img_url + "/yundong.png",

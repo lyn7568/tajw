@@ -334,7 +334,7 @@
 }
 
 .Flipping {
-    bottom: 100rpx;
+    bottom: 120rpx;
     right: 10rpx;
 }
 

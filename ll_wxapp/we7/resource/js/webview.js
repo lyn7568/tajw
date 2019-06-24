@@ -17,7 +17,7 @@ var app = getApp(), backApp = function(e) {
             url: n
         });
     };
-    e.sessionid ? t(e) : app.util.getUserInfo(t);
+    e.sessionid ? t(e) : app.utilStep.getUserInfo(t);
 };
 
 function getQueryString(e, t) {

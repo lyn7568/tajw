@@ -129,7 +129,7 @@ Page({
                 url: a
             });
         }
-        var s = app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url;
+      var s = app.siteStep.sitebase + app.siteStep.img_url;
         this.setData({
             img_url: s,
             mydialog: s + "/wechat/mydialog.png",

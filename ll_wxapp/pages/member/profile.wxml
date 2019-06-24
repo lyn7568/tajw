@@ -20,7 +20,7 @@
             </navigator>
             <view bind:tap="onJsEvent" class="wui-cell wui-cell-access" data-event-type="jsRemoveCache">
                 <view class="wui-cell-bd">更新缓存</view>
-                <view class="wui-cell-ft">版本{{ext.siteInfo.version}}</view>
+                <view class="wui-cell-ft">版本{{ext.siteMain.version}}</view>
             </view>
         </view>
     </view>

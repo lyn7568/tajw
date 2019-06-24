@@ -7,7 +7,7 @@ function _interopRequireDefault(e) {
 }
 
 var app = getApp(), request = function(o) {
-    console.log(o), o.data.version = "4.1.21", app.util.request({
+  console.log(o), o.data.version = "4.1.21", app.utilStep.request({
         method: o.method || "get",
         url: o.url,
         data: o.data,
@@ -38,6 +38,7 @@ var app = getApp(), request = function(o) {
                     share_tpye: n
                 },
                 success: function(e) {
+                  console.log(e)
                     if (wx.setStorageSync("token", e.info.token), null != a) return a.data.token = e.info.token, 
                     void request(a);
                 }

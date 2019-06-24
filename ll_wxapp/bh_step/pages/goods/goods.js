@@ -66,7 +66,7 @@ Page({
     },
     onLoad: function(t) {
         if (this.setData({
-            img_url: app.siteInfo.siteroot.replace(/app\/index.php/, "") + app.img_url
+          img_url: app.siteStep.sitebase + app.siteStep.img_url
         }), this.setData({
             bgimage: app.img_url + "/step2gift/openFriend.png"
         }), that = this, t.scene) {

@@ -16,7 +16,7 @@ Page({
     },
     onLoad: function(t) {
         $this = this;
-        var e = app.siteInfo.siteroot + "?i=" + app.siteInfo.uniacid + "&from=wxapp&c=entry&a=wxapp&do=" + t.a + "&m=bh_step";
+      var e = app.siteStep.siteroot + "?i=" + app.siteStep.uniacid + "&from=wxapp&c=entry&a=wxapp&do=" + t.a + "&m=bh_step";
         console.log(e), this.setData({
             url: e
         });

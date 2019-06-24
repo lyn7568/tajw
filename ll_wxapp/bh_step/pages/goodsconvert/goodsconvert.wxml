@@ -106,3 +106,4 @@
         </view>
     </view>
 </view>
+<tabbar-step activeIdx="1"></tabbar-step>
