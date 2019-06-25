@@ -9,7 +9,7 @@
         </view>
     </view>
     <block wx:if="{{orders.empty==0}}">
-        <view bind:tap="onJsEvent" class="ordercard border-1px-b" data-event-type="jsUrl" data-url="pages/order/detail?id={{item.id}}" wx:for="{{orders.data}}">
+        <view bind:tap="onJsEvent" class="ordercard border-1px-b" data-event-type="jsUrl" data-url="pages/order/detail/detail?id={{item.id}}" wx:for="{{orders.data}}">
             <view class="ordercard-body">
                 <view catch:tap="onJsEvent" class="ordercard-avatar" data-event-type="jsUrl" data-url="pages/store/goods?sid={{item.sid}}">
                     <image src="{{item.logo}}"></image>
@@ -54,7 +54,7 @@
                 </block>
                 <block wx:elif="{{item.status==5}}">
                     <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="pages/store/goods?sid={{item.sid}}&order_id={{item.id}}">再来一单</view>
-                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="pages/order/comment?id={{item.id}}" url="comment?id={{item.id}}" wx:if="{{item.is_comment==0}}">{{item.comment_cn}}</view>
+                    <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="pages/order/comment/comment?id={{item.id}}" url="comment?id={{item.id}}" wx:if="{{item.is_comment==0}}">{{item.comment_cn}}</view>
                     <view class="cardbutton btn" style="display:none" wx:if="{{item.is_comment==1}}">查看评价</view>
                 </block>
                 <view catch:tap="onJsEvent" class="cardbutton btn" data-event-type="jsUrl" data-url="pages/store/goods?sid={{item.sid}}&order_id={{item.id}}" wx:else>再来一单</view>
@@ -74,4 +74,4 @@
         <text class="no-record">您没有订单哦</text>
     </view>
 </view>
-<include src="../public/footer.wxml"></include>
+<include src="/pages/public/footer.wxml"></include>

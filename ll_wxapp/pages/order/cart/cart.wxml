@@ -2,7 +2,7 @@
     <view class="cart-list">
         <view class="cart-item" wx:for="{{cartsInfo}}" wx:for-item="cartsInfoItem">
             <view class="header">
-                <navigator class="clearfix" url="../store/goods?sid={{cartsInfoItem.sid}}">
+                <navigator class="clearfix" url="/pages/store/goods?sid={{cartsInfoItem.sid}}">
                     <view class="avatar">
                         <image src="{{cartsInfoItem.logo}}"></image>
                     </view>
@@ -65,12 +65,12 @@
                 <view class="pay-fee">
 						¥{{cartsInfoItem.final_fee}}
 					</view>
-                <navigator class="clearfix" url="./create?sid={{cartsInfoItem.sid}}" wx:if="{{cartsInfoItem.send_limit<=0}}">
+                <navigator class="clearfix" url="/pages/order/create/create?sid={{cartsInfoItem.sid}}" wx:if="{{cartsInfoItem.send_limit<=0}}">
                     <view class="button">
 							去结算
 						</view>
                 </navigator>
-                <navigator class="clearfix" url="../store/goods?sid={{cartsInfoItem.sid}}" wx:else>
+                <navigator class="clearfix" url="/pages/store/goods?sid={{cartsInfoItem.sid}}" wx:else>
                     <view class="button button-danger">
 							去凑单
 						</view>
@@ -86,6 +86,6 @@
     <view class="no-data" wx:if="{{showNodata}}">
         <image class="no-cart" src="http://cos.lalawaimai.com/we7_wmall/wxapp/cart_con.png"></image>
         <text class="no-record">您还没有添加购物车，快去购买吧</text>
-        <navigator class="target" openType="switchTab" url="../home/index">现在去购物</navigator>
+        <navigator class="target" openType="switchTab" url="/pages/home/index">现在去购物</navigator>
     </view>
 </view>

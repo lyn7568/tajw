@@ -276,7 +276,7 @@
                         <view class="inner" wx:if="{{!cart.num||cart.num<=0}}">未点菜</view>
                     </view>
                     <view class="cart-btn-confirm">
-                        <view bind:tap="onJsEvent" class="inner" data-confirm="确定加菜吗?" data-event-type="jsPost" data-href="wmall/store/table/jiacai?order_id={{order_id}}&sid={{store.id}}" data-success-url="/pages/order/detail?id={{order_id}}" style="background: {{bgColor}}" wx:if="{{order_id>0&&cart.num>0}}">加菜</view>
+                        <view bind:tap="onJsEvent" class="inner" data-confirm="确定加菜吗?" data-event-type="jsPost" data-href="wmall/store/table/jiacai?order_id={{order_id}}&sid={{store.id}}" data-success-url="/pages/order/detail/detail?id={{order_id}}" style="background: {{bgColor}}" wx:if="{{order_id>0&&cart.num>0}}">加菜</view>
                     </view>
                     <navigator class="cart-btn-confirm" url="./create?sid={{store.id}}&table_id={{table.id}}" wx:if="{{cart.num>0&&!order_id}}">
                         <view class="inner" style="background: {{bgColor}}">去结算</view>

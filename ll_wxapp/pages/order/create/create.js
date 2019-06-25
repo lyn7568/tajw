@@ -1,4 +1,4 @@
-var e = getApp(), a = require("../../static/js/utils/underscore.js");
+var e = getApp(), a = require("../../../static/js/utils/underscore.js");
 
 Page({
     data: {
@@ -89,14 +89,14 @@ Page({
             url: "wmall/order/create/submit",
             data: d,
             success: function(a) {
-                if ((a = a.data.message).errno) return 1e3 == a.errno ? (e.util.toast(a.message, "../store/goods?sid=" + d.sid), 
+                if ((a = a.data.message).errno) return 1e3 == a.errno ? (e.util.toast(a.message, "/pages/store/goods?sid=" + d.sid), 
                 !1) : (e.util.toast(a.message, ""), !1);
                 var t = a.message;
                 return wx.showToast({
                     title: "下单成功",
                     success: function() {
                         wx.removeStorageSync("order"), wx.redirectTo({
-                            url: "../public/pay?order_id=" + t + "&order_type=takeout"
+                            url: "../../public/pay?order_id=" + t + "&order_type=takeout"
                         });
                     }
                 }), !1;
@@ -139,7 +139,7 @@ Page({
                 };
                 e.util.setStorageSync("location", r, 600);
             }
-            return e.util.toast(a.message, "../store/goods?id=" + d.data.sid, 3e3), !1;
+            return e.util.toast(a.message, "/pages/store/goods?id=" + d.data.sid, 3e3), !1;
         }
         return !0;
     },

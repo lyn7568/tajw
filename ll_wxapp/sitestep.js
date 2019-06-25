@@ -6,6 +6,6 @@ module.exports = {
   version: "1.2",
   design_method: "3",
   siteroot: "https://wmxcx.tzxfw.com/app/index.php",
-  sitebase: "https://wmxcx.tzxfw.com",
+  sitebase: "https://wmxcx.tzxfw.com/",
   img_url: "addons/bh_step/template/image"
 };

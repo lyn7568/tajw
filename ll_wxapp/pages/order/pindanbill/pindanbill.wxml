@@ -67,4 +67,4 @@
         </view>
     </view>
 </view>
-<include src="../public/footer.wxml"></include>
+<include src="/pages/public/footer.wxml"></include>

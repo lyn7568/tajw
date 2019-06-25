@@ -779,7 +779,7 @@
             </block>
             <block wx:elif="{{diyitem.id=='cart'}}">
                 <view class="cartop" wx:if="{{diyitem.params.showcart==1}}">
-                    <navigator hoverClass="none" url="../order/cart">
+                    <navigator hoverClass="none" url="/pages/order/cart/cart">
                         <view class="num" wx:if="{{cart_sum>0}}">{{cart_sum}}</view>
                         <view class="icon icon-cartfill"></view>
                     </navigator>

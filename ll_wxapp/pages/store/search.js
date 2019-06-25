@@ -248,7 +248,7 @@ Page({
             title: "温馨提示",
             content: a.data.cart.category_limit_cn
         }), !1;
-        var e = "pages/order/create?sid=" + a.data.store.id + "&is_buysvip=" + a.data.cart.is_buysvip;
+      var e = "pages/order/create/create?sid=" + a.data.store.id + "&is_buysvip=" + a.data.cart.is_buysvip;
         a.data.pindan_id > 0 && (e = "pages/store/pindan?sid=" + a.data.store.id + "&pindan_id=" + a.data.pindan_id), 
         t.util.jump2url(e, "navigateTo");
     },

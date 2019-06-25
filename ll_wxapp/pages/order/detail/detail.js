@@ -2,7 +2,7 @@ var t = function(t) {
     return t && t.__esModule ? t : {
         default: t
     };
-}(require("../../static/js/utils/qrcode.js")), a = getApp();
+}(require("../../../static/js/utils/qrcode.js")), a = getApp();
 
 Page({
     data: {

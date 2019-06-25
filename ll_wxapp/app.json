@@ -1,17 +1,14 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/order/create",
-    "pages/order/index",
     "pages/home/location",
-    "pages/store/search",
-    "pages/store/goods",
-    "pages/store/home",
     "pages/home/searchResult",
     "pages/home/search",
-    "pages/order/invoice",
+    "pages/home/help",
+    "pages/home/category",
+    "pages/order/index",
+    "pages/member/mine",
     "pages/member/profilePassword",
-    "pages/order/note",
     "pages/member/favorite",
     "pages/member/address",
     "pages/member/recharge",
@@ -19,77 +16,114 @@
     "pages/member/profile",
     "pages/member/addressPost",
     "pages/member/profileUsername",
-    "pages/member/coupon/index",
-    "pages/member/redPacket/index",
-    "pages/member/redPacket/noAvailabel",
-    "pages/home/category",
-    "pages/paotui/guide",
-    "pages/paotui/diy",
-    "pages/paotui/feeRule",
-    "pages/paotui/order",
-    "pages/paotui/detail",
-    "pages/order/comment",
-    "pages/order/detail",
-    "pages/store/comment",
-    "pages/store/index",
+    "pages/diy/index",
     "pages/public/footer",
     "pages/public/webview",
     "pages/public/message",
     "pages/public/richtext",
     "pages/public/pay",
-    "pages/order/cart",
-    "pages/order/map",
-    "pages/store/shopPage",
-    "pages/diy/index",
-    "pages/store/goodsDetail",
-    "pages/store/settle",
-    "pages/store/application",
-    "pages/table/goods",
-    "pages/store/report",
-    "pages/home/help",
-    "pages/member/mine",
-    "pages/store/paybill",
-    "bh_step/pages/index/index",
-    "bh_step/pages/goodsconvert/goodsconvert",
-    "bh_step/pages/user/user",
-    "bh_step/pages/task/task",
-    "bh_step/pages/currencylog/currencylog",
-    "bh_step/pages/cash/cash",
-    "bh_step/pages/goods/goods",
-    "bh_step/pages/firends/firends",
-    "bh_step/pages/question/question",
-    "bh_step/pages/address/address",
-    "bh_step/pages/order/order",
-    "bh_step/pages/currencyGoods/currencyGoods",
-    "bh_step/pages/my/my",
-    "bh_step/pages/step-diary/step-diary",
-    "bh_step/pages/wealthRank/wealthRank",
-    "bh_step/pages/voucher/voucher",
-    "bh_step/pages/qrvoucher/qrvoucher",
-    "bh_step/pages/category/category",
-    "bh_step/pages/sigin/sigin",
-    "bh_step/pages/goodscreateimg/goodscreateimg",
-    "bh_step/pages/moneyRecord/moneyRecord",
-    "bh_step/pages/web/web",
-    "bh_step/pages/lottery/lottery",
-    "bh_step/pages/turntableLog/turntableLog",
-    "bh_step/pages/treasure/index/index",
-    "bh_step/pages/treasure/detail/detail",
-    "bh_step/pages/treasure/success/success",
-    "bh_step/pages/treasure/record/record",
-    "bh_step/pages/challenge/challenge",
-    "bh_step/pages/challengDetails/challengDetails",
-    "bh_step/pages/challengeHisory/challengeHisory",
-    "bh_step/pages/topic/index/index",
-    "bh_step/pages/topic/publish/publish",
-    "bh_step/pages/topic/my/my",
-    "bh_step/pages/topic/edit/edit",
-    "bh_step/pages/topic/fans/fans",
-    "bh_step/pages/topic/topicDetail/topicDetail",
-    "bh_step/pages/topic/detail/detail",
-    "bh_step/pages/topic/user/user"
+    "bh_step/pages/index/index"
   ],
   "subPackages": [
+    {
+      "root": "pages/order/refund/",
+      "pages": [
+        "refund"
+      ]
+    },
+    {
+      "root": "pages/order/cart/",
+      "pages": [
+        "cart"
+      ]
+    },
+    {
+      "root": "pages/order/map/",
+      "pages": [
+        "map"
+      ]
+    },
+    {
+      "root": "pages/order/pindanbill/",
+      "pages": [
+        "pindanbill"
+      ]
+    },
+    {
+      "root": "pages/order/note/",
+      "pages": [
+        "note"
+      ]
+    },
+    {
+      "root": "pages/order/comment/",
+      "pages": [
+        "comment"
+      ]
+    },
+    {
+      "root": "pages/order/detail/",
+      "pages": [
+        "detail"
+      ]
+    },
+    {
+      "root": "pages/order/create/",
+      "pages": [
+        "create"
+      ]
+    },
+    {
+      "root": "pages/order/invoice/",
+      "pages": [
+        "invoice"
+      ]
+    },
+    {
+      "root": "pages/member/coupon/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/member/redPacket/",
+      "pages": [
+        "index",
+        "noAvailabel"
+      ]
+    },
+    {
+      "root": "pages/table/",
+      "pages": [
+        "goods"
+      ]
+    },
+    {
+      "root": "pages/paotui/",
+      "pages": [
+        "guide",
+        "diy",
+        "feeRule",
+        "order",
+        "detail"
+      ]
+    },
+    {
+      "root": "pages/store/",
+      "pages": [
+        "search",
+        "goods",
+        "home",
+        "comment",
+        "index",
+        "shopPage",
+        "goodsDetail",
+        "settle",
+        "application",
+        "report",
+        "paybill"
+      ]
+    },
     {
       "root": "package/pages/",
       "pages": [
@@ -227,6 +261,184 @@
       "root": "pages/bargain/",
       "pages": [
         "index"
+      ]
+    },
+    {
+      "root": "bh_step/pages/topic/",
+      "pages": [
+        "index/index",
+        "publish/publish",
+        "my/my",
+        "edit/edit",
+        "fans/fans",
+        "topicDetail/topicDetail",
+        "detail/detail",
+        "user/user"
+      ]
+    },
+    {
+      "root": "bh_step/pages/treasure/",
+      "pages": [
+        "index/index",
+        "detail/detail",
+        "success/success",
+        "record/record"
+      ]
+    },
+    {
+      "root": "bh_step/pages/web/",
+      "pages": [
+        "web"
+      ]
+    },
+    {
+      "root": "bh_step/pages/currencyGoods/",
+      "pages": [
+        "currencyGoods"
+      ]
+    },
+    {
+      "root": "bh_step/pages/turntableLog/",
+      "pages": [
+        "turntableLog"
+      ]
+    },
+    {
+      "root": "bh_step/pages/lottery/",
+      "pages": [
+        "lottery"
+      ]
+    },
+    {
+      "root": "bh_step/pages/sigin/",
+      "pages": [
+        "sigin"
+      ]
+    },
+    {
+      "root": "bh_step/pages/goodscreateimg/",
+      "pages": [
+        "goodscreateimg"
+      ]
+    },
+    {
+      "root": "bh_step/pages/moneyRecord/",
+      "pages": [
+        "moneyRecord"
+      ]
+    },
+    {
+      "root": "bh_step/pages/step-diary/",
+      "pages": [
+        "step-diary"
+      ]
+    },
+    {
+      "root": "bh_step/pages/wealthRank/",
+      "pages": [
+        "wealthRank"
+      ]
+    },
+    {
+      "root": "bh_step/pages/voucher/",
+      "pages": [
+        "voucher"
+      ]
+    },
+    {
+      "root": "bh_step/pages/qrvoucher/",
+      "pages": [
+        "qrvoucher"
+      ]
+    },
+    {
+      "root": "bh_step/pages/category/",
+      "pages": [
+        "category"
+      ]
+    },
+    {
+      "root": "bh_step/pages/user/",
+      "pages": [
+        "user"
+      ]
+    },
+    {
+      "root": "bh_step/pages/task/",
+      "pages": [
+        "task"
+      ]
+    },
+    {
+      "root": "bh_step/pages/currencylog/",
+      "pages": [
+        "currencylog"
+      ]
+    },
+    {
+      "root": "bh_step/pages/cash/",
+      "pages": [
+        "cash"
+      ]
+    },
+    {
+      "root": "bh_step/pages/goods/",
+      "pages": [
+        "goods"
+      ]
+    },
+    {
+      "root": "bh_step/pages/firends/",
+      "pages": [
+        "firends"
+      ]
+    },
+    {
+      "root": "bh_step/pages/question/",
+      "pages": [
+        "question"
+      ]
+    },
+    {
+      "root": "bh_step/pages/address/",
+      "pages": [
+        "address"
+      ]
+    },
+    {
+      "root": "bh_step/pages/order/",
+      "pages": [
+        "order"
+      ]
+    },
+    {
+      "root": "bh_step/pages/goodsconvert/",
+      "pages": [
+        "goodsconvert"
+      ]
+    },
+    {
+      "root": "bh_step/pages/challenge/",
+      "pages": [
+        "challenge"
+      ]
+    },
+    {
+      "root": "bh_step/pages/challengDetails/",
+      "pages": [
+        "challengDetails"
+      ]
+    },
+    {
+      "root": "bh_step/pages/challengeHisory/",
+      "pages": [
+        "challengeHisory"
+      ]
+    },
+    {
+      "root": "bh_step/pages/my/",
+      "pages": [
+        "my"
       ]
     }
   ],

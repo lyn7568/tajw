@@ -92,7 +92,7 @@ Page({
                             data: r,
                             success: function(e) {
                                 wx.removeStorageSync("address");
-                                var t = "/pages/order/create?sid=" + s.data.address.sid;
+                              var t = "/pages/order/create/create?sid=" + s.data.address.sid;
                                 a.util.jump2url(t, "navigateTo");
                             }
                         }));
@@ -102,7 +102,7 @@ Page({
                     wx.removeStorageSync("address"), (i = a.util.getStorageSync("order.extra")) && (i = e.extend(i, {
                         address_id: d.message
                     })), a.util.setStorageSync("order.extra", i);
-                    n = "/pages/order/create?sid=" + s.data.address.sid;
+                  n = "/pages/order/create/create?sid=" + s.data.address.sid;
                     a.util.jump2url(n, "navigateTo");
                 } else if ("errander" == s.data.options.channel) if (-1e3 == d.errno) wx.showModal({
                     title: "",

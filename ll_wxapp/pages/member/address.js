@@ -58,7 +58,7 @@ Page({
         s && (s = a.extend(s, {
             address_id: r
         })), e.util.setStorageSync("order.extra", s);
-        var i = "/pages/order/create?sid=" + n.data.sid;
+        var i = "/pages/order/create/create?sid=" + n.data.sid;
         e.util.jump2url(i, "navigateTo");
     },
     onUseWxAddress: function() {
@@ -97,7 +97,7 @@ Page({
                                     url: "wmall/member/address/wxaddress_add",
                                     data: d,
                                     success: function(a) {
-                                        var r = "/pages/order/create?sid=" + t.data.sid;
+                                      var r = "/pages/order/create/create?sid=" + t.data.sid;
                                         e.util.jump2url(r, "navigateTo");
                                     }
                                 }));
@@ -107,7 +107,7 @@ Page({
                             (s = e.util.getStorageSync("order.extra")) && (s = a.extend(s, {
                                 address_id: n.message
                             })), e.util.setStorageSync("order.extra", s);
-                            i = "/pages/order/create?sid=" + t.data.sid;
+                          i = "/pages/order/create/create?sid=" + t.data.sid;
                             e.util.jump2url(i, "navigateTo");
                         } else if ("errander" == t.data.channel) if (-1e3 == n.errno) wx.showModal({
                             title: "",

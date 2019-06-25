@@ -26,14 +26,14 @@
                     <view bind:tap="onJsEvent" class="btn" data-event-type="jsUrl" data-url="tangshi/pages/table/goods?table_id={{detail.order.table_id}}&sid={{detail.order.sid}}&order_id={{detail.order.id}}" wx:if="{{detail.order.order_type==3&&detail.order.is_pay==1&&detail.order.pay_type=='finishMeal'}}">加菜</view>
                 </block>
                 <block wx:elif="{{detail.order.status==5}}">
-                    <navigator class="btn" url="../store/goods?sid={{detail.order.sid}}&order_id={{detail.order.id}}">再来一单</navigator>
-                    <navigator class="btn" url="comment?id={{detail.order.id}}" wx:if="{{detail.order.is_comment==0}}">{{detail.order.comment_cn}}</navigator>
+                    <navigator class="btn" url="/pages/store/goods?sid={{detail.order.sid}}&order_id={{detail.order.id}}">再来一单</navigator>
+                    <navigator class="btn" url="/pages/order/comment/comment?id={{detail.order.id}}" wx:if="{{detail.order.is_comment==0}}">{{detail.order.comment_cn}}</navigator>
                     <view class="btn" style="display:none" wx:if="{{detail.order.is_comment==1}}">查看评价</view>
                 </block>
-                <navigator class="btn more" url="../store/goods?sid={{detail.order.sid}}&order_id={{detail.order.id}}" wx:else>再来一单</navigator>
-                <view bind:tap="onJsEvent" class="btn" data-event-type="jsUrl" data-url="pages/order/pindanbill?id={{detail.order.id}}" wx:if="{{detail.order.data&&detail.order.data.pindan}}">拼单分账</view>
+                <navigator class="btn more" url="/pages/store/goods?sid={{detail.order.sid}}&order_id={{detail.order.id}}" wx:else>再来一单</navigator>
+                <view bind:tap="onJsEvent" class="btn" data-event-type="jsUrl" data-url="/pages/order/pindanbill/pindanbill?id={{detail.order.id}}" wx:if="{{detail.order.data&&detail.order.data.pindan}}">拼单分账</view>
                 <view bind:tap="onJsEvent" class="btn" data-confirm="确定删除该订单吗?" data-event-type="jsPost" data-href="wmall/order/index/delete?id={{detail.order.id}}" data-success-url="index" wx:if="{{detail.can_delete==1}}">删除订单</view>
-                <view bind:tap="onJsEvent" class="btn" data-event-type="jsUrl" data-url="/pages/order/refund?id={{detail.order.id}}" wx:if="{{detail.order.refund_status>0}}">退款详情</view>
+                <view bind:tap="onJsEvent" class="btn" data-event-type="jsUrl" data-url="/pages/order/refund/refund?id={{detail.order.id}}" wx:if="{{detail.order.refund_status>0}}">退款详情</view>
             </view>
             <view class="divide" wx:if="{{detail.order.deliveryer_id>0}}">
                 <view class="divide-line"></view>
@@ -68,7 +68,7 @@
                     <view bind:tap="onJsEvent" class="tel" data-event-type="jsPhone" data-phoneNumber="{{detail.deliveryer.mobile}}">
                         <view class="icon icon-telephone icon-telephone-circle"></view>
                     </view>
-                    <view bind:tap="onJsEvent" class="location" data-event-type="jsUrl" data-url="pages/order/map?id={{detail.order.id}}" wx:if="{{detail.show_location}}">
+                    <view bind:tap="onJsEvent" class="location" data-event-type="jsUrl" data-url="pages/order/map/map?id={{detail.order.id}}" wx:if="{{detail.show_location}}">
                         <view class="icon icon-zuobiao"></view>
                     </view>
                 </view>
@@ -295,7 +295,7 @@
         </view>
     </block>
     <view bind:tap="onToggleZhezhao" class="share-zhezhao" wx:if="{{zhezhaoShow}}">
-        <image mode="widthFix" src="../../static/img/share-layer.png"></image>
+        <image mode="widthFix" src="../../../static/img/share-layer.png"></image>
     </view>
 </view>
-<include src="../public/footer.wxml"></include>
+<include src="/pages/public/footer.wxml"></include>

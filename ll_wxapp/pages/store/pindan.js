@@ -102,7 +102,7 @@ Page({
             title: "温馨提示",
             content: "去结算后其他用户不可加入，确定去结算吗？",
             success: function(n) {
-                n.confirm ? a.util.jump2url("/pages/order/create?sid=" + t.data.sid + "&is_pindan=1&pindan_id=" + t.data.pindan.pindan_id) : n.cancel;
+              n.confirm ? a.util.jump2url("/pages/order/create/create?sid=" + t.data.sid + "&is_pindan=1&pindan_id=" + t.data.pindan.pindan_id) : n.cancel;
             }
         });
     },

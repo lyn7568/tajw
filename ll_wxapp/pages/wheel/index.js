@@ -37,7 +37,7 @@ Page({
             link: "pages/home/index",
             icon: "icon-home"
         }, {
-            link: "pages/order/detail?id=" + a.order_id,
+            link: "pages/order/detail/detail?id=" + a.order_id,
             icon: "icon-order"
         }, {
             link: "pages/member/mine",

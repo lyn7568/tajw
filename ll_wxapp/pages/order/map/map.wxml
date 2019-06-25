@@ -8,4 +8,4 @@
         <cover-image class="img" src="/static/img/question.png"></cover-image>
     </cover-view>
 </map>
-<include src="../public/footer.wxml"></include>
+<include src="/pages/public/footer.wxml"></include>

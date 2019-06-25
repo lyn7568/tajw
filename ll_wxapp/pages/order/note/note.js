@@ -1,4 +1,4 @@
-var e = getApp(), t = require("../../static/js/utils/underscore.js");
+var e = getApp(), t = require("../../../static/js/utils/underscore.js");
 
 Page({
     data: {
@@ -54,7 +54,7 @@ Page({
         }, i = e.util.getStorageSync("order.extra");
         i && (i = t.extend(i, o)), e.util.setStorageSync("order.extra", i), e.util.setStorageSync("order.note", o), 
         wx.redirectTo({
-            url: "./create?sid=" + n.data.sid
+            url: "/pages/order/create/create?sid=" + n.data.sid
         });
     }
 });

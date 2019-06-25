@@ -189,7 +189,7 @@
                         </view>
                         <view class="redpacket-buy" wx:if="{{order.meal_redpackets}}">
                             <view class="flex-lr">
-                                <view class="buy-tip">{{order.meal_redpackets.title}} <text bind:tap="onJsEvent" class="icon icon-question1" data-event-type="jsUrl" data-url="../public/richtext?key=mealRedpacket_rules" wx:if="{{0}}"></text>
+                                <view class="buy-tip">{{order.meal_redpackets.title}} <text bind:tap="onJsEvent" class="icon icon-question1" data-event-type="jsUrl" data-url="/pages/public/richtext?key=mealRedpacket_rules" wx:if="{{0}}"></text>
                                 </view>
                                 <view bind:tap="onBuyMealredpacket" class="check-box flex {{buy_mealredpacket==1?'active':''}}">
                                     <text class="icon icon-check"></text>
@@ -498,4 +498,4 @@
         </view>
     </view>
 </view>
-<include src="../public/footer.wxml"></include>
+<include src="/pages/public/footer.wxml"></include>

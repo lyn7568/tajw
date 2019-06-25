@@ -434,7 +434,7 @@ util.imessage = function(e, t, a) {
             n.pay_type && (e.pay_type = n.pay_type), n = n.message;
             var s = {
                 takeout: {
-                    url_detail: "../order/detail?id=" + t.id
+                    url_detail: "../order/detail/detail?id=" + t.id
                 },
                 errander: {
                     url_detail: "../paotui/detail?id=" + t.id
