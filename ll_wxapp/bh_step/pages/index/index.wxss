@@ -203,6 +203,7 @@
 .content-title {
     overflow: hidden;
     margin: 10px 0;
+    width: 100%;
 }
 
 .content-title .title {
@@ -498,7 +499,7 @@
     text-align: center;
     font-size: 20rpx;
     color: #797676;
-    margin-bottom: 100rpx;
+    margin-bottom: 120rpx;
 }
 
 .advert {
