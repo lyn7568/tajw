@@ -7,7 +7,7 @@ function _interopRequireDefault(e) {
 }
 
 var app = getApp(), request = function(o) {
-  console.log(o), o.data.version = "4.1.21", app.utilStep.request({
+  console.log(o), o.data.version = app.siteStep.siteVersion, app.utilStep.request({
         method: o.method || "get",
         url: o.url,
         data: o.data,

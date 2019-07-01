@@ -85,7 +85,7 @@
     <image class="share_view_new_arrow" src="./img/black_arror.png"></image>
     <button bindtap="sharejiacheng" class="fade_btn" openType="share"></button>
 </view>
-<view class="content">
+<view class="content" style="padding-bottom: 60px">
     <view class="daily-redpack-area" wx:if="{{bag.is_open==1&&audit_pattern!=2}}">
         <view class="daily-redpack-title">
             <text class="daily-redpack-text">每日领红包</text>

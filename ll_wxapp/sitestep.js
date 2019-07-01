@@ -7,5 +7,6 @@ module.exports = {
   design_method: "3",
   siteroot: "https://wmxcx.tzxfw.com/app/index.php",
   sitebase: "https://wmxcx.tzxfw.com/",
+  siteVersion: '4.1.24',
   img_url: "addons/bh_step/template/image"
 };
