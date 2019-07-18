@@ -163,13 +163,13 @@
     <view class="diy-blockNav" wx:if="{{has_gohome==1}}">
         <view class="blockNav-title border-1px-b">生活圈</view>
         <view class="col-4">
-            <view bind:tap="onJsEvent" class="diy-icon-col" data-event-type="jsUrl" data-url="gohome/pages/home/index">
+            <!-- <view bind:tap="onJsEvent" class="diy-icon-col" data-event-type="jsUrl" data-url="gohome/pages/home/index">
                 <view class="icon-img">
                     <text class="icon icon-home"></text>
                     <text class="nav-mark">hot</text>
                 </view>
                 <view class="text-icon">生活圈首页</view>
-            </view>
+            </view> -->
             <view bind:tap="onJsEvent" class="diy-icon-col" data-event-type="jsUrl" data-url="gohome/pages/order/index">
                 <view class="icon-img">
                     <text class="icon icon-order"></text>
@@ -190,7 +190,7 @@
             </view>
         </view>
     </view>
-    <view class="diy-blockNav" wx:if="{{config.store.settle.status==1||spread&&spread.status==1||ordergrant==1}}">
+    <!-- <view class="diy-blockNav" wx:if="{{config.store.settle.status==1||spread&&spread.status==1||ordergrant==1}}">
         <view class="blockNav-title border-1px-b">更多推荐</view>
         <view class="col-4">
             <view bind:tap="onJsEvent" class="diy-icon-col" data-event-type="jsUrl" data-url="pages/store/settle" wx:if="{{config.store.settle.status==1}}">
@@ -218,7 +218,7 @@
                 <view class="text-icon">大转盘</view>
             </view>
         </view>
-    </view>
+    </view> -->
     <view class="diy-copyright copyright">
         <template is="wxParse" data="{{wxParseData:copyright.nodes}}"></template>
     </view>

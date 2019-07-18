@@ -15,7 +15,7 @@
             <view class="img">
                 <view class="icon icon-store"></view>
             </view>
-            <view class="text">抱歉,没有找到合适的商户</view>
+            <view class="text">抱歉,没有找到合适的商品</view>
         </view>
         <view class="store-list">
             <view class="field clearfix" wx:for="{{stores}}">
